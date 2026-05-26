@@ -1,7 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import ScrollManager from './ScrollManager.jsx'
 import CloudSync from './CloudSync.jsx'
-import emmaPhoto from '../assets/emma.jpg'
 import { STORAGE_KEYS } from '../data/storage.js'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import '../styles/layout.css'
@@ -17,9 +16,7 @@ export default function Layout({ children }) {
       <CloudSync />
       <nav className="barre">
         <Link to="/" className="marque">
-          <span className="pastille">
-            <img src={emmaPhoto} alt="" />
-          </span>
+          <span className="pastille" aria-hidden="true">🌸</span>
           Emma
         </Link>
         <div className="barre-droite">

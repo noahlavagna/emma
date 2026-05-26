@@ -26,16 +26,11 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  overflow: hidden;
-  flex: none;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
   background: linear-gradient(135deg, var(--rose-deep), var(--vert-deep));
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-.barre .marque .pastille img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 .barre .lien-retour {
