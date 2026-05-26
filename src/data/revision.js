@@ -1,6 +1,8 @@
-// Contenu des 10 premiers JOURS DE RÉVISION — programme de juin (les bases).
-// Progression cumulative : chaque jour s'appuie sur les précédents,
-// les jours 8-10 mélangent tout.
+// Contenu des 16 JOURS DE RÉVISION, alignés sur le parcours (data/programme.js).
+//   • Jours 1 à 6  : mise en route de mai (26 → 31 mai).
+//   • Jours 7 à 16 : les bases de juin (1 → 10 juin).
+// Le quiz de chaque jour du parcours est tiré d'ici via getJour(n).
+// Progression cumulative : chaque jour s'appuie sur les précédents.
 //
 // Types de question gérés par la page Révision :
 //   - traduction : { type:'traduction', sens:'fr-en'|'en-fr', q, r, accepte?, explication }
@@ -9,8 +11,109 @@
 //   - vraiFaux   : { type:'vraiFaux', affirmation, r:boolean, explication }
 
 export const JOURS_REVISION = [
+  // ---------- MAI · mise en route ----------
   {
     jour: 1,
+    titre: 'Tu connais déjà l’anglais',
+    emoji: '🌸',
+    focus: ['mots transparents', 'the = le/la/les', 'it’s = c’est'],
+    questions: [
+      { type: 'traduction', sens: 'en-fr', q: 'hotel', r: 'hôtel', accepte: ['l’hôtel'], explication: '« hotel » = hôtel.' },
+      { type: 'traduction', sens: 'en-fr', q: 'music', r: 'musique', explication: '« music » = musique.' },
+      { type: 'trou', phrase: '___ taxi is here. (le)', r: 'the', explication: '« the » = le / la / les.' },
+      { type: 'vraiFaux', affirmation: '« the » change selon le genre (masculin / féminin).', r: false, explication: 'Non : « the » ne change jamais.' },
+      { type: 'trou', phrase: '___ a train. (c’est, version courte)', r: 'it’s', accepte: ['its', "it's"], explication: '« It’s a train ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'la table', r: 'the table', explication: '« the table ».' },
+      { type: 'traduction', sens: 'en-fr', q: 'animal', r: 'animal', accepte: ['un animal'], explication: '« animal » = animal.' },
+      { type: 'vraiFaux', affirmation: '« It’s » veut dire « c’est ».', r: true, explication: 'Oui : it’s = it is = c’est.' },
+    ],
+  },
+  {
+    jour: 2,
+    titre: 'L’alphabet',
+    emoji: '🔤',
+    focus: ['lettres A-Z', 'voyelles', 'épeler'],
+    questions: [
+      { type: 'vraiFaux', affirmation: 'Les voyelles sont A, E, I, O, U.', r: true, explication: 'Oui, comme en français.' },
+      { type: 'trou', phrase: 'La lettre E se prononce « ___ ».', r: 'ii', accepte: ['i'], explication: 'E = « ii ».' },
+      { type: 'vraiFaux', affirmation: 'La lettre I se dit « ii ».', r: false, explication: 'Non : I = « aï ». E = « ii ».' },
+      { type: 'trou', phrase: 'How do you ___ your name? (épeler)', r: 'spell', explication: '« How do you spell…? ».' },
+      { type: 'vraiFaux', affirmation: 'W se prononce « double-you ».', r: true, explication: 'Oui : W = « double-you ».' },
+      { type: 'trou', phrase: 'La lettre G se dit « ___ » (comme « djii »).', r: 'djii', accepte: ['dji'], explication: 'G = « djii ».' },
+      { type: 'vraiFaux', affirmation: '« to spell » veut dire « épeler ».', r: true, explication: 'Oui : to spell = épeler.' },
+      { type: 'vraiFaux', affirmation: 'La lettre A se prononce « éï ».', r: true, explication: 'Oui : A = « éï ».' },
+    ],
+  },
+  {
+    jour: 3,
+    titre: 'Mots de survie',
+    emoji: '🆘',
+    focus: ['yes / no', 'help, water', 'Can you…?'],
+    questions: [
+      { type: 'traduction', sens: 'fr-en', q: 'oui', r: 'yes', explication: '« yes » = oui.' },
+      { type: 'traduction', sens: 'fr-en', q: 'non', r: 'no', explication: '« no » = non.' },
+      { type: 'traduction', sens: 'en-fr', q: 'water', r: 'eau', accepte: ['de l’eau'], explication: '« water » = eau.' },
+      { type: 'trou', phrase: 'Can you ___ me? (aider)', r: 'help', explication: '« Can you help me? ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'peut-être', r: 'maybe', explication: '« maybe » = peut-être.' },
+      { type: 'trou', phrase: '___ I have water, please? (puis-je)', r: 'can', explication: '« Can I have…? ».' },
+      { type: 'vraiFaux', affirmation: 'On dit « he cans ».', r: false, explication: 'Non : « can » ne prend jamais de -s → he can.' },
+      { type: 'traduction', sens: 'en-fr', q: 'I don’t understand', r: 'je ne comprends pas', accepte: ['je comprends pas'], explication: '« I don’t understand » = je ne comprends pas.' },
+    ],
+  },
+  {
+    jour: 4,
+    titre: 'Les jours de la semaine',
+    emoji: '📅',
+    focus: ['Monday → Sunday', 'majuscule', 'today'],
+    questions: [
+      { type: 'traduction', sens: 'fr-en', q: 'lundi', r: 'Monday', explication: '« Monday » (avec une majuscule).' },
+      { type: 'traduction', sens: 'en-fr', q: 'Saturday', r: 'samedi', explication: '« Saturday » = samedi.' },
+      { type: 'vraiFaux', affirmation: 'Les jours prennent une majuscule en anglais.', r: true, explication: 'Oui : Monday, Friday…' },
+      { type: 'trou', phrase: 'See you ___ Friday. (le)', r: 'on', explication: '« on Friday ».' },
+      { type: 'traduction', sens: 'en-fr', q: 'Sunday', r: 'dimanche', explication: '« Sunday » = dimanche.' },
+      { type: 'trou', phrase: '___ is Monday. (aujourd’hui)', r: 'Today', accepte: ['today'], explication: '« Today is Monday ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'aujourd’hui', r: 'today', explication: '« today » = aujourd’hui.' },
+      { type: 'vraiFaux', affirmation: '« friday » s’écrit sans majuscule.', r: false, explication: 'Non : Friday prend une majuscule.' },
+    ],
+  },
+  {
+    jour: 5,
+    titre: 'Compter de 0 à 12',
+    emoji: '🔢',
+    focus: ['zero → twelve', 'How many?', 'l’âge'],
+    questions: [
+      { type: 'traduction', sens: 'fr-en', q: 'dix', r: 'ten', explication: '« ten » = dix.' },
+      { type: 'traduction', sens: 'fr-en', q: 'douze', r: 'twelve', explication: '« twelve » = douze.' },
+      { type: 'traduction', sens: 'en-fr', q: 'eleven', r: 'onze', explication: '« eleven » = onze.' },
+      { type: 'trou', phrase: 'How ___ cats? (combien)', r: 'many', explication: '« How many…? ».' },
+      { type: 'vraiFaux', affirmation: 'Pour dire son âge on dit « I have ten years ».', r: false, explication: 'Non : « I am ten » (je suis dix).' },
+      { type: 'trou', phrase: 'I ___ eleven. (âge, verbe être)', r: 'am', explication: 'L’âge avec to be : « I am eleven ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'zéro', r: 'zero', explication: '« zero » = zéro.' },
+      { type: 'traduction', sens: 'en-fr', q: 'number', r: 'nombre', accepte: ['numéro'], explication: '« number » = nombre / numéro.' },
+    ],
+  },
+  {
+    jour: 6,
+    titre: 'Grande révision de mai',
+    emoji: '🚀',
+    focus: ['tout le mois de mai', 'mots + alphabet', 'jours + nombres'],
+    questions: [
+      { type: 'traduction', sens: 'en-fr', q: 'water', r: 'eau', accepte: ['de l’eau'], explication: '« water » = eau.' },
+      { type: 'trou', phrase: 'See you ___ Monday. (le)', r: 'on', explication: '« on Monday ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'dix', r: 'ten', explication: '« ten » = dix.' },
+      { type: 'vraiFaux', affirmation: '« the » veut dire le, la ET les.', r: true, explication: 'Oui : un seul mot pour tout.' },
+      { type: 'trou', phrase: 'Can you ___ me? (aider)', r: 'help', explication: '« Can you help me? ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'oui', r: 'yes', explication: '« yes » = oui.' },
+      { type: 'vraiFaux', affirmation: 'La lettre E se dit « ii ».', r: true, explication: 'Oui : E = « ii ».' },
+      { type: 'trou', phrase: 'I ___ eleven. (âge)', r: 'am', explication: '« I am eleven ».' },
+      { type: 'traduction', sens: 'en-fr', q: 'today', r: 'aujourd’hui', explication: '« today » = aujourd’hui.' },
+      { type: 'traduction', sens: 'fr-en', q: 'combien', r: 'how many', accepte: ['how many?'], explication: '« How many? ».' },
+    ],
+  },
+
+  // ---------- JUIN · les bases ----------
+  {
+    jour: 7,
     titre: 'Salutations & politesse',
     emoji: '👋',
     focus: ['hello / goodbye', 'merci, s’il te plaît', 'good morning / night'],
@@ -26,7 +129,7 @@ export const JOURS_REVISION = [
     ],
   },
   {
-    jour: 2,
+    jour: 8,
     titre: 'Vocabulaire de survie',
     emoji: '🆘',
     focus: ['yes / no', 'help, water', 'excuse me, today'],
@@ -42,7 +145,7 @@ export const JOURS_REVISION = [
     ],
   },
   {
-    jour: 3,
+    jour: 9,
     titre: 'Couleurs & jours',
     emoji: '🎨',
     focus: ['red, blue, green…', 'noir / blanc', 'Monday → Sunday'],
@@ -58,7 +161,7 @@ export const JOURS_REVISION = [
     ],
   },
   {
-    jour: 4,
+    jour: 10,
     titre: 'Les chiffres (1 à 20)',
     emoji: '🔢',
     focus: ['one → ten', 'eleven → twenty', 'lire un nombre'],
@@ -74,7 +177,7 @@ export const JOURS_REVISION = [
     ],
   },
   {
-    jour: 5,
+    jour: 11,
     titre: 'Les pronoms personnels',
     emoji: '🙋',
     focus: ['I, you, he, she', 'it, we, they', 'le « I » majuscule'],
@@ -90,7 +193,7 @@ export const JOURS_REVISION = [
     ],
   },
   {
-    jour: 6,
+    jour: 12,
     titre: 'Le verbe « to be » au présent',
     emoji: '✨',
     focus: ['I am', 'he/she/it is', 'you/we/they are'],
@@ -106,7 +209,7 @@ export const JOURS_REVISION = [
     ],
   },
   {
-    jour: 7,
+    jour: 13,
     titre: 'Se présenter',
     emoji: '🪪',
     focus: ['My name is…', 'I am from…', 'How are you?'],
@@ -122,7 +225,7 @@ export const JOURS_REVISION = [
     ],
   },
   {
-    jour: 8,
+    jour: 14,
     titre: 'Révision mélangée ①',
     emoji: '🔁',
     focus: ['salutations', 'couleurs', 'jours'],
@@ -138,7 +241,7 @@ export const JOURS_REVISION = [
     ],
   },
   {
-    jour: 9,
+    jour: 15,
     titre: 'Révision mélangée ②',
     emoji: '🔁',
     focus: ['chiffres', 'to be', 'pronoms'],
@@ -154,7 +257,7 @@ export const JOURS_REVISION = [
     ],
   },
   {
-    jour: 10,
+    jour: 16,
     titre: 'Grande révision de juin',
     emoji: '🏆',
     focus: ['tout le mois de juin', 'salutations + couleurs', 'chiffres + to be'],

@@ -1,5 +1,8 @@
 // =====================================================================
-//  LE PARCOURS — 10 jours de leçons complètes (programme de JUIN, A1).
+//  LE PARCOURS — 16 jours de leçons complètes, calés sur de vraies dates.
+//    • Jours 1 à 6  : 26 → 31 mai — MISE EN ROUTE (découverte, en douceur).
+//    • Jours 7 à 16 : 1 → 10 juin — LES BASES (A1).
+//  Chaque jour porte un numéro (`jour`), une `date` et un `mois`.
 //  Chaque jour enchaîne : vocabulaire → grammaire → conjugaison →
 //  dialogue → prononciation → quiz de révision → bilan.
 //  Le quiz de révision de chaque jour est tiré de data/revision.js.
@@ -12,14 +15,612 @@
 // =====================================================================
 
 export const PROGRAMME = [
-  // ============================== JOUR 1 ==============================
+  // ==================== JOUR 1 · 26 MAI — MISE EN ROUTE ====================
   {
     jour: 1,
+    date: "26 mai",
+    mois: "mai",
+    titre: "Tu connais déjà l'anglais !",
+    emoji: "🌸",
+    objectif: "Découvrir que tu connais déjà des dizaines de mots anglais — et te lancer en confiance.",
+    intro:
+      "Bienvenue, c'est ton tout premier jour ! 🌸 Avant même de commencer, tu connais déjà plein de mots anglais sans le savoir. Aujourd'hui on s'en sert pour te mettre à l'aise. Aucune pression : on découvre, tout doucement.",
+    vocabulaire: {
+      intro: "Des mots quasi identiques en français et en anglais : tu les comprends déjà !",
+      mots: [
+        { id: "mai26-taxi", en: "taxi", phon: "[tak-si]", fr: "taxi", exemple: "Where is the taxi?", exempleFr: "Où est le taxi ?" },
+        { id: "mai26-hotel", en: "hotel", phon: "[ho-tèl]", fr: "hôtel", exemple: "The hotel is big.", exempleFr: "L'hôtel est grand." },
+        { id: "mai26-restaurant", en: "restaurant", phon: "[rès-teu-ront]", fr: "restaurant", exemple: "A nice restaurant.", exempleFr: "Un joli restaurant." },
+        { id: "mai26-train", en: "train", phon: "[trèïn]", fr: "train", exemple: "The train is here.", exempleFr: "Le train est là." },
+        { id: "mai26-table", en: "table", phon: "[téï-beul]", fr: "table", exemple: "On the table.", exempleFr: "Sur la table." },
+        { id: "mai26-animal", en: "animal", phon: "[a-ni-meul]", fr: "animal", exemple: "A small animal.", exempleFr: "Un petit animal." },
+        { id: "mai26-music", en: "music", phon: "[miou-zik]", fr: "musique", exemple: "I love music.", exempleFr: "J'adore la musique." },
+        { id: "mai26-chocolate", en: "chocolate", phon: "[tcho-keu-lèt]", fr: "chocolat", exemple: "I like chocolate.", exempleFr: "J'aime le chocolat." },
+      ],
+    },
+    grammaire: {
+      titre: "« the » : un seul petit mot",
+      regle:
+        "En anglais, « the » veut dire le, la, l' ET les. Un seul mot, pas de masculin ni de féminin, rien à accorder : the table, the train, the animals.",
+      analogie:
+        "En français tu dois choisir : le, la, les… En anglais c'est toujours « the ». Une règle en moins — respire ! 😊",
+      exemples: [
+        { en: "the taxi", fr: "le taxi" },
+        { en: "the table", fr: "la table" },
+        { en: "the animals", fr: "les animaux" },
+        { en: "the hotel", fr: "l'hôtel" },
+      ],
+      exercices: [
+        { type: "trou", phrase: "___ train is here. (le)", r: "the", explication: "« the » = le / la / les, toujours." },
+        { type: "traduction", sens: "fr-en", q: "la musique", r: "the music", explication: "« the music »." },
+        { type: "vraiFaux", affirmation: "« the » change selon le masculin ou le féminin.", r: false, explication: "Non : « the » ne change jamais." },
+        { type: "trou", phrase: "I see ___ animals. (les)", r: "the", explication: "« the » sert aussi au pluriel." },
+      ],
+    },
+    conjugaison: {
+      titre: "« it's » : dire « c'est »",
+      explication:
+        "Pour montrer une chose et dire « c'est… », on utilise « it is », souvent raccourci en « it's » : It's a taxi. It's the hotel. Tout simple.",
+      tableau: [
+        { pronom: "It is", forme: "it's", exemple: "It's a taxi. (C'est un taxi.)" },
+        { pronom: "It is", forme: "it's", exemple: "It's the hotel. (C'est l'hôtel.)" },
+        { pronom: "It is not", forme: "it's not", exemple: "It's not a train. (Ce n'est pas un train.)" },
+        { pronom: "Is it…?", forme: "Is it…?", exemple: "Is it a taxi? (Est-ce un taxi ?)" },
+      ],
+      exercices: [
+        { type: "trou", phrase: "___ a taxi. (c'est, version courte)", r: "it's", accepte: ["its"], explication: "« It is » → « It's »." },
+        { type: "traduction", sens: "fr-en", q: "C'est un hôtel.", r: "it's a hotel", accepte: ["it is a hotel"], explication: "« It's a hotel »." },
+        { type: "vraiFaux", affirmation: "« It's » veut dire « it is ».", r: true, explication: "Oui : it's = it is = c'est / il est." },
+      ],
+    },
+    dialogue: {
+      titre: "À la gare",
+      contexte: "Tu arrives dans une ville. Emma te montre des choses. Réponds avec « It's… ».",
+      lignes: [
+        { role: "Emma", en: "Look! Is it a taxi?", fr: "Regarde ! Est-ce un taxi ?" },
+        { role: "Toi", en: "Yes, it's a taxi.", fr: "Oui, c'est un taxi." },
+        { role: "Emma", en: "And the hotel?", fr: "Et l'hôtel ?" },
+        { role: "Toi", en: "It's the big hotel.", fr: "C'est le grand hôtel." },
+        { role: "Emma", en: "Perfect, you understand English already!", fr: "Parfait, tu comprends déjà l'anglais !" },
+      ],
+      aToi: [
+        { consigne: "Dis « C'est un taxi »", r: "it's a taxi", accepte: ["it is a taxi"], explication: "« It's a taxi »." },
+        { consigne: "Dis « C'est l'hôtel »", r: "it's the hotel", accepte: ["it is the hotel"], explication: "« It's the hotel »." },
+      ],
+    },
+    prononciation: {
+      son: "🎵",
+      titre: "Le même mot, prononcé autrement",
+      explication:
+        "Beaucoup de mots s'écrivent presque pareil en français et en anglais, mais se disent différemment. « table » se dit « téï-beul », « animal » se dit « a-ni-meul ». L'orthographe est proche, le son change.",
+      technique:
+        "Lis le mot français dans ta tête, puis dis la version anglaise en exagérant un peu : « téï-beul ». Écoute la différence.",
+      mots: [
+        { en: "table", phon: "[TÉÏ-beul]" },
+        { en: "animal", phon: "[A-ni-meul]" },
+        { en: "hotel", phon: "[ho-TÈL]" },
+        { en: "music", phon: "[MIOU-zik]" },
+      ],
+      phrase: "It's a table in the hotel.",
+    },
+    bilan: {
+      resume: [
+        "Tu connais déjà des mots anglais : taxi, hotel, train, music…",
+        "« the » = le / la / les (un seul mot, jamais d'accord).",
+        "« It's… » pour dire « c'est… ».",
+      ],
+      conseil:
+        "Repère trois mots anglais autour de toi aujourd'hui (sur un paquet, un écran…). Tu vas en voir partout !",
+      motivation: "Premier pas fait, et tu pars déjà avec de l'avance. Bienvenue ! 🌸",
+    },
+  },
+
+  // ==================== JOUR 2 · 27 MAI ====================
+  {
+    jour: 2,
+    date: "27 mai",
+    mois: "mai",
+    titre: "L'alphabet anglais",
+    emoji: "🔤",
+    objectif: "Connaître les lettres et savoir épeler ton prénom.",
+    intro:
+      "Aujourd'hui, l'alphabet ! Les lettres sont les mêmes qu'en français, mais elles se prononcent autrement. Savoir épeler ton prénom est super utile : au téléphone, pour s'inscrire quelque part…",
+    vocabulaire: {
+      intro: "Les lettres les plus différentes du français — celles qui surprennent.",
+      mots: [
+        { id: "mai27-a", en: "A", phon: "[éï]", fr: "la lettre A", exemple: "A — apple.", exempleFr: "A comme « apple » (pomme)." },
+        { id: "mai27-e", en: "E", phon: "[ii]", fr: "la lettre E", exemple: "E — elephant.", exempleFr: "E comme « elephant »." },
+        { id: "mai27-i", en: "I", phon: "[aï]", fr: "la lettre I", exemple: "I — ice.", exempleFr: "I comme « ice » (glace)." },
+        { id: "mai27-g", en: "G", phon: "[djii]", fr: "la lettre G", exemple: "G — green.", exempleFr: "G comme « green »." },
+        { id: "mai27-j", en: "J", phon: "[djéï]", fr: "la lettre J", exemple: "J — jam.", exempleFr: "J comme « jam » (confiture)." },
+        { id: "mai27-w", en: "W", phon: "[da-beul-you]", fr: "la lettre W", exemple: "W — water.", exempleFr: "W comme « water » (eau)." },
+        { id: "mai27-y", en: "Y", phon: "[waï]", fr: "la lettre Y", exemple: "Y — yes.", exempleFr: "Y comme « yes »." },
+        { id: "mai27-z", en: "Z", phon: "[zèd]", fr: "la lettre Z", exemple: "Z — zebra.", exempleFr: "Z comme « zebra » (zèbre)." },
+      ],
+    },
+    grammaire: {
+      titre: "Voyelles et consonnes",
+      regle:
+        "Les voyelles en anglais sont A, E, I, O, U — comme en français. Toutes les autres lettres sont des consonnes. C'est utile : devant un mot qui commence par un son voyelle, on dira « an » au lieu de « a » (tu verras ça en juin !).",
+      analogie:
+        "Mêmes voyelles qu'en français : A, E, I, O, U. Faciles à retenir, juste prononcées autrement : « éï, ii, aï, ô, iou ».",
+      exemples: [
+        { en: "A, E, I, O, U", fr: "les 5 voyelles" },
+        { en: "B, C, D, F…", fr: "des consonnes" },
+        { en: "apple", fr: "commence par une voyelle (a)" },
+        { en: "table", fr: "commence par une consonne (t)" },
+      ],
+      exercices: [
+        { type: "vraiFaux", affirmation: "Les voyelles sont A, E, I, O, U.", r: true, explication: "Oui, comme en français." },
+        { type: "vraiFaux", affirmation: "La lettre E se prononce « ii ».", r: true, explication: "Oui : E = « ii »." },
+        { type: "trou", phrase: "La lettre G se dit « ___ » (comme le début de « gin »).", r: "djii", accepte: ["dji"], explication: "G = « djii »." },
+        { type: "vraiFaux", affirmation: "W se prononce « vé ».", r: false, explication: "Non : W = « double-you »." },
+      ],
+    },
+    conjugaison: {
+      titre: "« to spell » : épeler",
+      explication:
+        "Pour demander comment ça s'écrit : « How do you spell…? » (Comment ça s'épelle ?). On répond en disant les lettres une par une. « to spell » = épeler.",
+      tableau: [
+        { pronom: "I", forme: "spell", exemple: "I spell my name: L-E-A." },
+        { pronom: "You", forme: "spell", exemple: "How do you spell it?" },
+        { pronom: "He / She", forme: "spells", exemple: "She spells her name." },
+        { pronom: "It", forme: "spells", exemple: "It spells « cat »." },
+      ],
+      exercices: [
+        { type: "trou", phrase: "How do you ___ your name? (épeler)", r: "spell", explication: "« How do you spell…? »." },
+        { type: "traduction", sens: "en-fr", q: "How do you spell it?", r: "comment ça s'épelle", accepte: ["comment ça s'écrit", "comment l'épelles-tu"], explication: "« Comment ça s'épelle ? »." },
+        { type: "vraiFaux", affirmation: "« to spell » veut dire « parler ».", r: false, explication: "Non : to spell = épeler. Parler = to speak." },
+      ],
+    },
+    dialogue: {
+      titre: "Épelle ton prénom",
+      contexte: "Tu t'inscris quelque part. Emma a besoin d'épeler ton prénom.",
+      lignes: [
+        { role: "Emma", en: "What is your name?", fr: "Quel est ton prénom ?" },
+        { role: "Toi", en: "Lea.", fr: "Lea." },
+        { role: "Emma", en: "How do you spell it?", fr: "Comment ça s'épelle ?" },
+        { role: "Toi", en: "L - E - A.", fr: "L - E - A." },
+        { role: "Emma", en: "Thank you!", fr: "Merci !" },
+      ],
+      aToi: [
+        { consigne: "Demande « Comment ça s'épelle ? »", r: "how do you spell it", accepte: ["how do you spell it?"], explication: "« How do you spell it? »." },
+        { consigne: "Épelle « yes » (3 lettres séparées par des tirets)", r: "y-e-s", accepte: ["y e s", "yes"], explication: "Y - E - S." },
+      ],
+    },
+    prononciation: {
+      son: "🔤",
+      titre: "Les lettres qui trompent",
+      explication:
+        "Quatre lettres surprennent les francophones : E se dit « ii », I se dit « aï », G se dit « djii », J se dit « djéï ». Ne les confonds pas avec le français !",
+      technique:
+        "Répète par paires qui se ressemblent : E (« ii ») / I (« aï »), puis G (« djii ») / J (« djéï »).",
+      mots: [
+        { en: "E", phon: "[ii]" },
+        { en: "I", phon: "[aï]" },
+        { en: "G", phon: "[djii]" },
+        { en: "J", phon: "[djéï]" },
+      ],
+      phrase: "E, I, G, J — ii, aï, djii, djéï.",
+    },
+    bilan: {
+      resume: [
+        "Les lettres anglaises se disent autrement (A = « éï », E = « ii », I = « aï »…).",
+        "Les voyelles : A, E, I, O, U.",
+        "Épeler : « How do you spell…? ».",
+      ],
+      conseil: "Épelle ton prénom à voix haute en anglais, lettre par lettre. Puis celui d'un proche.",
+      motivation: "Tu peux déjà épeler ton nom en anglais. Petit détail, grand pas ! 🔤",
+    },
+  },
+
+  // ==================== JOUR 3 · 28 MAI ====================
+  {
+    jour: 3,
+    date: "28 mai",
+    mois: "mai",
+    titre: "Les mots de survie",
+    emoji: "🆘",
+    objectif: "Te débrouiller : dire oui / non, demander de l'aide, dire que tu n'as pas compris.",
+    intro:
+      "Les mots qui sauvent ! Avec une petite poignée de mots, tu peux déjà te débrouiller en voyage : dire oui, non, demander de l'aide, ou avouer gentiment que tu n'as pas compris.",
+    vocabulaire: {
+      intro: "Huit mots qui te sortent de presque toutes les situations.",
+      mots: [
+        { id: "mai28-yes", en: "yes", phon: "[yès]", fr: "oui", exemple: "Yes, please.", exempleFr: "Oui, s'il te plaît." },
+        { id: "mai28-no", en: "no", phon: "[no]", fr: "non", exemple: "No, thank you.", exempleFr: "Non, merci." },
+        { id: "mai28-maybe", en: "maybe", phon: "[mé-bi]", fr: "peut-être", exemple: "Maybe later.", exempleFr: "Peut-être plus tard." },
+        { id: "mai28-help", en: "help", phon: "[hèlp]", fr: "à l'aide / aider", exemple: "Help, please!", exempleFr: "À l'aide, s'il vous plaît !" },
+        { id: "mai28-water", en: "water", phon: "[wo-teur]", fr: "eau", exemple: "Some water, please.", exempleFr: "De l'eau, s'il vous plaît." },
+        { id: "mai28-toilet", en: "toilet", phon: "[toï-lèt]", fr: "toilettes", exemple: "Where is the toilet?", exempleFr: "Où sont les toilettes ?" },
+        { id: "mai28-okay", en: "okay", phon: "[o-kéï]", fr: "d'accord", exemple: "Okay, no problem.", exempleFr: "D'accord, pas de souci." },
+        { id: "mai28-understand", en: "I don't understand", phon: "[aï dônt eun-deur-stand]", fr: "je ne comprends pas", exemple: "Sorry, I don't understand.", exempleFr: "Désolée, je ne comprends pas." },
+      ],
+    },
+    grammaire: {
+      titre: "Demander poliment : « Can I…? / Can you…? »",
+      regle:
+        "Pour demander quelque chose poliment, commence par « Can I…? » (Est-ce que je peux…?) ou « Can you…? » (Peux-tu…?) : Can I have water? Can you help me?",
+      analogie:
+        "« Can » = pouvoir. « Can I…? » revient à « Est-ce que je peux…? ». C'est LA formule magique pour demander sans froisser personne.",
+      exemples: [
+        { en: "Can I have water?", fr: "Puis-je avoir de l'eau ?" },
+        { en: "Can you help me?", fr: "Peux-tu m'aider ?" },
+        { en: "Can you repeat?", fr: "Peux-tu répéter ?" },
+        { en: "Can I go?", fr: "Puis-je y aller ?" },
+      ],
+      exercices: [
+        { type: "trou", phrase: "___ I have water, please? (puis-je)", r: "can", explication: "« Can I have…? »." },
+        { type: "trou", phrase: "Can you ___ me? (aider)", r: "help", explication: "« Can you help me? »." },
+        { type: "traduction", sens: "fr-en", q: "Peux-tu m'aider ?", r: "can you help me", accepte: ["can you help me?"], explication: "« Can you help me? »." },
+        { type: "vraiFaux", affirmation: "« Can » veut dire « pouvoir ».", r: true, explication: "Oui : can = pouvoir." },
+      ],
+    },
+    conjugaison: {
+      titre: "« can » : pouvoir (jamais de -s !)",
+      explication:
+        "« can » est très facile : il ne change JAMAIS. I can, you can, she can, we can, they can. Pas de -s à he/she/it ! Et le verbe qui suit reste à sa forme simple : She can help.",
+      tableau: [
+        { pronom: "I", forme: "can", exemple: "I can help." },
+        { pronom: "You", forme: "can", exemple: "You can go." },
+        { pronom: "He / She", forme: "can", exemple: "She can swim." },
+        { pronom: "We", forme: "can", exemple: "We can help." },
+        { pronom: "They", forme: "can", exemple: "They can wait." },
+      ],
+      exercices: [
+        { type: "trou", phrase: "She ___ help. (pouvoir)", r: "can", explication: "« can » ne change jamais : she can." },
+        { type: "vraiFaux", affirmation: "On dit « he cans ».", r: false, explication: "Non : « can » ne prend jamais de -s → he can." },
+        { type: "trou", phrase: "We ___ wait. (pouvoir)", r: "can", explication: "« We can wait »." },
+      ],
+    },
+    dialogue: {
+      titre: "Touriste perdue",
+      contexte: "Tu es perdue dans une ville. Tu demandes de l'aide à Emma.",
+      lignes: [
+        { role: "Toi", en: "Excuse me, can you help me?", fr: "Pardon, pouvez-vous m'aider ?" },
+        { role: "Emma", en: "Yes, of course!", fr: "Oui, bien sûr !" },
+        { role: "Toi", en: "Where is the toilet?", fr: "Où sont les toilettes ?" },
+        { role: "Emma", en: "It's over there.", fr: "C'est par là." },
+        { role: "Toi", en: "Sorry, I don't understand.", fr: "Désolée, je ne comprends pas." },
+        { role: "Emma", en: "There! Look.", fr: "Là ! Regarde." },
+      ],
+      aToi: [
+        { consigne: "Demande « Pouvez-vous m'aider ? »", r: "can you help me", accepte: ["can you help me?"], explication: "« Can you help me? »." },
+        { consigne: "Dis « Je ne comprends pas »", r: "i don't understand", accepte: ["i do not understand"], explication: "« I don't understand »." },
+      ],
+    },
+    prononciation: {
+      son: "[w]",
+      titre: "Le W qui arrondit les lèvres",
+      explication:
+        "Le « w » anglais se fait en arrondissant bien les lèvres, comme un « ou » très court : water (« wo-teur »), want, week. Ce n'est surtout pas un « v » !",
+      technique:
+        "Avance les lèvres comme pour faire un bisou, puis dis « wou… water ». Garde les lèvres bien rondes.",
+      mots: [
+        { en: "water", phon: "[wo-teur]" },
+        { en: "want", phon: "[wonnt]" },
+        { en: "week", phon: "[wiik]" },
+        { en: "way", phon: "[wéï]" },
+      ],
+      phrase: "I want some water.",
+    },
+    bilan: {
+      resume: [
+        "Les mots de survie : yes, no, help, water, toilet, okay…",
+        "Demander poliment : « Can I…? » / « Can you…? ».",
+        "« can » ne change jamais + le son W (lèvres rondes).",
+      ],
+      conseil: "Apprends par cœur « Can you help me? » et « I don't understand » : ce sont tes deux bouées.",
+      motivation: "Avec ça, tu peux déjà voyager sans paniquer. Bravo l'exploratrice ! 🆘",
+    },
+  },
+
+  // ==================== JOUR 4 · 29 MAI ====================
+  {
+    jour: 4,
+    date: "29 mai",
+    mois: "mai",
+    titre: "Les jours de la semaine",
+    emoji: "📅",
+    objectif: "Nommer les 7 jours et dire aujourd'hui / demain.",
+    intro:
+      "Place au calendrier ! Les jours de la semaine, plus « aujourd'hui » et « demain ». Petit piège mignon : en anglais, les jours prennent toujours une majuscule.",
+    vocabulaire: {
+      intro: "Les sept jours, du lundi au dimanche.",
+      mots: [
+        { id: "mai29-monday", en: "Monday", phon: "[MANN-dèï]", fr: "lundi", exemple: "On Monday I work.", exempleFr: "Le lundi je travaille." },
+        { id: "mai29-tuesday", en: "Tuesday", phon: "[TIOUZ-dèï]", fr: "mardi", exemple: "See you on Tuesday.", exempleFr: "À mardi." },
+        { id: "mai29-wednesday", en: "Wednesday", phon: "[WÈNZ-dèï]", fr: "mercredi", exemple: "Wednesday is here.", exempleFr: "On est mercredi." },
+        { id: "mai29-thursday", en: "Thursday", phon: "[THEURZ-dèï]", fr: "jeudi", exemple: "Thursday, maybe.", exempleFr: "Jeudi, peut-être." },
+        { id: "mai29-friday", en: "Friday", phon: "[FRAÏ-dèï]", fr: "vendredi", exemple: "Friday at last!", exempleFr: "Vendredi enfin !" },
+        { id: "mai29-saturday", en: "Saturday", phon: "[SA-teur-dèï]", fr: "samedi", exemple: "On Saturday I rest.", exempleFr: "Le samedi je me repose." },
+        { id: "mai29-sunday", en: "Sunday", phon: "[SANN-dèï]", fr: "dimanche", exemple: "Sunday is calm.", exempleFr: "Dimanche est calme." },
+        { id: "mai29-today", en: "today", phon: "[tou-dèï]", fr: "aujourd'hui", exemple: "Today is Monday.", exempleFr: "Aujourd'hui on est lundi." },
+      ],
+    },
+    grammaire: {
+      titre: "La majuscule + « on » devant les jours",
+      regle:
+        "Les jours s'écrivent TOUJOURS avec une majuscule : Monday, Friday. Et pour dire « lundi / le lundi », on met « on » devant : on Monday, on Friday.",
+      analogie:
+        "En français « lundi » est en minuscule. En anglais c'est une majuscule, comme un petit nom propre. Et « on Monday » = « lundi / le lundi ».",
+      exemples: [
+        { en: "on Monday", fr: "lundi / le lundi" },
+        { en: "on Friday", fr: "vendredi" },
+        { en: "Today is Tuesday.", fr: "Aujourd'hui on est mardi." },
+        { en: "See you on Sunday.", fr: "À dimanche." },
+      ],
+      exercices: [
+        { type: "vraiFaux", affirmation: "« monday » s'écrit sans majuscule.", r: false, explication: "Non : les jours prennent une majuscule → Monday." },
+        { type: "trou", phrase: "See you ___ Friday. (le)", r: "on", explication: "« on Friday » = vendredi / le vendredi." },
+        { type: "traduction", sens: "fr-en", q: "lundi", r: "Monday", explication: "« Monday », avec une majuscule." },
+        { type: "traduction", sens: "en-fr", q: "Sunday", r: "dimanche", explication: "« Sunday » = dimanche." },
+      ],
+    },
+    conjugaison: {
+      titre: "Dire le jour : « It is + jour »",
+      explication:
+        "Pour dire quel jour on est : « What day is it? » → « It is Monday. » (ou « It's Monday. »). On réutilise notre ami « it is ».",
+      tableau: [
+        { pronom: "What day is it?", forme: "—", exemple: "Quel jour sommes-nous ?" },
+        { pronom: "It is", forme: "Monday", exemple: "It is Monday. (On est lundi.)" },
+        { pronom: "It's", forme: "Friday", exemple: "It's Friday! (On est vendredi !)" },
+        { pronom: "Today is", forme: "Sunday", exemple: "Today is Sunday." },
+      ],
+      exercices: [
+        { type: "trou", phrase: "What day ___ it? (verbe être)", r: "is", explication: "« What day is it? »." },
+        { type: "trou", phrase: "___ is Monday. (aujourd'hui)", r: "Today", accepte: ["today"], explication: "« Today is Monday »." },
+        { type: "traduction", sens: "fr-en", q: "On est vendredi. (It's…)", r: "it's friday", accepte: ["it is friday"], explication: "« It's Friday »." },
+      ],
+    },
+    dialogue: {
+      titre: "Quel jour ?",
+      contexte: "Emma te demande quel jour on est et fixe un rendez-vous.",
+      lignes: [
+        { role: "Emma", en: "What day is it today?", fr: "Quel jour sommes-nous aujourd'hui ?" },
+        { role: "Toi", en: "It's Thursday.", fr: "On est jeudi." },
+        { role: "Emma", en: "See you on Saturday?", fr: "On se voit samedi ?" },
+        { role: "Toi", en: "Okay! See you on Saturday.", fr: "D'accord ! À samedi." },
+        { role: "Emma", en: "Great!", fr: "Super !" },
+      ],
+      aToi: [
+        { consigne: "Dis « On est vendredi »", r: "it's friday", accepte: ["it is friday"], explication: "« It's Friday »." },
+        { consigne: "Dis « À lundi »", r: "see you on monday", accepte: ["see you monday"], explication: "« See you on Monday »." },
+      ],
+    },
+    prononciation: {
+      son: "[dèï]",
+      titre: "Tous les jours finissent en « -day »",
+      explication:
+        "Chaque jour finit par « -day », qui se dit « dèï » (pas « day » à la française). Et l'accent tombe sur la PREMIÈRE syllabe : MON-day, FRI-day.",
+      technique:
+        "Dis le début fort et la fin légère : « MANN-dèï », « FRAÏ-dèï ». Ne traîne pas sur « -day ».",
+      mots: [
+        { en: "Monday", phon: "[MANN-dèï]" },
+        { en: "Friday", phon: "[FRAÏ-dèï]" },
+        { en: "Sunday", phon: "[SANN-dèï]" },
+        { en: "today", phon: "[tou-dèï]" },
+      ],
+      phrase: "Today is Monday, not Friday.",
+    },
+    bilan: {
+      resume: [
+        "Les 7 jours : Monday → Sunday (toujours une majuscule).",
+        "« on Monday » = lundi ; « Today is… » pour dire le jour.",
+        "Tous les jours finissent en « -day » (« dèï »).",
+      ],
+      conseil: "Chaque matin de cette semaine, dis à voix haute : « Today is … ». Une phrase, un réflexe.",
+      motivation: "Toute ta semaine parle anglais maintenant. 📅",
+    },
+  },
+
+  // ==================== JOUR 5 · 30 MAI ====================
+  {
+    jour: 5,
+    date: "30 mai",
+    mois: "mai",
+    titre: "Compter de 0 à 12",
+    emoji: "🔢",
+    objectif: "Compter de 0 à 12 et dire ton âge.",
+    intro:
+      "On compte ! De zéro à douze : de quoi donner ton âge, un numéro, une quantité. En juin tu t'en serviras tout le temps — alors on prend un peu d'avance, en douceur.",
+    vocabulaire: {
+      intro: "Les nombres clés de 0 à 12 (on s'attarde sur les plus utiles).",
+      mots: [
+        { id: "mai30-zero", en: "zero", phon: "[zi-ro]", fr: "zéro", exemple: "Zero problems!", exempleFr: "Zéro problème !" },
+        { id: "mai30-five", en: "five", phon: "[faïv]", fr: "cinq", exemple: "Five minutes.", exempleFr: "Cinq minutes." },
+        { id: "mai30-nine", en: "nine", phon: "[naïn]", fr: "neuf", exemple: "Nine o'clock.", exempleFr: "Neuf heures." },
+        { id: "mai30-ten", en: "ten", phon: "[tèn]", fr: "dix", exemple: "Ten fingers.", exempleFr: "Dix doigts." },
+        { id: "mai30-eleven", en: "eleven", phon: "[i-lè-veun]", fr: "onze", exemple: "Eleven years.", exempleFr: "Onze ans." },
+        { id: "mai30-twelve", en: "twelve", phon: "[twèlv]", fr: "douze", exemple: "Twelve months.", exempleFr: "Douze mois." },
+        { id: "mai30-number", en: "number", phon: "[nann-beur]", fr: "nombre / numéro", exemple: "My phone number.", exempleFr: "Mon numéro de téléphone." },
+        { id: "mai30-howmany", en: "how many", phon: "[haou mè-ni]", fr: "combien", exemple: "How many?", exempleFr: "Combien ?" },
+      ],
+    },
+    grammaire: {
+      titre: "Demander la quantité : « How many…? »",
+      regle:
+        "Pour demander « combien ? », on dit « How many…? » suivi du nom au pluriel : How many cats? How many years? La réponse est un nombre.",
+      analogie:
+        "« How many » = « combien (de) ». On compte des choses qu'on peut séparer (chats, ans, livres), donc le nom prend un -s : « How many books? ».",
+      exemples: [
+        { en: "How many?", fr: "Combien ?" },
+        { en: "How many cats?", fr: "Combien de chats ?" },
+        { en: "I have two.", fr: "J'en ai deux." },
+        { en: "How many years?", fr: "Combien d'années ?" },
+      ],
+      exercices: [
+        { type: "trou", phrase: "How ___ cats? (combien)", r: "many", explication: "« How many…? » = combien." },
+        { type: "traduction", sens: "fr-en", q: "Combien ?", r: "how many", accepte: ["how many?"], explication: "« How many? »." },
+        { type: "trou", phrase: "« 12 » se dit ___ en anglais.", r: "twelve", explication: "12 = twelve." },
+        { type: "vraiFaux", affirmation: "« ten » veut dire « dix ».", r: true, explication: "Oui : ten = dix." },
+      ],
+    },
+    conjugaison: {
+      titre: "Dire son âge : « to be » + nombre",
+      explication:
+        "En anglais, on n'« a » pas son âge, on l'« est » : « I am ten. » (J'ai dix ans, littéralement « je suis dix »). « How old are you? » = Quel âge as-tu ?",
+      tableau: [
+        { pronom: "How old are you?", forme: "—", exemple: "Quel âge as-tu ?" },
+        { pronom: "I", forme: "am ten", exemple: "I am ten. (J'ai 10 ans.)" },
+        { pronom: "She", forme: "is nine", exemple: "She is nine." },
+        { pronom: "They", forme: "are twelve", exemple: "They are twelve." },
+      ],
+      exercices: [
+        { type: "trou", phrase: "I ___ eleven. (verbe être, âge)", r: "am", explication: "L'âge se dit avec to be : I am eleven." },
+        { type: "vraiFaux", affirmation: "« I have ten years » est la bonne façon de dire son âge.", r: false, explication: "Non : on dit « I am ten » (je suis dix)." },
+        { type: "trou", phrase: "How ___ are you? (vieux → âge)", r: "old", explication: "« How old are you? » = quel âge as-tu ?" },
+      ],
+    },
+    dialogue: {
+      titre: "Ton âge",
+      contexte: "Emma fait connaissance et te demande ton âge.",
+      lignes: [
+        { role: "Emma", en: "How old are you?", fr: "Quel âge as-tu ?" },
+        { role: "Toi", en: "I am eleven.", fr: "J'ai onze ans." },
+        { role: "Emma", en: "And how many brothers?", fr: "Et combien de frères ?" },
+        { role: "Toi", en: "I have two brothers.", fr: "J'ai deux frères." },
+        { role: "Emma", en: "Nice!", fr: "Cool !" },
+      ],
+      aToi: [
+        { consigne: "Dis « J'ai dix ans »", r: "i am ten", accepte: ["i'm ten"], explication: "« I am ten »." },
+        { consigne: "Demande « Combien ? »", r: "how many", accepte: ["how many?"], explication: "« How many? »." },
+      ],
+    },
+    prononciation: {
+      son: "[v]",
+      titre: "Le V qui mord la lèvre",
+      explication:
+        "Le « v » anglais (five, seven, eleven, twelve) se fait en posant les dents du haut sur la lèvre du bas, comme en français. Ne le transforme pas en « f » : « five » (vvv), pas « fife ».",
+      technique:
+        "Pose tes dents du haut sur ta lèvre du bas et fais vibrer : « vvv… five ». Tu dois sentir un petit chatouillis.",
+      mots: [
+        { en: "five", phon: "[faïv]" },
+        { en: "seven", phon: "[sè-veun]" },
+        { en: "eleven", phon: "[i-lè-veun]" },
+        { en: "twelve", phon: "[twèlv]" },
+      ],
+      phrase: "Five, seven, eleven, twelve.",
+    },
+    bilan: {
+      resume: [
+        "Compter de 0 à 12 (zero… ten, eleven, twelve).",
+        "« How many…? » = combien ; l'âge se dit avec to be (« I am ten »).",
+        "Le son V (dents sur la lèvre).",
+      ],
+      conseil: "Compte de 0 à 12 à voix haute, puis donne ton âge : « I am … ».",
+      motivation: "Zéro à douze, et zéro stress. Plus qu'un jour avant juin ! 🔢",
+    },
+  },
+
+  // ==================== JOUR 6 · 31 MAI ====================
+  {
+    jour: 6,
+    date: "31 mai",
+    mois: "mai",
+    titre: "Prête pour juin !",
+    emoji: "🚀",
+    objectif: "Rassembler la mise en route de mai et te lancer vers juin en confiance.",
+    intro:
+      "Dernier jour de mai ! 🚀 On rassemble tout ce que tu as découvert cette semaine — et demain, le 1er juin, commence le vrai parcours des bases, en apprenant à dire « Hello ». Tu es prête.",
+    vocabulaire: {
+      intro: "Un petit best-of de mai, à garder bien au chaud.",
+      mots: [
+        { id: "mai31-yes", en: "yes", phon: "[yès]", fr: "oui", exemple: "Yes, of course.", exempleFr: "Oui, bien sûr." },
+        { id: "mai31-no", en: "no", phon: "[no]", fr: "non", exemple: "No, thank you.", exempleFr: "Non, merci." },
+        { id: "mai31-water", en: "water", phon: "[wo-teur]", fr: "eau", exemple: "Some water, please.", exempleFr: "De l'eau, s'il te plaît." },
+        { id: "mai31-help", en: "help", phon: "[hèlp]", fr: "à l'aide / aider", exemple: "Can you help me?", exempleFr: "Peux-tu m'aider ?" },
+        { id: "mai31-today", en: "today", phon: "[tou-dèï]", fr: "aujourd'hui", exemple: "Today is Sunday.", exempleFr: "Aujourd'hui on est dimanche." },
+        { id: "mai31-monday", en: "Monday", phon: "[MANN-dèï]", fr: "lundi", exemple: "See you on Monday.", exempleFr: "À lundi." },
+        { id: "mai31-ten", en: "ten", phon: "[tèn]", fr: "dix", exemple: "I am ten.", exempleFr: "J'ai dix ans." },
+        { id: "mai31-number", en: "number", phon: "[nann-beur]", fr: "nombre / numéro", exemple: "A phone number.", exempleFr: "Un numéro de téléphone." },
+      ],
+    },
+    grammaire: {
+      titre: "Récap de mai",
+      regle:
+        "Ce que tu as vu cette semaine : « the » = le / la / les ; les jours prennent une majuscule ; « Can I…? / Can you…? » pour demander ; « How many…? » pour la quantité.",
+      analogie:
+        "Quatre petits réflexes de débutante… qui te font déjà tenir debout en anglais. Demain, on construit dessus.",
+      exemples: [
+        { en: "the table", fr: "la table" },
+        { en: "on Monday", fr: "lundi" },
+        { en: "Can you help me?", fr: "Peux-tu m'aider ?" },
+        { en: "How many?", fr: "Combien ?" },
+      ],
+      exercices: [
+        { type: "trou", phrase: "___ table (le / la)", r: "the", explication: "« the » = le / la / les." },
+        { type: "trou", phrase: "Can you ___ me? (aider)", r: "help", explication: "« Can you help me? »." },
+        { type: "vraiFaux", affirmation: "Les jours prennent une majuscule.", r: true, explication: "Oui : Monday, Friday…" },
+        { type: "traduction", sens: "fr-en", q: "Combien ?", r: "how many", accepte: ["how many?"], explication: "« How many? »." },
+      ],
+    },
+    conjugaison: {
+      titre: "Récap : it's / can / to be (âge)",
+      explication:
+        "Tes premières structures : « It's… » (c'est), « can » (pouvoir, jamais de -s), et « to be » pour l'âge (« I am ten »). Demain, tu rencontres « to be » pour de bon.",
+      tableau: [
+        { pronom: "It is", forme: "it's", exemple: "It's a taxi." },
+        { pronom: "I / you / she", forme: "can", exemple: "She can help." },
+        { pronom: "I", forme: "am", exemple: "I am ten." },
+      ],
+      exercices: [
+        { type: "trou", phrase: "___ a hotel. (c'est, version courte)", r: "it's", accepte: ["its"], explication: "« It's a hotel »." },
+        { type: "vraiFaux", affirmation: "On dit « she cans ».", r: false, explication: "Non : « can » ne prend jamais de -s." },
+        { type: "trou", phrase: "I ___ eleven. (âge)", r: "am", explication: "L'âge avec to be : « I am eleven »." },
+      ],
+    },
+    dialogue: {
+      titre: "Rendez-vous en juin",
+      contexte: "Emma te félicite pour ta première semaine et t'annonce la suite.",
+      lignes: [
+        { role: "Emma", en: "Well done for this week!", fr: "Bravo pour cette semaine !" },
+        { role: "Toi", en: "Thank you!", fr: "Merci !" },
+        { role: "Emma", en: "Tomorrow we say « Hello » in English.", fr: "Demain on apprend à dire « Hello » en anglais." },
+        { role: "Toi", en: "Okay! See you tomorrow.", fr: "D'accord ! À demain." },
+        { role: "Emma", en: "See you in June!", fr: "À juin !" },
+      ],
+      aToi: [
+        { consigne: "Dis « Merci »", r: "thank you", accepte: ["thanks"], explication: "« Thank you »." },
+        { consigne: "Dis « À demain »", r: "see you tomorrow", accepte: ["see you"], explication: "« See you tomorrow »." },
+      ],
+    },
+    prononciation: {
+      son: "🔁",
+      titre: "Tes sons de la semaine",
+      explication:
+        "Reprends tes trois sons de mai : le W aux lèvres rondes (water), le « -day » des jours (Monday), et le V qui mord la lèvre (five). Une dernière fois, tranquillement.",
+      technique:
+        "Dis la phrase ci-dessous lentement en soignant chaque son, puis recommence un peu plus vite.",
+      mots: [
+        { en: "water", phon: "[wo-teur]" },
+        { en: "Monday", phon: "[MANN-dèï]" },
+        { en: "five", phon: "[faïv]" },
+        { en: "today", phon: "[tou-dèï]" },
+      ],
+      phrase: "Today is Monday — I want water.",
+    },
+    bilan: {
+      resume: [
+        "Tu as découvert l'anglais : mots transparents, alphabet, mots de survie, jours, nombres.",
+        "Tes premières structures : the, it's, can, How many, l'âge.",
+        "Tu démarres juin avec une vraie longueur d'avance. 🌟",
+      ],
+      conseil: "Ce soir, relis tes 6 jours de mai en diagonale. Demain, on attaque juin par « Hello » — tout léger.",
+      motivation: "Six jours, et tu n'es déjà plus tout à fait débutante. Rendez-vous en juin ! 🚀",
+    },
+  },
+
+  // ==================== JOUR 7 · 1 JUIN ====================
+  {
+    jour: 7,
+    date: "1 juin",
+    mois: "juin",
     titre: "Dire bonjour",
     emoji: "👋",
     objectif: "Saluer quelqu'un et engager le contact en anglais.",
     intro:
-      "Bienvenue pour ton tout premier jour ! 🌸 Aujourd'hui on apprend à dire bonjour, à se saluer, et on rencontre déjà le pronom « I » et le verbe le plus important de l'anglais : to be. On avance pas à pas, sans aucune pression.",
+      "Premier jour de juin, et le vrai début des bases ! 🌸 Aujourd'hui on apprend à dire bonjour, à se saluer, et on rencontre déjà le pronom « I » et le verbe le plus important de l'anglais : to be. On avance pas à pas, sans aucune pression.",
     vocabulaire: {
       intro: "Six façons de saluer, du plus formel au plus familier.",
       mots: [
@@ -112,9 +713,11 @@ export const PROGRAMME = [
     },
   },
 
-  // ============================== JOUR 2 ==============================
+  // ==================== JOUR 8 · 2 JUIN ====================
   {
-    jour: 2,
+    jour: 8,
+    date: "2 juin",
+    mois: "juin",
     titre: "Merci, s'il te plaît",
     emoji: "🙏",
     objectif: "Être poli·e : remercier, demander, s'excuser.",
@@ -209,9 +812,11 @@ export const PROGRAMME = [
     },
   },
 
-  // ============================== JOUR 3 ==============================
+  // ==================== JOUR 9 · 3 JUIN ====================
   {
-    jour: 3,
+    jour: 9,
+    date: "3 juin",
+    mois: "juin",
     titre: "Les couleurs",
     emoji: "🎨",
     objectif: "Nommer les couleurs et décrire des objets.",
@@ -306,9 +911,11 @@ export const PROGRAMME = [
     },
   },
 
-  // ============================== JOUR 4 ==============================
+  // ==================== JOUR 10 · 4 JUIN ====================
   {
-    jour: 4,
+    jour: 10,
+    date: "4 juin",
+    mois: "juin",
     titre: "Les chiffres",
     emoji: "🔢",
     objectif: "Compter de 1 à 8 et parler de quantités.",
@@ -404,9 +1011,11 @@ export const PROGRAMME = [
     },
   },
 
-  // ============================== JOUR 5 ==============================
+  // ==================== JOUR 11 · 5 JUIN ====================
   {
-    jour: 5,
+    jour: 11,
+    date: "5 juin",
+    mois: "juin",
     titre: "Se présenter",
     emoji: "🪪",
     objectif: "Dire ton nom, d'où tu viens, et poser ces questions.",
@@ -500,9 +1109,11 @@ export const PROGRAMME = [
     },
   },
 
-  // ============================== JOUR 6 ==============================
+  // ==================== JOUR 12 · 6 JUIN ====================
   {
-    jour: 6,
+    jour: 12,
+    date: "6 juin",
+    mois: "juin",
     titre: "La famille",
     emoji: "👨‍👩‍👧",
     objectif: "Parler de ta famille et de ce que tu possèdes.",
@@ -595,9 +1206,11 @@ export const PROGRAMME = [
     },
   },
 
-  // ============================== JOUR 7 ==============================
+  // ==================== JOUR 13 · 7 JUIN ====================
   {
-    jour: 7,
+    jour: 13,
+    date: "7 juin",
+    mois: "juin",
     titre: "Le présent simple",
     emoji: "🔁",
     objectif: "Parler de tes habitudes et de ta routine.",
@@ -691,9 +1304,11 @@ export const PROGRAMME = [
     },
   },
 
-  // ============================== JOUR 8 ==============================
+  // ==================== JOUR 14 · 8 JUIN ====================
   {
-    jour: 8,
+    jour: 14,
+    date: "8 juin",
+    mois: "juin",
     titre: "Poser des questions",
     emoji: "❓",
     objectif: "Poser des questions sur les autres.",
@@ -786,9 +1401,11 @@ export const PROGRAMME = [
     },
   },
 
-  // ============================== JOUR 9 ==============================
+  // ==================== JOUR 15 · 9 JUIN ====================
   {
-    jour: 9,
+    jour: 15,
+    date: "9 juin",
+    mois: "juin",
     titre: "Dire non",
     emoji: "🚫",
     objectif: "Exprimer la négation : ce que tu ne fais pas, ce que tu n'aimes pas.",
@@ -881,9 +1498,11 @@ export const PROGRAMME = [
     },
   },
 
-  // ============================== JOUR 10 =============================
+  // ==================== JOUR 16 · 10 JUIN ====================
   {
-    jour: 10,
+    jour: 16,
+    date: "10 juin",
+    mois: "juin",
     titre: "Grande révision",
     emoji: "🏆",
     objectif: "Rassembler tout le mois et tenir une vraie petite conversation.",
@@ -976,8 +1595,8 @@ export const PROGRAMME = [
         "Tu maîtrises to be, to have et le présent simple.",
         "Tu as tenu une conversation complète. Tu n'es plus débutante absolue ! 🎓",
       ],
-      conseil: "Refais le dialogue du jour 10 à voix haute, sans regarder. Si tu y arrives, tu es prête pour juillet.",
-      motivation: "Dix jours. Regarde le chemin parcouru depuis le premier « Hello ». Je suis vraiment fière de toi. 🌸🏆",
+      conseil: "Refais le dialogue de ce dernier jour à voix haute, sans regarder. Si tu y arrives, tu es prête pour juillet.",
+      motivation: "Regarde le chemin parcouru depuis ton tout premier jour. Je suis vraiment fière de toi. 🌸🏆",
     },
   },
 ]

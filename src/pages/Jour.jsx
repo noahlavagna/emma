@@ -94,14 +94,14 @@ export default function Jour() {
         ))}
       </div>
       <div className="jour-titre-mini">
-        Jour {jour.jour} · {jour.emoji} {jour.titre}
+        Jour {jour.jour} · {jour.date} · {jour.emoji} {jour.titre}
       </div>
 
       {cle === 'intro' && (
         <div>
           <div className="section-tete" data-reveal>
             <span className="picto" aria-hidden="true">{jour.emoji}</span>
-            <div className="surtitre">Jour {jour.jour}</div>
+            <div className="surtitre">Jour {jour.jour} · {jour.date}</div>
             <h2>{jour.titre}</h2>
             <p className="intro"><strong>🎯 Objectif :</strong> {jour.objectif}</p>
           </div>
@@ -164,7 +164,7 @@ export default function Jour() {
                 Jour {jourSuivant.jour} : {jourSuivant.titre} →
               </Link>
             ) : (
-              <Link to="/" className="btn btn-primaire">🎓 Parcours de juin terminé !</Link>
+              <Link to="/" className="btn btn-primaire">🎓 Parcours mai–juin terminé !</Link>
             )}
             <Link to="/parcours" className="btn btn-doux">Le parcours</Link>
             <button

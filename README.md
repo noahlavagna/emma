@@ -4,7 +4,7 @@ Application web pour apprendre l'anglais de zéro (A1) jusqu'au niveau A2/B1, ac
 
 ## ✨ Ce que contient le site
 
-- **Le parcours — 10 jours** : une leçon complète par jour (vocabulaire → grammaire → conjugaison → dialogue → prononciation → quiz → bilan). Les jours se débloquent les uns après les autres.
+- **Le parcours — 16 jours (26 mai → 10 juin)** : une leçon complète par jour, datée et numérotée (vocabulaire → grammaire → conjugaison → dialogue → prononciation → quiz → bilan). Mai = mise en route en douceur, juin = les bases. Les jours se débloquent les uns après les autres.
 - **Entraînement libre** : flashcards de vocabulaire et quiz de révision par jour.
 - **Progression sauvegardée** localement (localStorage) : mots appris, scores, jours terminés.
 - Audio (synthèse vocale du navigateur), scroll fluide, transitions de page, contraste accessible.

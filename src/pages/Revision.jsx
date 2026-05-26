@@ -29,7 +29,7 @@ export default function Revision() {
       <div className="rev">
         <header className="rev-entete">
           <div className="kicker">Entraînement libre · Révision</div>
-          <h1>10 jours de <em>révision</em></h1>
+          <h1>{JOURS_REVISION.length} jours de <em>révision</em></h1>
           <p>Un quiz mélangé par jour (8 à 10 questions). Choisis ton jour. 🌷</p>
         </header>
         <div className="jour-grille">

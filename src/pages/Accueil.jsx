@@ -50,23 +50,23 @@ export default function Accueil() {
           en sessions courtes de 20 à 30 minutes, à ton rythme.
         </p>
         <div className="badge fade-up" style={{ animationDelay: '0.3s' }}>
-          🌱 Mois en cours : Juin — Les Bases
+          🌱 En cours : 26 mai → 10 juin · Les bases
         </div>
       </header>
 
       {/* ---------- Le parcours, en vedette ---------- */}
       <section className="parcours-hero" data-reveal>
         <div className="pastille-jour">Le cœur de ta progression</div>
-        <h2>Ton parcours en <em>10 jours</em></h2>
+        <h2>Ton parcours en <em>{TOTAL_PARCOURS} jours</em></h2>
         <p>
-          Une vraie leçon complète par jour : vocabulaire, grammaire, conjugaison,
-          dialogue, prononciation, puis un quiz pour ancrer.
+          Une vraie leçon complète par jour, du 26 mai au 10 juin : vocabulaire,
+          grammaire, conjugaison, dialogue, prononciation, puis un quiz pour ancrer.
         </p>
         <div className="piste"><span style={{ width: `${pct}%` }} /></div>
         <div className="compteur">{nbFaits} / {TOTAL_PARCOURS} jours terminés</div>
         <div className="actions">
           <Link to={ctaLien} viewTransition className="btn btn-primaire">{ctaTexte}</Link>
-          <Link to="/parcours" viewTransition className="btn btn-doux">Voir les 10 jours</Link>
+          <Link to="/parcours" viewTransition className="btn btn-doux">Voir les {TOTAL_PARCOURS} jours</Link>
         </div>
         <p className="note">
           La grammaire, la conjugaison, le dialogue et la prononciation sont travaillés

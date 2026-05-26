@@ -30,10 +30,26 @@
 }
 .parcours-barre .compteur { text-align: center; font-size: 0.85rem; color: var(--texte-doux); margin-top: 0.5rem; font-weight: 700; }
 
+.parcours-mois {
+  display: flex; align-items: baseline; gap: 0.6rem;
+  margin: 2rem 0 1rem;
+}
+.parcours-mois:first-of-type { margin-top: 0; }
+.parcours-mois .mois-emoji { font-size: 1.4rem; }
+.parcours-mois h2 {
+  font-family: 'Fraunces', serif; font-size: 1.45rem; margin: 0;
+}
+.parcours-mois .mois-sous { font-size: 0.85rem; color: var(--texte-doux); font-style: italic; }
+
 .parcours-grille {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.1rem;
+}
+.parcours-carte .date {
+  display: inline-block; margin-top: 0.15rem;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em;
+  color: var(--vert-deep); text-transform: capitalize;
 }
 .parcours-carte {
   position: relative;

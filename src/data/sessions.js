@@ -48,7 +48,7 @@ export const SESSIONS = [
     icone: '🌷',
     titre: 'Révision',
     description:
-      'Un quiz de 8 à 10 questions mélangées pour vérifier ce qui est bien ancré. 10 jours de révision t’attendent.',
+      'Un quiz de 8 à 10 questions mélangées pour vérifier ce qui est bien ancré. Un jour de révision pour chaque jour du parcours.',
     accent: 'vert',
     pret: true,
   },
