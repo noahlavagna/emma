@@ -103,14 +103,14 @@ export default function Jour() {
 
   return (
     <div className="jour">
-      <div className="jour-stepper" aria-hidden="true">
+      <div className="jour-stepper fade-up" aria-hidden="true">
         {STEPS.map((s, i) => (
           <span key={s.key} className={`etape ${i === step ? 'actif' : ''} ${i < step ? 'fait' : ''}`}>
             {i < step ? '✓' : i + 1} {s.label}
           </span>
         ))}
       </div>
-      <div className="jour-titre-mini">
+      <div className="jour-titre-mini fade-up" style={{ animationDelay: '0.08s' }}>
         Jour {jour.jour} · {jour.date} · {jour.emoji} {jour.titre}
       </div>
 

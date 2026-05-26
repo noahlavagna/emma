@@ -47,21 +47,21 @@ export default function Atelier() {
     return (
       <div className="atelier">
         <header className="atelier-entete">
-          <div className="kicker">Entraînement libre · Atelier</div>
-          <h1>{total} exercices, <em>tous types</em></h1>
-          <p>
+          <div className="kicker fade-up">Entraînement libre · Atelier</div>
+          <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>{total} exercices, <em>tous types</em></h1>
+          <p className="fade-up" style={{ animationDelay: '0.16s' }}>
             Compréhension écrite, orale, expression orale, dictées, exercices mélangés…
             Classés par difficulté. Chaque exercice se débloque quand tu as fait le jour qu’il
             faut dans ton parcours. 🌷
           </p>
-          <div className="atelier-compteur">{debloques} / {total} débloqués pour l’instant</div>
+          <div className="atelier-compteur fade-up" style={{ animationDelay: '0.24s' }}>{debloques} / {total} débloqués pour l’instant</div>
         </header>
 
         {NIVEAUX.map((niv) => {
           const liste = EXERCICES.filter((e) => e.niveau === niv.id)
           if (!liste.length) return null
           return (
-            <section key={niv.id} className="atelier-niveau">
+            <section key={niv.id} className="atelier-niveau" data-reveal>
               <div className={`niveau-tete ${niv.accent}`}>
                 <span className="niveau-emoji" aria-hidden="true">{niv.emoji}</span>
                 <div>

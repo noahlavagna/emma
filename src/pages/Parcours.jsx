@@ -24,9 +24,10 @@ export default function Parcours() {
     g.jours.push(j)
   }
 
-  const renderCarte = (j) => {
+  const renderCarte = (j, i = 0) => {
     const fait = progres[j.jour]
     const verrou = raisonVerrou(j.jour, progres, admin)
+    const reveal = String((i % 3) + 1)
 
     // Jour verrouillé → carte non cliquable avec cadenas.
     if (verrou) {
@@ -35,7 +36,7 @@ export default function Parcours() {
           ? `Cette leçon s’ouvrira le ${j.date}. Reviens ce jour-là ! 🌱`
           : `Termine d’abord le jour ${j.jour - 1} pour débloquer cette leçon.`
       return (
-        <div key={j.jour} className="parcours-carte verrou" aria-disabled="true">
+        <div key={j.jour} className="parcours-carte verrou" aria-disabled="true" data-reveal data-reveal-delay={reveal}>
           <span className="etat lock">{verrou === 'date' ? '📅' : '🔒'}</span>
           <span className="num">— Jour {j.jour}</span>
           <span className="date">{j.date}</span>
@@ -47,7 +48,7 @@ export default function Parcours() {
     }
 
     return (
-      <Link key={j.jour} to={`/jour/${j.jour}`} viewTransition className={`parcours-carte ${fait ? 'fait' : ''}`}>
+      <Link key={j.jour} to={`/jour/${j.jour}`} viewTransition className={`parcours-carte ${fait ? 'fait' : ''}`} data-reveal data-reveal-delay={reveal}>
         <span className={`etat ${fait ? 'ok' : 'todo'}`}>
           {fait ? (fait.total ? `✓ ${fait.score}/${fait.total}` : '✓ fait') : 'à faire'}
         </span>
@@ -66,12 +67,12 @@ export default function Parcours() {
   return (
     <div className="parcours">
       <header className="parcours-entete">
-        <div className="kicker">Du 26 mai au 30 juin · Les bases</div>
-        <h1>Ton parcours en <em>{PROGRAMME.length} jours</em></h1>
-        <p>Une leçon par jour : vocabulaire, grammaire, conjugaison, dialogue, prononciation, puis quiz.</p>
+        <div className="kicker fade-up">Du 26 mai au 30 juin · Les bases</div>
+        <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>Ton parcours en <em>{PROGRAMME.length} jours</em></h1>
+        <p className="fade-up" style={{ animationDelay: '0.16s' }}>Une leçon par jour : vocabulaire, grammaire, conjugaison, dialogue, prononciation, puis quiz.</p>
       </header>
 
-      <div className="parcours-barre">
+      <div className="parcours-barre fade-up" style={{ animationDelay: '0.24s' }}>
         <div className="piste"><span style={{ width: `${pct}%` }} /></div>
         <div className="compteur">{nbFaits} / {PROGRAMME.length} jours terminés</div>
       </div>
@@ -86,7 +87,7 @@ export default function Parcours() {
               {m.sous && <span className="mois-sous">— {m.sous}</span>}
             </div>
             <div className="parcours-grille">
-              {g.jours.map(renderCarte)}
+              {g.jours.map((j, i) => renderCarte(j, i))}
             </div>
           </section>
         )

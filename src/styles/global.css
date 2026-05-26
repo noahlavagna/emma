@@ -181,28 +181,30 @@ h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 400; color: var(--text
 [data-reveal-delay='3'] { transition-delay: 0.24s; }
 
 /* ---------- Transitions de page : View Transitions API ----------
-   Crossfade + micro-zoom, repris à l'identique du portfolio.
+   Entrée nette « fondu + montée » à chaque navigation, pour qu'on ressente
+   l'apparition comme au lancement de l'app (et pas juste un crossfade discret).
    Déclenché par le prop `viewTransition` des <Link> react-router. */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 0.55s;
-  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 ::view-transition-old(root) { animation-name: vt-fade-out; }
-::view-transition-new(root) { animation-name: vt-fade-in; }
+::view-transition-new(root) { animation-name: vt-rise-in; }
 
 @keyframes vt-fade-out {
-  to { opacity: 0; transform: scale(0.985); }
+  to { opacity: 0; transform: translateY(-10px); }
 }
-@keyframes vt-fade-in {
-  from { opacity: 0; transform: scale(1.015); }
+@keyframes vt-rise-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Fallback (navigateurs sans View Transitions) : fondu léger à chaque route.
+/* Fallback (navigateurs sans View Transitions) : même entrée à chaque route.
    Désactivé quand la VT API est dispo pour ne pas doubler l'effet. */
-.route-shell { animation: page-fade-in 0.4s ease both; }
-@keyframes page-fade-in {
-  from { opacity: 0; transform: translateY(8px); }
+.route-shell { animation: page-rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes page-rise-in {
+  from { opacity: 0; transform: translateY(22px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @supports (view-transition-name: none) {

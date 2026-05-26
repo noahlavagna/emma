@@ -34,18 +34,19 @@ export default function Vocabulaire() {
     return (
       <div className="voc">
         <header className="voc-entete">
-          <div className="kicker">Session 01 · Vocabulaire</div>
-          <h1>Choisis un <em>thème</em></h1>
-          <p>6 à 8 mots par thème. On découvre, puis on s’entraîne. 📚</p>
+          <div className="kicker fade-up">Session 01 · Vocabulaire</div>
+          <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>Choisis un <em>thème</em></h1>
+          <p className="fade-up" style={{ animationDelay: '0.16s' }}>6 à 8 mots par thème. On découvre, puis on s’entraîne. 📚</p>
         </header>
         <div className="deck-grille">
-          {DECKS.map((d) => {
+          {DECKS.map((d, i) => {
             const sus = d.mots.filter((m) => appris[m.id]).length
             const pct = Math.round((sus / d.mots.length) * 100)
             return (
               <button
                 key={d.id}
-                className="deck-carte"
+                className="deck-carte fade-up"
+                style={{ animationDelay: `${0.2 + Math.min(i, 8) * 0.06}s` }}
                 onClick={() => {
                   setDeckId(d.id)
                   setEtape('flashcards')
