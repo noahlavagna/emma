@@ -11,7 +11,7 @@ Application web pour apprendre l'anglais de zéro (A1) jusqu'au niveau A2/B1, ac
 
 ## 🛠 Stack
 
-React 18 · Vite 5 · React Router 6 (HashRouter) · Lenis · localStorage. Aucun backend.
+React 18 · Vite 5 · React Router 6 · Lenis · localStorage. Aucun backend.
 
 ## 🚀 Démarrer en local
 
@@ -34,4 +34,4 @@ Le dépôt contient un workflow (`.github/workflows/deploy.yml`) qui **build et 
 1. Sur GitHub, ouvre le dépôt → **Settings → Pages → Build and deployment → Source : GitHub Actions**.
 2. Pousse sur `main` : le site se met en ligne tout seul. L'URL apparaît dans l'onglet **Actions** (et dans Settings → Pages).
 
-Les chemins d'assets sont relatifs et le routing est en `HashRouter`, donc le site fonctionne quel que soit le nom du dépôt, avec ou sans domaine personnalisé.
+Les URLs sont propres (sans `#`). Le routing repose sur `BrowserRouter` avec `base: '/emma/'` (dans `vite.config.js`) et un `404.html` de secours (copie de `index.html`) pour gérer le rafraîchissement des liens profonds. Si tu renommes le dépôt ou ajoutes un domaine personnalisé, ajuste `base` dans `vite.config.js`.

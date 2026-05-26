@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // Chemins d'assets relatifs → le site marche à n'importe quelle URL
-  // (racine, sous-dossier /nom-du-repo/, ou domaine personnalisé).
-  base: './',
+  // Sous-dossier du dépôt GitHub Pages (https://noahlavagna.github.io/emma/).
+  // Si tu renommes le dépôt ou ajoutes un domaine perso, ajuste cette valeur ('/').
+  base: '/emma/',
   plugins: [react()],
 })

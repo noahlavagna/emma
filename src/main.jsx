@@ -1,15 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './styles/global.css'
 
-// HashRouter (URLs en /#/...) : fonctionne sur GitHub Pages sans config serveur,
-// même au rafraîchissement et sur les liens profonds.
+// URLs propres (sans #). Le basename suit le `base` de Vite (/emma/),
+// et un 404.html de secours gère le rafraîchissement des liens profonds.
+const base = import.meta.env.BASE_URL
+const basename = base === '/' ? '/' : base.replace(/\/$/, '')
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter basename={basename}>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>,
 )
