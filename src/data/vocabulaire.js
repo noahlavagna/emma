@@ -56,6 +56,7 @@ export const DECKS = [
       { id: 'monday', en: 'Monday', phon: '[man-dèï]', fr: 'lundi', exemple: 'On Monday I work.', exempleFr: 'Le lundi je travaille.' },
       { id: 'tuesday', en: 'Tuesday', phon: '[tiouz-dèï]', fr: 'mardi', exemple: 'See you on Tuesday.', exempleFr: 'À mardi.' },
       { id: 'wednesday', en: 'Wednesday', phon: '[wènz-dèï]', fr: 'mercredi', exemple: 'Wednesday is busy.', exempleFr: 'Mercredi est chargé.' },
+      { id: 'thursday', en: 'Thursday', phon: '[theurz-dèï]', fr: 'jeudi', exemple: 'I have a class on Thursday.', exempleFr: 'J’ai un cours le jeudi.' },
       { id: 'friday', en: 'Friday', phon: '[fraï-dèï]', fr: 'vendredi', exemple: 'Friday is my favourite day.', exempleFr: 'Vendredi est mon jour préféré.' },
       { id: 'saturday', en: 'Saturday', phon: '[sa-teur-dèï]', fr: 'samedi', exemple: 'On Saturday I rest.', exempleFr: 'Le samedi je me repose.' },
       { id: 'sunday', en: 'Sunday', phon: '[san-dèï]', fr: 'dimanche', exemple: 'Sunday is calm.', exempleFr: 'Dimanche est calme.' },

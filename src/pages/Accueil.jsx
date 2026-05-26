@@ -6,6 +6,7 @@ import { PROGRAMME } from '../data/programme.js'
 import { EXERCICES } from '../data/exercices.js'
 import { STORAGE_KEYS } from '../data/storage.js'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
+import { collecterJours, serieActuelle, serieRecord, actifAujourdhui } from '../lib/serie.js'
 import '../styles/accueil.css'
 
 const TOTAL_MOTS = DECKS.reduce((n, d) => n + d.mots.length, 0)
@@ -17,12 +18,23 @@ export default function Accueil() {
   const [appris] = useLocalStorage(STORAGE_KEYS.vocabAppris, {})
   const [joursRevises] = useLocalStorage(STORAGE_KEYS.revisionJours, {})
   const [progres] = useLocalStorage(STORAGE_KEYS.programmeJours, {})
+  const [scoresExos] = useLocalStorage(STORAGE_KEYS.exercices, {})
+  const [eclair] = useLocalStorage(STORAGE_KEYS.eclair, {})
   const [admin] = useLocalStorage(STORAGE_KEYS.admin, false)
   const exosDispo = admin ? TOTAL_EXOS : EXERCICES.filter((e) => progres[e.jourRequis]).length
 
   const nbAppris = Object.keys(appris).length
   const nbJoursRev = Object.keys(joursRevises).length
   const nbFaits = PROGRAMME.filter((j) => progres[j.jour]).length
+
+  // Série (streak) : jours consécutifs avec une activité, toutes sources confondues.
+  const joursActifs = collecterJours({
+    progres, revisions: joursRevises, exercices: scoresExos, vocab: appris, eclair,
+  })
+  const serie = serieActuelle(joursActifs)
+  const record = serieRecord(joursActifs)
+  const faitAujourdhui = actifAujourdhui(joursActifs)
+  const peutReviser = nbFaits > 0 || admin
   const pct = Math.round((nbFaits / TOTAL_PARCOURS) * 100)
   const prochain = PROGRAMME.find((j) => !progres[j.jour]) // premier jour non terminé
 
@@ -57,6 +69,33 @@ export default function Accueil() {
           🌱 En cours : 26 mai → 30 juin · Les bases
         </div>
       </header>
+
+      {/* ---------- Série (streak) + révision express ---------- */}
+      <section className="ruban-serie fade-up" style={{ animationDelay: '0.4s' }}>
+        <div className="serie-info">
+          <span className={`serie-flamme ${serie > 0 ? '' : 'eteinte'}`} aria-hidden="true">🔥</span>
+          <div>
+            <div className="serie-nb">
+              {serie > 0
+                ? `${serie} jour${serie > 1 ? 's' : ''} d’affilée`
+                : 'Allume ta série aujourd’hui'}
+            </div>
+            <div className="serie-sous">
+              {serie > 0
+                ? faitAujourdhui
+                  ? 'C’est fait pour aujourd’hui, bravo ! 🌸'
+                  : 'Une activité aujourd’hui pour garder la flamme 🌱'
+                : 'Une petite activité par jour, et elle s’allume 🌱'}
+              {record > 1 && record > serie ? ` · record : ${record}` : ''}
+            </div>
+          </div>
+        </div>
+        {peutReviser && (
+          <Link to="/revision-eclair" viewTransition className="btn btn-rose serie-cta">
+            ⚡ Révision express · 5 min
+          </Link>
+        )}
+      </section>
 
       {/* ---------- Le parcours, en vedette ---------- */}
       <section className="parcours-hero" data-reveal>

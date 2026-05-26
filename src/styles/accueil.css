@@ -26,6 +26,32 @@
 }
 .hero .badge { margin-top: 1.6rem; }
 
+/* ---------- Ruban de série (streak) ---------- */
+.ruban-serie {
+  max-width: 760px;
+  margin: 1.8rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, #fff, var(--rose-pale));
+  border: 1px solid var(--rose-soft);
+  border-radius: 20px;
+  padding: 1rem 1.4rem;
+  box-shadow: var(--ombre-douce);
+}
+.serie-info { display: flex; align-items: center; gap: 0.9rem; }
+.serie-flamme { font-size: 2.1rem; line-height: 1; filter: drop-shadow(0 2px 6px rgba(187, 79, 115, 0.25)); }
+.serie-flamme.eteinte { filter: grayscale(1); opacity: 0.55; }
+.serie-nb { font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--rose-deep); line-height: 1.15; }
+.serie-sous { font-size: 0.82rem; color: var(--texte-doux); }
+.serie-cta { white-space: nowrap; }
+@media (max-width: 560px) {
+  .ruban-serie { justify-content: center; }
+  .serie-cta { width: 100%; justify-content: center; }
+}
+
 /* ---------- Bloc parcours mis en avant ---------- */
 .parcours-hero {
   max-width: 760px;

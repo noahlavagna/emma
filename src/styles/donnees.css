@@ -1,0 +1,77 @@
+/* Page « Mes données » : sauvegarde, restauration, transfert entre appareils. */
+
+.donnees {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1rem;
+}
+
+.donnees-entete { text-align: center; margin-bottom: 1.8rem; }
+.donnees-entete .kicker {
+  font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--vert-deep);
+}
+.donnees-entete h1 { font-size: 2rem; margin: 0.3rem 0; }
+.donnees-entete p { color: var(--texte-doux); font-size: 0.95rem; }
+
+.donnees-bloc {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre-douce);
+  padding: 1.5rem 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.donnees-bloc h2 { font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; }
+.donnees-bloc p { color: var(--texte-doux); font-size: 0.9rem; margin: 0.4rem 0 1rem; }
+
+.donnees-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.donnees-actions .btn { justify-content: center; }
+
+.donnees-zone {
+  width: 100%;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  border: 2px solid var(--vert-soft);
+  background: var(--creme);
+  color: var(--texte);
+  resize: vertical;
+  min-height: 84px;
+  word-break: break-all;
+}
+.donnees-zone:focus { outline: none; border-color: var(--vert-deep); }
+
+.donnees-cloud {
+  background: linear-gradient(135deg, #fff, var(--vert-pale));
+  border-color: var(--vert-soft);
+}
+.donnees-delier {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--erreur);
+  background: var(--erreur-bg);
+  border-radius: 100px;
+  padding: 0.4rem 1rem;
+}
+.donnees-delier:hover { filter: brightness(0.97); }
+.donnees-garde {
+  margin-top: 0.9rem !important;
+  font-size: 0.82rem;
+  color: var(--or-doux) !important;
+}
+
+.donnees-message { font-weight: 700; font-size: 0.9rem; margin-top: 0.8rem; }
+.donnees-message.ok { color: var(--succes); }
+.donnees-message.ko { color: var(--erreur); }
+
+.donnees-note {
+  font-size: 0.82rem; color: var(--texte-doux);
+  text-align: center; line-height: 1.5; margin-top: 0.5rem;
+}
+.donnees-retour { display: block; text-align: center; margin-top: 1.2rem; font-size: 0.88rem; color: var(--texte-doux); }
+.donnees-retour:hover { text-decoration: underline; }

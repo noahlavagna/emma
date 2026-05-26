@@ -65,6 +65,18 @@ main { min-height: 60vh; }
   color: var(--texte-doux);
 }
 .pied .coeur { color: var(--rose-deep); font-style: normal; }
+.pied-liens { margin-bottom: 0.9rem; }
+.pied-lien {
+  font-style: normal;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--vert-deep);
+  background: var(--vert-pale);
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+}
+.pied-lien:hover { filter: brightness(0.97); text-decoration: none; }
 /* Point discret → mode test (admin) */
 .pied-admin { margin-left: 0.6rem; opacity: 0.3; font-style: normal; }
 .pied-admin:hover { opacity: 0.7; }
