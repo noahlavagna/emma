@@ -44,30 +44,35 @@ export default function ScrollManager() {
     }
   }, [])
 
-  // Retour en haut + (re)scan des éléments à révéler à chaque changement de page.
+  // Retour en haut à chaque changement de page.
   useEffect(() => {
     if (lenisRef.current) lenisRef.current.scrollTo(0, { immediate: true })
     else window.scrollTo(0, 0)
-
-    if (reduitMouvement()) return
-    // Laisse le DOM de la nouvelle page se peindre avant d'observer.
-    const t = setTimeout(() => {
-      const cibles = document.querySelectorAll('[data-reveal]:not(.revealed)')
-      const obs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add('revealed')
-              obs.unobserve(e.target)
-            }
-          })
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-      )
-      cibles.forEach((el) => obs.observe(el))
-    }, 60)
-    return () => clearTimeout(t)
   }, [pathname])
+
+  // Apparition au scroll : observateur persistant. Un MutationObserver capte
+  // aussi les [data-reveal] ajoutés dynamiquement (étapes d'une leçon, changement
+  // de phase), sinon ils resteraient invisibles faute d'être observés.
+  useEffect(() => {
+    if (reduitMouvement()) return
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('revealed')
+            io.unobserve(e.target)
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+    const scan = () =>
+      document.querySelectorAll('[data-reveal]:not(.revealed)').forEach((el) => io.observe(el))
+    scan()
+    const mo = new MutationObserver(scan)
+    mo.observe(document.body, { childList: true, subtree: true })
+    return () => { io.disconnect(); mo.disconnect() }
+  }, [])
 
   return null
 }
