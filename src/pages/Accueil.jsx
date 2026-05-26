@@ -7,6 +7,7 @@ import { EXERCICES } from '../data/exercices.js'
 import { STORAGE_KEYS } from '../data/storage.js'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import { collecterJours, serieActuelle, serieRecord, actifAujourdhui } from '../lib/serie.js'
+import emmaPhoto from '../assets/emma.jpg'
 import '../styles/accueil.css'
 
 const TOTAL_MOTS = DECKS.reduce((n, d) => n + d.mots.length, 0)
@@ -164,7 +165,7 @@ export default function Accueil() {
 
       <section className="emma-bloc" data-reveal>
         <div className="emma-bulle">
-          <div className="emma-avatar" aria-hidden="true">👩🏻‍🏫</div>
+          <div className="emma-avatar"><img src={emmaPhoto} alt="Emma, ta prof d’anglais" /></div>
           <div className="nom">— Emma</div>
           <p className="message">
             « Tu pars de zéro ? <em>Parfait.</em><br />
