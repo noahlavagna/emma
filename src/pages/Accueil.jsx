@@ -50,7 +50,7 @@ export default function Accueil() {
           en sessions courtes de 20 à 30 minutes, à ton rythme.
         </p>
         <div className="badge fade-up" style={{ animationDelay: '0.3s' }}>
-          🌱 En cours : 26 mai → 10 juin · Les bases
+          🌱 En cours : 26 mai → 30 juin · Les bases
         </div>
       </header>
 
@@ -59,7 +59,7 @@ export default function Accueil() {
         <div className="pastille-jour">Le cœur de ta progression</div>
         <h2>Ton parcours en <em>{TOTAL_PARCOURS} jours</em></h2>
         <p>
-          Une vraie leçon complète par jour, du 26 mai au 10 juin : vocabulaire,
+          Une vraie leçon complète par jour, du 26 mai au 30 juin : vocabulaire,
           grammaire, conjugaison, dialogue, prononciation, puis un quiz pour ancrer.
         </p>
         <div className="piste"><span style={{ width: `${pct}%` }} /></div>

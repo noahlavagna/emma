@@ -61,7 +61,7 @@ export default function Parcours() {
   return (
     <div className="parcours">
       <header className="parcours-entete">
-        <div className="kicker">Du 26 mai au 10 juin · Les bases</div>
+        <div className="kicker">Du 26 mai au 30 juin · Les bases</div>
         <h1>Ton parcours en <em>{PROGRAMME.length} jours</em></h1>
         <p>Une leçon par jour : vocabulaire, grammaire, conjugaison, dialogue, prononciation, puis quiz.</p>
       </header>
