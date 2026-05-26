@@ -70,6 +70,7 @@
   pointer-events: none;
 }
 .parcours-carte .num {
+  display: block;
   font-family: 'Fraunces', serif; font-style: italic;
   font-size: 0.78rem; color: var(--texte-doux); letter-spacing: 0.06em;
 }
