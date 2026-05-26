@@ -1,0 +1,218 @@
+.voc {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1rem;
+}
+
+.voc-entete { text-align: center; margin-bottom: 2rem; }
+.voc-entete .kicker {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--texte-doux);
+}
+.voc-entete h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin: 0.4rem 0; }
+.voc-entete h1 em { font-style: italic; color: var(--rose-deep); }
+.voc-entete p { color: var(--texte-doux); }
+
+/* ---------- Choix du thème ---------- */
+.deck-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.1rem;
+}
+.deck-carte {
+  text-align: left;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 1.4rem;
+  box-shadow: var(--ombre-douce);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+.deck-carte:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(187, 79, 115, 0.16); }
+.deck-carte .emoji { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+.deck-carte h3 { font-size: 1.25rem; font-weight: 500; }
+.deck-carte .meta { font-size: 0.85rem; color: var(--texte-doux); margin-top: 0.3rem; }
+.deck-carte .barre-mini {
+  margin-top: 0.9rem;
+  height: 7px;
+  border-radius: 100px;
+  background: var(--beige);
+  overflow: hidden;
+}
+.deck-carte .barre-mini span {
+  display: block;
+  height: 100%;
+  background: var(--vert-deep);
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+
+/* ---------- Barre de progression de session ---------- */
+.voc-progress {
+  height: 8px;
+  border-radius: 100px;
+  background: var(--beige);
+  overflow: hidden;
+  margin-bottom: 1.6rem;
+}
+.voc-progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--vert-deep), var(--rose-deep));
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+.voc-compteur { text-align: center; font-size: 0.85rem; color: var(--texte-doux); margin-bottom: 1rem; }
+
+/* ---------- Flashcard ---------- */
+.flashcard {
+  perspective: 1200px;
+  width: 100%;
+  height: 320px;
+  margin-bottom: 1.4rem;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.flashcard.retournee .flashcard-inner { transform: rotateY(180deg); }
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--rayon);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--ombre-douce);
+}
+.flashcard-face .indice {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 0.78rem;
+  color: var(--texte-doux);
+  letter-spacing: 0.04em;
+}
+
+.flashcard-face.avant {
+  background: linear-gradient(140deg, #fff, var(--vert-pale));
+  border: 1px solid var(--vert-soft);
+}
+.flashcard-face.avant .mot {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 8vw, 3.4rem);
+  color: var(--texte);
+}
+.flashcard-face.avant .phon { font-size: 1.2rem; color: var(--vert-deep); font-weight: 700; margin-top: 0.5rem; }
+
+.flashcard-face.arriere {
+  transform: rotateY(180deg);
+  background: linear-gradient(140deg, #fff, var(--rose-pale));
+  border: 1px solid var(--rose-soft);
+}
+.flashcard-face.arriere .trad {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  color: var(--rose-deep);
+  margin-bottom: 1rem;
+}
+.flashcard-face.arriere .exemple { font-size: 1.05rem; color: var(--texte); font-weight: 600; }
+.flashcard-face.arriere .exemple-fr { font-size: 0.95rem; color: var(--texte-doux); font-style: italic; margin-top: 0.3rem; }
+
+.btn-voix {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 1.1rem;
+  background: #fff;
+  border: 1px solid var(--vert-soft);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.btn-voix:hover { background: var(--vert-pale); }
+
+.voc-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+
+/* ---------- Exercice ---------- */
+.exo { text-align: center; }
+.exo .consigne { color: var(--texte-doux); margin-bottom: 0.4rem; }
+.exo .a-traduire {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  color: var(--texte);
+  margin-bottom: 0.4rem;
+}
+.exo .phon-aide { color: var(--vert-deep); font-weight: 700; margin-bottom: 1.4rem; }
+
+.exo-form { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+.exo input {
+  font-family: inherit;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 14px;
+  border: 2px solid var(--vert-soft);
+  background: #fff;
+  color: var(--texte);
+  min-width: 240px;
+  text-align: center;
+}
+.exo input:focus { outline: none; border-color: var(--vert-deep); }
+.exo input.juste { border-color: var(--succes); background: var(--succes-bg); }
+.exo input.faux { border-color: var(--erreur); background: var(--erreur-bg); }
+
+.feedback {
+  margin-top: 1.4rem;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: left;
+}
+.feedback.juste { background: var(--succes-bg); color: var(--succes); }
+.feedback.faux { background: var(--erreur-bg); color: var(--erreur); }
+.feedback .bonne { font-weight: 800; }
+
+/* ---------- Bilan ---------- */
+.bilan { text-align: center; }
+.bilan .score-cercle {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  margin: 0 auto 1.4rem;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--vert-pale), var(--rose-pale));
+  border: 2px solid #fff;
+  box-shadow: var(--ombre-douce);
+}
+.bilan .score-cercle .chiffre { font-family: 'Fraunces', serif; font-size: 2.6rem; color: var(--texte); }
+.bilan .score-cercle .sur { font-size: 0.85rem; color: var(--texte-doux); }
+.bilan h2 { font-size: 1.8rem; margin-bottom: 0.6rem; }
+.bilan .mot-emma {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--texte);
+  max-width: 460px;
+  margin: 0 auto 1.8rem;
+}
+.bilan .actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .flashcard { height: 280px; }
+  .exo input { min-width: 0; width: 100%; }
+}

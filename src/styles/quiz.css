@@ -1,0 +1,86 @@
+/* Moteur de quiz / exercices — partagé par les leçons (Jour) et la Révision. */
+
+.quiz-progress {
+  height: 8px;
+  border-radius: 100px;
+  background: var(--beige);
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+.quiz-progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--vert-deep), var(--rose-deep));
+  border-radius: 100px;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.quiz-compteur { text-align: center; font-size: 0.85rem; color: var(--texte-doux); margin-bottom: 1.2rem; }
+
+.q-carte {
+  background: #fff;
+  border-radius: var(--rayon);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--ombre-douce);
+  padding: 2rem 1.6rem;
+  text-align: center;
+}
+.q-type {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--violet-deep);
+  background: var(--violet-soft);
+  border-radius: 100px;
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 1rem;
+}
+.q-consigne { color: var(--texte-doux); font-size: 0.95rem; margin-bottom: 0.5rem; }
+.q-enonce {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  color: var(--texte);
+  line-height: 1.3;
+  margin-bottom: 1.4rem;
+}
+
+.q-form { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+.q-form input {
+  font-family: inherit;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 14px;
+  border: 2px solid var(--vert-soft);
+  background: #fff;
+  color: var(--texte);
+  min-width: 220px;
+  text-align: center;
+}
+.q-form input:focus { outline: none; border-color: var(--vert-deep); }
+.q-form input.juste { border-color: var(--succes); background: var(--succes-bg); }
+.q-form input.faux { border-color: var(--erreur); background: var(--erreur-bg); }
+
+.vf-boutons { display: flex; gap: 0.8rem; justify-content: center; }
+.vf-boutons .btn { min-width: 120px; justify-content: center; }
+.vf-boutons .btn.choisi-juste { background: var(--succes); color: #fff; }
+.vf-boutons .btn.choisi-faux { background: var(--erreur); color: #fff; }
+
+.q-feedback {
+  margin-top: 1.4rem;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+.q-feedback.juste { background: var(--succes-bg); color: var(--succes); }
+.q-feedback.faux { background: var(--erreur-bg); color: var(--erreur); }
+.q-feedback .bonne { font-weight: 800; }
+.q-feedback .expli { display: block; margin-top: 0.4rem; font-weight: 500; color: var(--texte); }
+
+.q-suite { margin-top: 1.4rem; display: flex; justify-content: center; }
+
+@media (max-width: 640px) {
+  .q-form input { min-width: 0; width: 100%; }
+  .vf-boutons .btn { min-width: 0; flex: 1; }
+}

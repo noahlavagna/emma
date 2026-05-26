@@ -1,0 +1,94 @@
+.parcours {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1rem;
+}
+.parcours-entete { text-align: center; margin-bottom: 0.6rem; }
+.parcours-entete .kicker {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--texte-doux);
+}
+.parcours-entete h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin: 0.4rem 0; }
+.parcours-entete h1 em { font-style: italic; color: var(--vert-deep); }
+.parcours-entete p { color: var(--texte-doux); }
+
+.parcours-barre {
+  max-width: 460px;
+  margin: 1.2rem auto 2.4rem;
+}
+.parcours-barre .piste {
+  height: 10px; border-radius: 100px; background: var(--beige); overflow: hidden;
+}
+.parcours-barre .piste span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--vert-deep), var(--rose-deep));
+  border-radius: 100px; transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.parcours-barre .compteur { text-align: center; font-size: 0.85rem; color: var(--texte-doux); margin-top: 0.5rem; font-weight: 700; }
+
+.parcours-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.1rem;
+}
+.parcours-carte {
+  position: relative;
+  display: block;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 1.3rem 1.3rem 1.4rem;
+  box-shadow: var(--ombre-douce);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  overflow: hidden;
+}
+.parcours-carte:hover { transform: translateY(-5px); box-shadow: 0 18px 42px rgba(74, 124, 69, 0.18); }
+.parcours-carte.fait { border-color: var(--vert-soft); }
+.parcours-carte.fait::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(140deg, rgba(228,240,225,0.6), transparent 60%);
+  pointer-events: none;
+}
+.parcours-carte .num {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 0.78rem; color: var(--texte-doux); letter-spacing: 0.06em;
+}
+.parcours-carte .emoji { font-size: 1.8rem; display: block; margin: 0.3rem 0 0.4rem; }
+.parcours-carte h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.3rem; position: relative; }
+.parcours-carte .obj { font-size: 0.85rem; color: var(--texte-doux); line-height: 1.4; position: relative; }
+.parcours-carte .etat {
+  position: absolute; top: 1.1rem; right: 1.1rem;
+  font-size: 0.72rem; font-weight: 800;
+  padding: 0.2rem 0.55rem; border-radius: 100px;
+}
+.parcours-carte .etat.ok { background: var(--vert-pale); color: var(--vert-deep); }
+.parcours-carte .etat.todo { background: var(--beige); color: var(--or-doux); }
+.parcours-carte .etat.lock { background: transparent; font-size: 1rem; padding: 0; }
+
+/* Jour verrouillé */
+.parcours-carte.verrou {
+  cursor: not-allowed;
+  background: var(--creme);
+  box-shadow: none;
+  opacity: 0.7;
+}
+.parcours-carte.verrou:hover { transform: none; box-shadow: none; }
+.parcours-carte.verrou .emoji { filter: grayscale(0.7); opacity: 0.6; }
+.parcours-carte.verrou h3 { color: var(--texte-doux); }
+.parcours-carte .commencer {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-top: 0.9rem; font-size: 0.85rem; font-weight: 700; color: var(--vert-deep);
+  position: relative;
+}
+.parcours-carte:hover .commencer { gap: 0.7rem; }
+
+@media (max-width: 640px) {
+  .parcours-grille { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 420px) {
+  .parcours-grille { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "emma-anglais",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Site d'apprentissage de l'anglais en douceur avec Emma",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lenis": "^1.3.23",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.8"
+  }
+}

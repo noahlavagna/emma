@@ -1,0 +1,38 @@
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Layout from './components/Layout.jsx'
+import Accueil from './pages/Accueil.jsx'
+import Vocabulaire from './pages/Vocabulaire.jsx'
+import Revision from './pages/Revision.jsx'
+import Parcours from './pages/Parcours.jsx'
+import Jour from './pages/Jour.jsx'
+import SessionPlaceholder from './components/SessionPlaceholder.jsx'
+import { SESSIONS } from './data/sessions.js'
+
+export default function App() {
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Accueil />} />
+
+        {/* Le parcours jour par jour */}
+        <Route path="/parcours" element={<Parcours />} />
+        <Route path="/jour/:n" element={<Jour />} />
+
+        {/* Entraînement libre */}
+        <Route path="/session/vocabulaire" element={<Vocabulaire />} />
+        <Route path="/session/revision" element={<Revision />} />
+
+        {/* Sessions pas encore implémentées en libre → placeholder élégant */}
+        {SESSIONS.filter((s) => !s.pret).map((s) => (
+          <Route
+            key={s.slug}
+            path={`/session/${s.slug}`}
+            element={<SessionPlaceholder session={s} />}
+          />
+        ))}
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Layout>
+  )
+}
