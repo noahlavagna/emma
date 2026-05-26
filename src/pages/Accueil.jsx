@@ -91,7 +91,7 @@ export default function Accueil() {
           </div>
         </div>
         {peutReviser && (
-          <Link to="/revision-eclair" viewTransition className="btn btn-rose serie-cta">
+          <Link to="/revision-eclair" className="btn btn-rose serie-cta">
             ⚡ Révision express · 5 min
           </Link>
         )}
@@ -100,7 +100,7 @@ export default function Accueil() {
       {/* ---------- Le parcours, en vedette ---------- */}
       <section className="parcours-hero" data-reveal>
         <div className="pastille-jour">Le cœur de ta progression</div>
-        <h2>Ton parcours en <em>{TOTAL_PARCOURS} jours</em></h2>
+        <h2>Ton parcours en <em>3 mois</em></h2>
         <p>
           Une vraie leçon complète par jour, du 26 mai au 30 juin : vocabulaire,
           grammaire, conjugaison, dialogue, prononciation, puis un quiz pour ancrer.
@@ -108,8 +108,8 @@ export default function Accueil() {
         <div className="piste"><span style={{ width: `${pct}%` }} /></div>
         <div className="compteur">{nbFaits} / {TOTAL_PARCOURS} jours terminés</div>
         <div className="actions">
-          <Link to={ctaLien} viewTransition className="btn btn-primaire">{ctaTexte}</Link>
-          <Link to="/parcours" viewTransition className="btn btn-doux">Voir les {TOTAL_PARCOURS} jours</Link>
+          <Link to={ctaLien} className="btn btn-primaire">{ctaTexte}</Link>
+          <Link to="/parcours" className="btn btn-doux">Voir le parcours</Link>
         </div>
         <p className="note">
           La grammaire, la conjugaison, le dialogue et la prononciation sont travaillés
@@ -125,7 +125,7 @@ export default function Accueil() {
         </div>
 
         {/* Atelier d'exercices — la grande boîte à exercices, en vedette */}
-        <Link to="/session/exercices" viewTransition className="atelier-vedette fade-up">
+        <Link to="/session/exercices" className="atelier-vedette fade-up">
           <div className="atelier-vedette-txt">
             <span className="puce-etat">{exosDispo}/{TOTAL_EXOS} débloqués</span>
             <span className="icone" aria-hidden="true">🎯</span>
@@ -145,7 +145,6 @@ export default function Accueil() {
             <Link
               key={s.slug}
               to={`/session/${s.slug}`}
-              viewTransition
               className={`carte ${s.accent} fade-up`}
               style={{ animationDelay: `${0.1 + i * 0.08}s` }}
             >

@@ -107,7 +107,7 @@ export default function Quiz({ questions, onDone, labelFin = 'Terminer' }) {
       </div>
       <div className="quiz-compteur">Question {idx + 1} / {questions.length}</div>
 
-      <div className="q-carte">
+      <div className="q-carte" key={idx}>
         <span className="q-type">{LIBELLE_TYPE[q.type] || 'Question'}</span>
         <p className="q-consigne">{consigneDe(q)}</p>
 

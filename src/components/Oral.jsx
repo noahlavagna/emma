@@ -30,7 +30,7 @@ export default function Oral({ phrases, onDone }) {
       </div>
       <div className="quiz-compteur">Phrase {idx + 1} / {phrases.length}</div>
 
-      <div className="q-carte oral-carte">
+      <div className="q-carte oral-carte" key={idx}>
         <span className="q-type">À toi de parler</span>
         <p className="q-consigne">Lis cette phrase à voix haute :</p>
         <div className="oral-fr">{phrase.fr}</div>

@@ -48,7 +48,7 @@ export default function Parcours() {
     }
 
     return (
-      <Link key={j.jour} to={`/jour/${j.jour}`} viewTransition className={`parcours-carte ${fait ? 'fait' : ''}`} data-reveal data-reveal-delay={reveal}>
+      <Link key={j.jour} to={`/jour/${j.jour}`} className={`parcours-carte ${fait ? 'fait' : ''}`} data-reveal data-reveal-delay={reveal}>
         <span className={`etat ${fait ? 'ok' : 'todo'}`}>
           {fait ? (fait.total ? `✓ ${fait.score}/${fait.total}` : '✓ fait') : 'à faire'}
         </span>
@@ -68,7 +68,7 @@ export default function Parcours() {
     <div className="parcours">
       <header className="parcours-entete">
         <div className="kicker fade-up">Du 26 mai au 30 juin · Les bases</div>
-        <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>Ton parcours en <em>{PROGRAMME.length} jours</em></h1>
+        <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>Ton parcours en <em>3 mois</em></h1>
         <p className="fade-up" style={{ animationDelay: '0.16s' }}>Une leçon par jour : vocabulaire, grammaire, conjugaison, dialogue, prononciation, puis quiz.</p>
       </header>
 

@@ -28,15 +28,20 @@ export default function Revision() {
     return (
       <div className="rev">
         <header className="rev-entete">
-          <div className="kicker">Entraînement libre · Révision</div>
-          <h1>{JOURS_REVISION.length} jours de <em>révision</em></h1>
-          <p>Un quiz mélangé par jour (8 à 10 questions). Choisis ton jour. 🌷</p>
+          <div className="kicker fade-up">Entraînement libre · Révision</div>
+          <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>{JOURS_REVISION.length} jours de <em>révision</em></h1>
+          <p className="fade-up" style={{ animationDelay: '0.16s' }}>Un quiz mélangé par jour (8 à 10 questions). Choisis ton jour. 🌷</p>
         </header>
         <div className="jour-grille">
-          {JOURS_REVISION.map((j) => {
+          {JOURS_REVISION.map((j, i) => {
             const fait = jours[j.jour]
             return (
-              <button key={j.jour} className={`jour-carte ${fait ? 'fait' : ''}`} onClick={() => ouvrir(j.jour)}>
+              <button
+                key={j.jour}
+                className={`jour-carte fade-up ${fait ? 'fait' : ''}`}
+                style={{ animationDelay: `${0.2 + Math.min(i, 8) * 0.05}s` }}
+                onClick={() => ouvrir(j.jour)}
+              >
                 {fait && (
                   <span className="score-tag">
                     {fait.meilleur === fait.total ? '★ ' : ''}{fait.meilleur}/{fait.total}

@@ -23,6 +23,12 @@
   box-shadow: var(--ombre-douce);
   padding: 2rem 1.6rem;
   text-align: center;
+  animation: q-apparait 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+/* Rejouée à chaque question (clé = index) : fondu + légère montée. */
+@keyframes q-apparait {
+  from { opacity: 0; transform: translateY(16px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 .q-type {
   display: inline-block;
