@@ -1,0 +1,175 @@
+/* Atelier d'entraînement libre : catalogue d'exercices, lecture, oral, bilan.
+   Le moteur de questions lui-même est stylé dans quiz.css. */
+
+.atelier {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1rem;
+}
+
+/* ---------- En-tête ---------- */
+.atelier-entete { text-align: center; margin-bottom: 2.2rem; }
+.atelier-entete.compact { margin-bottom: 1.4rem; }
+.atelier-entete .kicker {
+  font-family: 'Fraunces', serif; font-style: italic;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  font-size: 0.8rem; color: var(--texte-doux);
+}
+.atelier-entete h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); margin: 0.4rem 0; }
+.atelier-entete h1 em { font-style: italic; color: var(--rose-deep); }
+.atelier-entete p { color: var(--texte-doux); max-width: 580px; margin: 0 auto; }
+.atelier-compteur {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.82rem; font-weight: 800; color: var(--vert-deep);
+  background: var(--vert-pale); border-radius: 100px; padding: 0.3rem 0.9rem;
+}
+.exo-consigne-haut {
+  font-family: 'Fraunces', serif; font-style: italic;
+  color: var(--texte); max-width: 600px; margin: 0.6rem auto 0;
+}
+.exo-retour {
+  display: inline-block; margin-bottom: 0.8rem;
+  font-weight: 700; font-size: 0.88rem; color: var(--vert-deep);
+}
+.exo-retour:hover { text-decoration: underline; }
+
+/* ---------- Niveaux ---------- */
+.atelier-niveau { margin-bottom: 2.4rem; }
+.niveau-tete { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+.niveau-tete .niveau-emoji {
+  font-size: 1.4rem; width: 44px; height: 44px;
+  display: grid; place-items: center; border-radius: 50%;
+  background: var(--beige);
+}
+.niveau-tete h2 { font-size: 1.4rem; line-height: 1.1; }
+.niveau-tete .niveau-sous { font-size: 0.82rem; color: var(--texte-doux); }
+.niveau-tete.rose .niveau-emoji { background: var(--rose-pale); }
+.niveau-tete.vert .niveau-emoji { background: var(--vert-pale); }
+.niveau-tete.or .niveau-emoji { background: var(--or-soft); }
+
+/* ---------- Cartes d'exercice ---------- */
+.exo-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.exo-carte {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 18px;
+  padding: 1.2rem 1.2rem 1.3rem;
+  box-shadow: var(--ombre-douce);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; flex-direction: column;
+}
+.exo-carte:not(.verrou):hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(74, 124, 69, 0.16); }
+.exo-carte.rose { border-color: var(--rose-soft); }
+.exo-carte.vert { border-color: var(--vert-soft); }
+.exo-carte.or { border-color: var(--or-soft); }
+.exo-type {
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.02em;
+  color: var(--violet-deep);
+}
+.exo-emoji { font-size: 1.7rem; display: block; margin: 0.3rem 0 0.2rem; }
+.exo-carte h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.4rem; }
+.exo-intro { font-size: 0.83rem; color: var(--texte-doux); line-height: 1.45; flex: 1; }
+.exo-pied {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 0.9rem; font-size: 0.78rem;
+}
+.exo-duree { color: var(--texte-doux); }
+.exo-go { font-weight: 800; color: var(--vert-deep); }
+.exo-score {
+  position: absolute; top: 0.9rem; right: 0.9rem;
+  font-size: 0.72rem; font-weight: 800;
+  padding: 0.18rem 0.5rem; border-radius: 100px;
+  background: var(--vert-pale); color: var(--vert-deep);
+}
+
+/* Carte verrouillée */
+.exo-carte.verrou { background: #faf8f5; box-shadow: none; cursor: not-allowed; }
+.exo-carte.verrou .exo-type,
+.exo-carte.verrou h3 { color: var(--texte-doux); }
+.exo-cadenas { position: absolute; top: 0.9rem; right: 0.9rem; font-size: 1.1rem; opacity: 0.7; }
+.exo-deblocage { font-size: 0.82rem; color: var(--or-doux); margin-top: 0.3rem; }
+
+/* ---------- Lecture (compréhension écrite) ---------- */
+.lecture-texte {
+  background: #fff;
+  border: 1px solid var(--vert-soft);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre-douce);
+  padding: 1.4rem 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.lecture-tete {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.8rem;
+}
+.lecture-pastille {
+  font-size: 0.74rem; font-weight: 800; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--vert-deep);
+}
+.lecture-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.lecture-toggle {
+  font-size: 0.78rem; font-weight: 700; color: var(--texte-doux);
+  background: var(--beige); border-radius: 100px; padding: 0.4rem 0.9rem;
+}
+.lecture-toggle:hover { background: var(--vert-pale); color: var(--vert-deep); }
+.lecture-corps { }
+.lecture-ligne {
+  font-family: 'Fraunces', serif; font-size: 1.2rem; line-height: 1.5;
+  color: var(--texte); margin-bottom: 0.3rem;
+}
+.lecture-trad { font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-style: italic; color: var(--texte-doux); }
+.lecture-glossaire {
+  margin-top: 0.9rem; padding-top: 0.8rem; border-top: 1px dashed var(--vert-soft);
+  display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.82rem; color: var(--texte-doux);
+}
+.lecture-consigne { text-align: center; font-size: 0.85rem; color: var(--texte-doux); margin-bottom: 1rem; }
+
+/* ---------- Oral (expression orale) ---------- */
+.oral-carte .oral-fr {
+  font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 4.5vw, 2rem);
+  color: var(--texte); margin-bottom: 1rem; line-height: 1.3;
+}
+.oral-modele {
+  background: var(--vert-pale); border-radius: 16px;
+  padding: 0.9rem 1rem; margin-bottom: 1rem;
+}
+.oral-en { font-weight: 800; color: var(--vert-deep); font-size: 1.1rem; }
+.oral-phon { font-size: 0.9rem; color: var(--texte-doux); margin-top: 0.2rem; }
+.oral-aide { font-size: 0.85rem; color: var(--texte-doux); margin-bottom: 1.2rem; }
+.oral-nav { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Bilan ---------- */
+.exo-bilan { text-align: center; }
+.exo-bilan .score-cercle {
+  width: 140px; height: 140px; border-radius: 50%;
+  margin: 0 auto 1.4rem; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--vert-pale), var(--rose-pale));
+  border: 2px solid #fff; box-shadow: var(--ombre-douce);
+}
+.exo-bilan .bilan-emoji {
+  font-size: 3.4rem; margin-bottom: 1rem;
+}
+.exo-bilan .chiffre { font-family: 'Fraunces', serif; font-size: 2.6rem; color: var(--texte); }
+.exo-bilan .sur { font-size: 0.85rem; color: var(--texte-doux); }
+.exo-bilan h2 { font-size: 1.7rem; margin-bottom: 0.5rem; }
+.exo-bilan .record { font-size: 0.9rem; color: var(--vert-deep); font-weight: 700; margin-bottom: 0.8rem; }
+.exo-bilan .mot-emma {
+  font-family: 'Fraunces', serif; font-style: italic; font-size: 1.12rem;
+  color: var(--texte); max-width: 460px; margin: 0 auto 1.8rem;
+}
+.exo-bilan .actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .exo-grille { grid-template-columns: 1fr 1fr; }
+  .lecture-ligne { font-size: 1.05rem; }
+}
+@media (max-width: 420px) {
+  .exo-grille { grid-template-columns: 1fr; }
+}

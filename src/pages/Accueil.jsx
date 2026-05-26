@@ -3,6 +3,7 @@ import { SESSIONS } from '../data/sessions.js'
 import { DECKS } from '../data/vocabulaire.js'
 import { JOURS_REVISION } from '../data/revision.js'
 import { PROGRAMME } from '../data/programme.js'
+import { EXERCICES } from '../data/exercices.js'
 import { STORAGE_KEYS } from '../data/storage.js'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import '../styles/accueil.css'
@@ -10,11 +11,14 @@ import '../styles/accueil.css'
 const TOTAL_MOTS = DECKS.reduce((n, d) => n + d.mots.length, 0)
 const TOTAL_JOURS = JOURS_REVISION.length
 const TOTAL_PARCOURS = PROGRAMME.length
+const TOTAL_EXOS = EXERCICES.length
 
 export default function Accueil() {
   const [appris] = useLocalStorage(STORAGE_KEYS.vocabAppris, {})
   const [joursRevises] = useLocalStorage(STORAGE_KEYS.revisionJours, {})
   const [progres] = useLocalStorage(STORAGE_KEYS.programmeJours, {})
+  const [admin] = useLocalStorage(STORAGE_KEYS.admin, false)
+  const exosDispo = admin ? TOTAL_EXOS : EXERCICES.filter((e) => progres[e.jourRequis]).length
 
   const nbAppris = Object.keys(appris).length
   const nbJoursRev = Object.keys(joursRevises).length
@@ -80,6 +84,22 @@ export default function Accueil() {
           <div className="ligne">Quand tu veux réviser seule</div>
           <h2>Entraînement <em>libre</em></h2>
         </div>
+
+        {/* Atelier d'exercices — la grande boîte à exercices, en vedette */}
+        <Link to="/session/exercices" viewTransition className="atelier-vedette fade-up">
+          <div className="atelier-vedette-txt">
+            <span className="puce-etat">{exosDispo}/{TOTAL_EXOS} débloqués</span>
+            <span className="icone" aria-hidden="true">🎯</span>
+            <h3>L’atelier d’exercices</h3>
+            <p>
+              {TOTAL_EXOS} exercices de tous types — compréhension écrite et orale,
+              expression orale, dictées, exercices mélangés — classés par difficulté
+              et débloqués au fil de ton parcours.
+            </p>
+            <span className="commencer">Ouvrir l’atelier <span aria-hidden="true">→</span></span>
+          </div>
+          <div className="atelier-vedette-deco" aria-hidden="true">📖🎧🗣️✍️🧩</div>
+        </Link>
 
         <div className="grille">
           {sessionsLibres.map((s, i) => (

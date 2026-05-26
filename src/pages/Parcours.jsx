@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { PROGRAMME, estDebloque } from '../data/programme.js'
+import { PROGRAMME, raisonVerrou } from '../data/programme.js'
 import { STORAGE_KEYS } from '../data/storage.js'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import '../styles/parcours.css'
@@ -12,6 +12,7 @@ const MOIS = {
 
 export default function Parcours() {
   const [progres] = useLocalStorage(STORAGE_KEYS.programmeJours, {})
+  const [admin] = useLocalStorage(STORAGE_KEYS.admin, false)
   const nbFaits = PROGRAMME.filter((j) => progres[j.jour]).length
   const pct = Math.round((nbFaits / PROGRAMME.length) * 100)
 
@@ -25,18 +26,22 @@ export default function Parcours() {
 
   const renderCarte = (j) => {
     const fait = progres[j.jour]
-    const debloque = estDebloque(j.jour, progres)
+    const verrou = raisonVerrou(j.jour, progres, admin)
 
     // Jour verrouillé → carte non cliquable avec cadenas.
-    if (!debloque) {
+    if (verrou) {
+      const message =
+        verrou === 'date'
+          ? `Cette leçon s’ouvrira le ${j.date}. Reviens ce jour-là ! 🌱`
+          : `Termine d’abord le jour ${j.jour - 1} pour débloquer cette leçon.`
       return (
         <div key={j.jour} className="parcours-carte verrou" aria-disabled="true">
-          <span className="etat lock">🔒</span>
+          <span className="etat lock">{verrou === 'date' ? '📅' : '🔒'}</span>
           <span className="num">— Jour {j.jour}</span>
           <span className="date">{j.date}</span>
           <span className="emoji" aria-hidden="true">{j.emoji}</span>
           <h3>{j.titre}</h3>
-          <p className="obj">Termine d’abord le jour {j.jour - 1} pour débloquer cette leçon.</p>
+          <p className="obj">{message}</p>
         </div>
       )
     }

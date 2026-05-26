@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { getJourProgramme, PROGRAMME, estDebloque } from '../data/programme.js'
+import { getJourProgramme, PROGRAMME, raisonVerrou } from '../data/programme.js'
 import { getJour } from '../data/revision.js'
 import { STORAGE_KEYS } from '../data/storage.js'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
@@ -34,6 +34,7 @@ export default function Jour() {
   const quizRevision = getJour(n)
 
   const [progres, setProgres] = useLocalStorage(STORAGE_KEYS.programmeJours, {})
+  const [admin] = useLocalStorage(STORAGE_KEYS.admin, false)
   const [step, setStep] = useState(0)
   const [scoreQuiz, setScoreQuiz] = useState(null)
 
@@ -52,8 +53,24 @@ export default function Jour() {
     )
   }
 
-  // Jour verrouillé : il faut d'abord terminer le précédent.
-  if (!estDebloque(jour.jour, progres)) {
+  // Jour verrouillé : soit la date n'est pas arrivée, soit le précédent n'est pas fini.
+  const verrou = raisonVerrou(jour.jour, progres, admin)
+  if (verrou === 'date') {
+    return (
+      <div className="jour" style={{ textAlign: 'center', paddingTop: '4rem' }}>
+        <div style={{ fontSize: '3rem' }} aria-hidden="true">📅</div>
+        <h1>Jour {jour.jour} pas encore ouvert</h1>
+        <p style={{ color: 'var(--texte-doux)', margin: '1rem 0 1.6rem' }}>
+          Cette leçon s’ouvrira le <strong>{jour.date}</strong>. Une leçon par jour, le vrai jour : ça laisse le temps de bien ancrer. Reviens ce jour-là ! 🌱
+        </p>
+        <div className="jour-actions">
+          <Link to="/parcours" className="btn btn-primaire">Voir le parcours</Link>
+          <Link to="/session/exercices" className="btn btn-doux">En attendant, t’entraîner librement →</Link>
+        </div>
+      </div>
+    )
+  }
+  if (verrou === 'sequence') {
     return (
       <div className="jour" style={{ textAlign: 'center', paddingTop: '4rem' }}>
         <div style={{ fontSize: '3rem' }} aria-hidden="true">🔒</div>

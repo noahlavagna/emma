@@ -66,6 +66,27 @@
 .vf-boutons .btn.choisi-juste { background: var(--succes); color: #fff; }
 .vf-boutons .btn.choisi-faux { background: var(--erreur); color: #fff; }
 
+/* ---------- Choix multiples (QCM / écoute) ---------- */
+.qcm-options { display: flex; flex-direction: column; gap: 0.6rem; max-width: 420px; margin: 0 auto; }
+.qcm-opt { width: 100%; justify-content: center; text-align: center; }
+.qcm-opt.choisi-juste { background: var(--succes); color: #fff; border-color: var(--succes); }
+.qcm-opt.choisi-faux { background: var(--erreur); color: #fff; border-color: var(--erreur); }
+
+/* ---------- Bouton audio (écoute / dictée) ---------- */
+.q-audio {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin: 0 auto 1rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 100px;
+  font-weight: 700; font-size: 0.85rem;
+  color: var(--violet-deep);
+  background: var(--violet-soft);
+  transition: transform 0.2s ease;
+}
+.q-audio:hover { transform: translateY(-1px); }
+.q-audio:active { transform: scale(0.96); }
+.q-enonce-audio { font-size: 2.4rem; opacity: 0.85; }
+
 .q-feedback {
   margin-top: 1.4rem;
   padding: 1rem 1.2rem;

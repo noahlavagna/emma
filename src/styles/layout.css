@@ -43,6 +43,17 @@
 }
 .barre .lien-retour:hover { text-decoration: underline; }
 
+.barre-droite { display: inline-flex; align-items: center; gap: 0.8rem; }
+.barre .badge-admin {
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--or-doux);
+  background: var(--or-soft);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+}
+
 main { min-height: 60vh; }
 
 .pied {
@@ -54,3 +65,6 @@ main { min-height: 60vh; }
   color: var(--texte-doux);
 }
 .pied .coeur { color: var(--rose-deep); font-style: normal; }
+/* Point discret → mode test (admin) */
+.pied-admin { margin-left: 0.6rem; opacity: 0.3; font-style: normal; }
+.pied-admin:hover { opacity: 0.7; }

@@ -3590,6 +3590,42 @@ export const PROGRAMME = [
 
 export const getJourProgramme = (n) => PROGRAMME.find((j) => j.jour === Number(n))
 
-// Un jour est débloqué si c'est le jour 1, ou si le jour précédent est terminé.
-export const estDebloque = (n, progres = {}) =>
-  Number(n) === 1 || Boolean(progres[Number(n) - 1])
+// =====================================================================
+//  VERROUILLAGE DES JOURS — deux conditions cumulatives :
+//    1. Verrou calendaire : on ne peut pas faire un jour AVANT sa vraie date.
+//       Le parcours démarre le 26 mai 2026 (jour 1) puis +1 jour par jour.
+//    2. Verrou de séquence : il faut avoir terminé le jour précédent.
+// =====================================================================
+
+// Date de départ du parcours : jour 1 = 26 mai 2026 (mois 4 = mai en JS).
+const DEBUT_PARCOURS = new Date(2026, 4, 26)
+
+// La vraie date calendaire d'un jour du parcours (minuit, heure locale).
+export const dateDuJour = (n) => {
+  const d = new Date(DEBUT_PARCOURS)
+  d.setDate(d.getDate() + (Number(n) - 1))
+  d.setHours(0, 0, 0, 0)
+  return d
+}
+
+// Aujourd'hui, ramené à minuit pour comparer au jour près.
+const aujourdHui = () => {
+  const d = new Date()
+  d.setHours(0, 0, 0, 0)
+  return d
+}
+
+// Raison du verrou : null = débloqué, 'date' = pas encore le bon jour,
+// 'sequence' = jour précédent pas terminé.
+// En mode admin (test), tout est débloqué.
+export const raisonVerrou = (n, progres = {}, admin = false) => {
+  if (admin) return null
+  const num = Number(n)
+  if (dateDuJour(num) > aujourdHui()) return 'date'
+  if (num !== 1 && !progres[num - 1]) return 'sequence'
+  return null
+}
+
+// Un jour est débloqué quand il n'a plus aucune raison d'être verrouillé.
+export const estDebloque = (n, progres = {}, admin = false) =>
+  raisonVerrou(n, progres, admin) === null

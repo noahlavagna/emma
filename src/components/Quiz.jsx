@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { bonneReponse } from '../lib/texte.js'
+import { parler, voixDispo } from '../lib/voix.js'
 import '../styles/quiz.css'
 
 const LIBELLE_TYPE = {
@@ -7,6 +8,9 @@ const LIBELLE_TYPE = {
   trou: 'Texte à trous',
   conjugaison: 'Conjugaison',
   vraiFaux: 'Vrai ou faux',
+  qcm: 'Choisis la bonne réponse',
+  ecoute: 'Compréhension orale',
+  dictee: 'Dictée',
 }
 
 const consigneDe = (q) => {
@@ -19,6 +23,12 @@ const consigneDe = (q) => {
       return `Conjugue le verbe « ${q.verbe} » :`
     case 'vraiFaux':
       return 'Vrai ou faux ?'
+    case 'qcm':
+      return q.audio ? 'Écoute, puis choisis la bonne réponse :' : 'Choisis la bonne réponse :'
+    case 'ecoute':
+      return 'Écoute, puis choisis la bonne réponse :'
+    case 'dictee':
+      return 'Écoute, puis écris la phrase en anglais :'
     default:
       return ''
   }
@@ -27,14 +37,20 @@ const consigneDe = (q) => {
 const enonceDe = (q) => {
   if (q.type === 'trou') return q.phrase
   if (q.type === 'vraiFaux') return q.affirmation
+  if (q.type === 'dictee') return '🎧' // pas de texte : on écoute
+  if (q.type === 'qcm' || q.type === 'ecoute') return q.enonce ?? q.q
   return q.q
 }
 
-const estChoix = (q) => q.type === 'vraiFaux'
+const estVraiFaux = (q) => q.type === 'vraiFaux'
+const estQcm = (q) => q.type === 'qcm' || q.type === 'ecoute'
 
 /**
- * Moteur de quiz : enchaîne les questions (4 types), validation immédiate
- * avec explication, puis appelle onDone(score, total) à la fin.
+ * Moteur de quiz / exercices. Types gérés :
+ *  - texte libre : traduction, trou, conjugaison, dictee
+ *  - boutons     : vraiFaux (Vrai/Faux), qcm / ecoute (choix multiples)
+ *  - audio       : toute question avec `audio` (texte EN) lit + bouton 🔊
+ * Valide chaque question avec explication, puis appelle onDone(score, total).
  */
 export default function Quiz({ questions, onDone, labelFin = 'Terminer' }) {
   const [idx, setIdx] = useState(0)
@@ -45,6 +61,14 @@ export default function Quiz({ questions, onDone, labelFin = 'Terminer' }) {
 
   const q = questions[idx]
   const dernier = idx === questions.length - 1
+  const audioDispo = voixDispo()
+
+  // Lecture automatique du son pour les questions d'écoute / dictée.
+  useEffect(() => {
+    if (q.audio && audioDispo) parler(q.audio)
+    // on relit seulement quand on change de question
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [idx])
 
   const appliquer = (ok) => {
     setStatut(ok ? 'juste' : 'faux')
@@ -70,6 +94,12 @@ export default function Quiz({ questions, onDone, labelFin = 'Terminer' }) {
     setStatut(null)
   }
 
+  // Libellé lisible de la bonne réponse pour le feedback "faux".
+  const bonneAffichee = () => {
+    if (estVraiFaux(q)) return q.r ? 'Vrai' : 'Faux'
+    return q.r
+  }
+
   return (
     <div>
       <div className="quiz-progress">
@@ -78,11 +108,25 @@ export default function Quiz({ questions, onDone, labelFin = 'Terminer' }) {
       <div className="quiz-compteur">Question {idx + 1} / {questions.length}</div>
 
       <div className="q-carte">
-        <span className="q-type">{LIBELLE_TYPE[q.type]}</span>
+        <span className="q-type">{LIBELLE_TYPE[q.type] || 'Question'}</span>
         <p className="q-consigne">{consigneDe(q)}</p>
-        <div className="q-enonce">{enonceDe(q)}</div>
 
-        {estChoix(q) ? (
+        {q.audio && audioDispo && (
+          <button
+            type="button"
+            className="q-audio"
+            onClick={() => parler(q.audio)}
+            aria-label="Réécouter"
+          >
+            🔊 Réécouter
+          </button>
+        )}
+
+        <div className={`q-enonce ${q.type === 'dictee' ? 'q-enonce-audio' : ''}`}>
+          {enonceDe(q)}
+        </div>
+
+        {estVraiFaux(q) ? (
           <div className="vf-boutons">
             <button
               className={`btn btn-doux ${
@@ -102,6 +146,26 @@ export default function Quiz({ questions, onDone, labelFin = 'Terminer' }) {
             >
               ✗ Faux
             </button>
+          </div>
+        ) : estQcm(q) ? (
+          <div className="qcm-options">
+            {q.options.map((opt) => {
+              let cls = ''
+              if (statut) {
+                if (opt === q.r) cls = 'choisi-juste'
+                else if (opt === choix) cls = 'choisi-faux'
+              }
+              return (
+                <button
+                  key={opt}
+                  className={`btn btn-doux qcm-opt ${cls}`}
+                  disabled={!!statut}
+                  onClick={() => validerChoix(opt)}
+                >
+                  {opt}
+                </button>
+              )
+            })}
           </div>
         ) : (
           <form
@@ -140,11 +204,7 @@ export default function Quiz({ questions, onDone, labelFin = 'Terminer' }) {
         )}
         {statut === 'faux' && (
           <div className="q-feedback faux">
-            {estChoix(q) ? (
-              <>❌ La bonne réponse était <span className="bonne">{q.r ? 'Vrai' : 'Faux'}</span>.</>
-            ) : (
-              <>❌ Presque ! La bonne réponse est <span className="bonne">{q.r}</span>.</>
-            )}
+            ❌ La bonne réponse était <span className="bonne">{bonneAffichee()}</span>.
             <span className="expli">{q.explication}</span>
           </div>
         )}

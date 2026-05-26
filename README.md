@@ -4,9 +4,10 @@ Application web pour apprendre l'anglais de zéro (A1) jusqu'au niveau A2/B1, ac
 
 ## ✨ Ce que contient le site
 
-- **Le parcours — 36 jours (26 mai → 30 juin)** : une leçon complète par jour, datée et numérotée (vocabulaire → grammaire → conjugaison → dialogue → prononciation → quiz → bilan). Mai (26-31) = mise en route en douceur, juin = les bases (1-10) puis pratique & révision (11-30). Les jours se débloquent les uns après les autres.
-- **Entraînement libre** : flashcards de vocabulaire et quiz de révision par jour.
-- **Progression sauvegardée** localement (localStorage) : mots appris, scores, jours terminés.
+- **Le parcours — 36 jours (26 mai → 30 juin)** : une leçon complète par jour, datée et numérotée (vocabulaire → grammaire → conjugaison → dialogue → prononciation → quiz → bilan). Mai (26-31) = mise en route en douceur, juin = les bases (1-10) puis pratique & révision (11-30). Les jours se débloquent les uns après les autres **et seulement le vrai jour** : on ne peut pas faire le 27 avant le 27 (verrou calendaire, départ le 26 mai 2026).
+- **Entraînement libre** : flashcards de vocabulaire, quiz de révision par jour, et surtout **l’atelier d’exercices** (`/session/exercices`) — un grand catalogue de tous types (compréhension écrite, compréhension orale, expression orale, dictées, exercices mélangés), classé en 4 niveaux de difficulté. Chaque exercice se débloque quand le **jour requis** du parcours est terminé. Contenu dans `src/data/exercices.js`.
+- **Mode test (admin)** : page `/admin` (lien discret en pied de page). Avec le code et le mot de passe, tout est débloqué — verrous de date et de progression ignorés — pour tester l’appli. Identifiants dans `src/pages/Admin.jsx`.
+- **Progression sauvegardée** localement (localStorage) : mots appris, scores, jours terminés, exercices réussis.
 - Audio (synthèse vocale du navigateur), scroll fluide, transitions de page, contraste accessible.
 
 ## 🛠 Stack

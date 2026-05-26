@@ -5,6 +5,8 @@ import Vocabulaire from './pages/Vocabulaire.jsx'
 import Revision from './pages/Revision.jsx'
 import Parcours from './pages/Parcours.jsx'
 import Jour from './pages/Jour.jsx'
+import Atelier from './pages/Atelier.jsx'
+import Admin from './pages/Admin.jsx'
 import SessionPlaceholder from './components/SessionPlaceholder.jsx'
 import { SESSIONS } from './data/sessions.js'
 
@@ -21,6 +23,10 @@ export default function App() {
         {/* Entraînement libre */}
         <Route path="/session/vocabulaire" element={<Vocabulaire />} />
         <Route path="/session/revision" element={<Revision />} />
+        <Route path="/session/exercices" element={<Atelier />} />
+
+        {/* Mode admin / test */}
+        <Route path="/admin" element={<Admin />} />
 
         {/* Sessions pas encore implémentées en libre → placeholder élégant */}
         {SESSIONS.filter((s) => !s.pret).map((s) => (
