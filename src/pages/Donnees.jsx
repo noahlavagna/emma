@@ -16,6 +16,7 @@ import {
   recupererCloud,
   envoyerCloud,
 } from '../lib/cloud.js'
+import '../styles/donnees.css'
 
 export default function Donnees() {
   const fichierRef = useRef(null)
@@ -155,130 +156,125 @@ export default function Donnees() {
     <div className="donnees">
       <header className="donnees-entete">
         <div className="kicker fade-up">Sauvegarde</div>
-        <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>Mes données</h1>
+        <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>Mes <em className="serif italic">données</em></h1>
         <p className="fade-up" style={{ animationDelay: '0.16s' }}>
-          Ta progression est enregistrée sur cet appareil. Sauvegarde-la pour ne jamais
-          la perdre, ou transfère-la sur ton téléphone / ordinateur. 🌸
+          Ta progression vit sur cet appareil. Garde-la en sûreté, et retrouve-la
+          sur tous tes écrans. 🌸
         </p>
       </header>
 
       {cloudDispo() && (
-        <section className="donnees-bloc donnees-cloud">
-          <h2>☁️ Synchronisation cloud</h2>
+        <section className="donnees-cloud fade-up" style={{ animationDelay: '0.24s' }}>
+          <div className="dc-tete">
+            <span className="dc-icone" aria-hidden="true">☁️</span>
+            <div className="dc-titres">
+              <h2>Synchronisation cloud</h2>
+              <span className={`dc-statut ${syncCode ? 'on' : 'off'}`}>
+                {syncCode ? '● Activée' : '○ Inactive'}
+              </span>
+            </div>
+          </div>
+
           {!syncCode ? (
             <>
-              <p>
-                Active la synchro pour retrouver ta progression sur tous tes appareils,
-                automatiquement. Tu obtiens un <strong>code secret</strong> à saisir une
-                fois sur chaque appareil.
+              <p className="dc-desc">
+                Retrouve ta progression sur tous tes appareils, automatiquement.
+                Tu obtiens un code secret à saisir une seule fois sur chacun.
               </p>
-              <div className="donnees-actions">
+              <div className="dc-actions">
                 <button className="btn btn-primaire" onClick={activerSync} disabled={occupe}>
                   Activer la synchro
                 </button>
               </div>
-              <p style={{ margin: '1.1rem 0 0.5rem' }}>Tu as déjà un code sur un autre appareil ?</p>
-              <input
-                className="donnees-zone"
-                style={{ minHeight: 'auto', fontSize: '0.95rem' }}
-                placeholder="Saisis ton code de synchro…"
-                value={lienInput}
-                onChange={(e) => setLienInput(e.target.value)}
-              />
-              <div className="donnees-actions" style={{ marginTop: '0.8rem' }}>
+              <div className="dc-sep"><span>déjà un code ?</span></div>
+              <div className="dc-lier">
+                <input
+                  className="donnees-champ"
+                  aria-label="Code de synchro existant"
+                  placeholder="Saisis ton code…"
+                  value={lienInput}
+                  onChange={(e) => setLienInput(e.target.value)}
+                />
                 <button className="btn btn-rose" onClick={lierAppareil} disabled={!lienInput.trim() || occupe}>
-                  Lier cet appareil
+                  Lier
                 </button>
               </div>
             </>
           ) : (
             <>
-              <p>
-                Synchro <strong>active</strong> sur cet appareil. Ta progression part dans le cloud
-                après chaque activité. Saisis ce code sur tes autres appareils pour les relier :
+              <p className="dc-desc">
+                Active sur cet appareil — ta progression part dans le cloud après chaque
+                activité. Saisis ce code sur tes autres écrans pour les relier :
               </p>
-              <textarea
-                className="donnees-zone"
-                style={{ minHeight: 'auto', fontWeight: 700, letterSpacing: '0.05em' }}
-                readOnly
-                rows={1}
-                value={syncCode}
-                onFocus={(e) => e.target.select()}
-              />
-              <div className="donnees-actions" style={{ marginTop: '0.8rem' }}>
-                <button className="btn btn-doux" onClick={copierSync}>📋 Copier le code</button>
+              <div className="code-secret">
+                <span className="code-secret-label">Ton code de synchro</span>
+                <div className="code-secret-valeur">{syncCode}</div>
+                <button className="code-copier" onClick={copierSync}>📋 Copier</button>
+              </div>
+              <div className="dc-actions">
                 <button className="btn btn-primaire" onClick={envoyerSync} disabled={occupe}>
                   Envoyer maintenant
                 </button>
-                <button className="btn btn-rose" onClick={() => recupererSync()} disabled={occupe}>
+                <button className="btn btn-doux" onClick={() => recupererSync()} disabled={occupe}>
                   Récupérer du cloud
                 </button>
               </div>
-              <button className="donnees-delier" onClick={delierAppareil}>Désactiver la synchro ici</button>
-              <p className="donnees-garde">
-                🔐 Garde ce code secret : toute personne qui l’a peut voir et modifier ta progression.
-              </p>
+              <div className="dc-bas">
+                <span className="dc-garde">🔐 Code secret : qui l’a peut voir et modifier ta progression.</span>
+                <button className="dc-delier" onClick={delierAppareil}>Désactiver ici</button>
+              </div>
             </>
           )}
         </section>
       )}
 
-      <section className="donnees-bloc">
-        <h2>💾 Sauvegarder (fichier)</h2>
-        <p>Télécharge un fichier avec tous tes mots appris, scores et jours terminés.</p>
-        <div className="donnees-actions">
-          <button className="btn btn-primaire" onClick={exporter}>Télécharger ma sauvegarde</button>
-        </div>
-      </section>
+      <div className="donnees-duo">
+        <section className="carte-mini fade-up" style={{ animationDelay: '0.32s' }}>
+          <span className="cm-icone" aria-hidden="true">💾</span>
+          <h3>Fichier de sauvegarde</h3>
+          <p>Télécharge un fichier avec toute ta progression, ou restaure-le plus tard.</p>
+          <div className="cm-actions">
+            <button className="btn btn-primaire" onClick={exporter}>Télécharger</button>
+            <button className="btn btn-doux" onClick={() => fichierRef.current?.click()}>Restaurer…</button>
+            <input
+              ref={fichierRef}
+              type="file"
+              accept="application/json,.json"
+              onChange={choisirFichier}
+              style={{ display: 'none' }}
+            />
+          </div>
+        </section>
 
-      <section className="donnees-bloc">
-        <h2>♻️ Restaurer un fichier</h2>
-        <p>Tu as un fichier de sauvegarde ? Recharge-le ici (remplace la progression actuelle).</p>
-        <div className="donnees-actions">
-          <button className="btn btn-doux" onClick={() => fichierRef.current?.click()}>
-            Choisir un fichier…
-          </button>
-          <input
-            ref={fichierRef}
-            type="file"
-            accept="application/json,.json"
-            onChange={choisirFichier}
-            style={{ display: 'none' }}
+        <section className="carte-mini fade-up" style={{ animationDelay: '0.4s' }}>
+          <span className="cm-icone" aria-hidden="true">📲</span>
+          <h3>Code de transfert</h3>
+          <p>Génère un code, colle-le sur un autre appareil. Sans fichier.</p>
+          <div className="cm-actions">
+            <button className="btn btn-doux" onClick={genererTransfert}>Générer un code</button>
+          </div>
+          {genere && <div className="code-bloc">{genere}</div>}
+          <textarea
+            className="donnees-champ"
+            style={{ marginTop: '0.8rem' }}
+            aria-label="Coller un code de transfert"
+            placeholder="…ou colle un code reçu ici"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
           />
-        </div>
-      </section>
-
-      <section className="donnees-bloc">
-        <h2>📲 Transférer entre appareils</h2>
-        <p>
-          Génère un code sur cet appareil, puis colle-le sur l’autre. Pratique pour passer
-          du téléphone à l’ordinateur sans fichier.
-        </p>
-        <div className="donnees-actions" style={{ marginBottom: '0.9rem' }}>
-          <button className="btn btn-doux" onClick={genererTransfert}>Générer un code de transfert</button>
-        </div>
-        {genere && (
-          <textarea className="donnees-zone" readOnly value={genere} onFocus={(e) => e.target.select()} />
-        )}
-        <p style={{ margin: '1rem 0 0.6rem' }}>Sur l’autre appareil, colle le code ici :</p>
-        <textarea
-          className="donnees-zone"
-          placeholder="Colle ton code de transfert…"
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-        />
-        <div className="donnees-actions" style={{ marginTop: '0.8rem' }}>
-          <button className="btn btn-rose" onClick={appliquerCode} disabled={!code.trim()}>
-            Restaurer depuis ce code
-          </button>
-        </div>
-      </section>
+          <div className="cm-actions" style={{ marginTop: '0.7rem' }}>
+            <button className="btn btn-rose" onClick={appliquerCode} disabled={!code.trim()}>
+              Restaurer ce code
+            </button>
+          </div>
+        </section>
+      </div>
 
       {msg && <p className={`donnees-message ${msg.ok ? 'ok' : 'ko'}`}>{msg.texte}</p>}
 
       <p className="donnees-note">
-        Astuce : pense à télécharger une sauvegarde de temps en temps — surtout avant de
-        vider le cache de ton navigateur.
+        Astuce : télécharge une sauvegarde de temps en temps — surtout avant de vider
+        le cache de ton navigateur.
       </p>
       <Link to="/" className="donnees-retour">← Retour à l’accueil</Link>
     </div>
