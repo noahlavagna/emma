@@ -1,7 +1,7 @@
 // Sauvegarde / restauration de la progression (sans backend).
 //   • Fichier .json  : pour archiver et restaurer plus tard.
 //   • Code de transfert : texte à copier-coller d'un appareil à l'autre.
-import { CLES_SAUVEGARDE } from '../data/storage.js'
+import { CLES_SAUVEGARDE, STORAGE_KEYS } from '../data/storage.js'
 
 const VERSION = 1
 const MARQUE = 'emma-progression'
@@ -53,6 +53,62 @@ export function ecrireProgression(paquet, { remplacer = true } = {}) {
     }
   }
   return n
+}
+
+// ---- Fusion de deux progressions (synchro cloud multi-appareils) ----
+// Principe : on ne PERD jamais de progrès. On prend l'union des entrées ; en cas
+// de conflit on garde l'enregistrement le plus récent, tout en remontant les
+// compteurs cumulés (meilleur score, nombre de fois) au maximum des deux.
+
+const horodatage = (rec) => (rec && (rec.dernier || rec.fait)) || ''
+const CHAMPS_MAX = ['meilleur', 'fois', 'sessions']
+
+function fusionnerEnreg(a, b) {
+  if (!a) return b
+  if (!b) return a
+  const recent = horodatage(b) >= horodatage(a) ? b : a
+  const fusion = { ...recent }
+  for (const champ of CHAMPS_MAX) {
+    const va = typeof a[champ] === 'number' ? a[champ] : undefined
+    const vb = typeof b[champ] === 'number' ? b[champ] : undefined
+    if (va !== undefined || vb !== undefined) {
+      fusion[champ] = Math.max(va ?? -Infinity, vb ?? -Infinity)
+    }
+  }
+  return fusion
+}
+
+// Map { id: enregistrement } (vocab, jours, exercices…).
+function fusionnerMap(a = {}, b = {}) {
+  const out = { ...a }
+  for (const [id, vb] of Object.entries(b)) out[id] = fusionnerEnreg(out[id], vb)
+  return out
+}
+
+// Objet unique de la révision éclair { dernier, sessions, journal[] }.
+function fusionnerEclair(a, b) {
+  if (!a) return b
+  if (!b) return a
+  const journal = Array.from(new Set([...(a.journal || []), ...(b.journal || [])])).sort()
+  return {
+    dernier: horodatage(a) >= horodatage(b) ? a.dernier : b.dernier,
+    sessions: Math.max(a.sessions || 0, b.sessions || 0),
+    journal,
+  }
+}
+
+// Fusionne deux paquets de progression et renvoie un nouveau paquet complet.
+export function fusionnerProgression(local, distant) {
+  const dL = local?.donnees || {}
+  const dD = distant?.donnees || {}
+  const donnees = {}
+  for (const cle of CLES_SAUVEGARDE) {
+    const a = dL[cle]
+    const b = dD[cle]
+    if (a === undefined && b === undefined) continue
+    donnees[cle] = cle === STORAGE_KEYS.eclair ? fusionnerEclair(a, b) : fusionnerMap(a, b)
+  }
+  return { marque: MARQUE, version: VERSION, date: new Date().toISOString(), donnees }
 }
 
 const nomFichier = () => {

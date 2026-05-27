@@ -20,6 +20,9 @@ export function useLocalStorage(cle, valeurInitiale) {
   useEffect(() => {
     try {
       window.localStorage.setItem(cle, JSON.stringify(valeur))
+      // Signale la mise à jour pour que la synchro cloud puisse pousser (même
+      // sans changement de page : la leçon entière se joue sur une seule route).
+      window.dispatchEvent(new CustomEvent('emma:progression-maj'))
     } catch {
       /* quota plein ou stockage bloqué : on ignore silencieusement */
     }

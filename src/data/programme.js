@@ -434,7 +434,7 @@ export const PROGRAMME = [
         { id: "mai30-ten", en: "ten", phon: "[tèn]", fr: "dix", exemple: "Ten fingers.", exempleFr: "Dix doigts." },
         { id: "mai30-eleven", en: "eleven", phon: "[i-lè-veun]", fr: "onze", exemple: "Eleven years.", exempleFr: "Onze ans." },
         { id: "mai30-twelve", en: "twelve", phon: "[twèlv]", fr: "douze", exemple: "Twelve months.", exempleFr: "Douze mois." },
-        { id: "mai30-number", en: "number", phon: "[nann-beur]", fr: "nombre / numéro", exemple: "My phone number.", exempleFr: "Mon numéro de téléphone." },
+        { id: "mai30-number", en: "number", phon: "[neum-beur]", fr: "nombre / numéro", exemple: "My phone number.", exempleFr: "Mon numéro de téléphone." },
         { id: "mai30-howmany", en: "how many", phon: "[haou mè-ni]", fr: "combien", exemple: "How many?", exempleFr: "Combien ?" },
       ],
     },
@@ -534,7 +534,7 @@ export const PROGRAMME = [
         { id: "mai31-today", en: "today", phon: "[tou-dèï]", fr: "aujourd'hui", exemple: "Today is Sunday.", exempleFr: "Aujourd'hui on est dimanche." },
         { id: "mai31-monday", en: "Monday", phon: "[MANN-dèï]", fr: "lundi", exemple: "See you on Monday.", exempleFr: "À lundi." },
         { id: "mai31-ten", en: "ten", phon: "[tèn]", fr: "dix", exemple: "I am ten.", exempleFr: "J'ai dix ans." },
-        { id: "mai31-number", en: "number", phon: "[nann-beur]", fr: "nombre / numéro", exemple: "A phone number.", exempleFr: "Un numéro de téléphone." },
+        { id: "mai31-number", en: "number", phon: "[neum-beur]", fr: "nombre / numéro", exemple: "A phone number.", exempleFr: "Un numéro de téléphone." },
       ],
     },
     grammaire: {
@@ -925,7 +925,7 @@ export const PROGRAMME = [
     vocabulaire: {
       intro: "Les chiffres de un à huit (la suite viendra vite).",
       mots: [
-        { id: "j4-one", en: "one", phon: "[wann]", fr: "un", exemple: "I have one cat.", exempleFr: "J'ai un chat." },
+        { id: "j4-one", en: "one", phon: "[weun]", fr: "un", exemple: "I have one cat.", exempleFr: "J'ai un chat." },
         { id: "j4-two", en: "two", phon: "[tou]", fr: "deux", exemple: "Two coffees, please.", exempleFr: "Deux cafés, s'il vous plaît." },
         { id: "j4-three", en: "three", phon: "[thrii]", fr: "trois", exemple: "Three friends.", exempleFr: "Trois amis." },
         { id: "j4-four", en: "four", phon: "[for]", fr: "quatre", exemple: "Four days.", exempleFr: "Quatre jours." },
@@ -1027,7 +1027,7 @@ export const PROGRAMME = [
       mots: [
         { id: "j5-name", en: "name", phon: "[nèïm]", fr: "nom / prénom", exemple: "My name is Lea.", exempleFr: "Je m'appelle Lea." },
         { id: "j5-from", en: "from", phon: "[from]", fr: "de (origine)", exemple: "I am from France.", exempleFr: "Je viens de France." },
-        { id: "j5-country", en: "country", phon: "[kann-tri]", fr: "pays", exemple: "France is a country.", exempleFr: "La France est un pays." },
+        { id: "j5-country", en: "country", phon: "[keun-tri]", fr: "pays", exemple: "France is a country.", exempleFr: "La France est un pays." },
         { id: "j5-french", en: "French", phon: "[frènch]", fr: "français·e", exemple: "I am French.", exempleFr: "Je suis française." },
         { id: "j5-english", en: "English", phon: "[in-glich]", fr: "anglais (la langue)", exemple: "I learn English.", exempleFr: "J'apprends l'anglais." },
         { id: "j5-meet", en: "nice to meet you", phon: "[naïs tou miit you]", fr: "enchanté·e", exemple: "Nice to meet you!", exempleFr: "Enchantée !" },
@@ -1123,10 +1123,10 @@ export const PROGRAMME = [
     vocabulaire: {
       intro: "Les membres de la famille proche.",
       mots: [
-        { id: "j6-mother", en: "mother", phon: "[ma-zeur]", fr: "mère", exemple: "My mother is kind.", exempleFr: "Ma mère est gentille." },
+        { id: "j6-mother", en: "mother", phon: "[meu-zeur]", fr: "mère", exemple: "My mother is kind.", exempleFr: "Ma mère est gentille." },
         { id: "j6-father", en: "father", phon: "[fa-zeur]", fr: "père", exemple: "My father is tall.", exempleFr: "Mon père est grand." },
         { id: "j6-sister", en: "sister", phon: "[sis-teur]", fr: "sœur", exemple: "I have a sister.", exempleFr: "J'ai une sœur." },
-        { id: "j6-brother", en: "brother", phon: "[bra-zeur]", fr: "frère", exemple: "My brother is nice.", exempleFr: "Mon frère est gentil." },
+        { id: "j6-brother", en: "brother", phon: "[breu-zeur]", fr: "frère", exemple: "My brother is nice.", exempleFr: "Mon frère est gentil." },
         { id: "j6-family", en: "family", phon: "[fa-mi-li]", fr: "famille", exemple: "My family is small.", exempleFr: "Ma famille est petite." },
         { id: "j6-parents", en: "parents", phon: "[pè-reunts]", fr: "parents", exemple: "My parents are French.", exempleFr: "Mes parents sont français." },
       ],
@@ -1223,7 +1223,7 @@ export const PROGRAMME = [
         { id: "j7-eat", en: "to eat", phon: "[tou iit]", fr: "manger", exemple: "I eat an apple.", exempleFr: "Je mange une pomme." },
         { id: "j7-drink", en: "to drink", phon: "[tou drinque]", fr: "boire", exemple: "I drink water.", exempleFr: "Je bois de l'eau." },
         { id: "j7-live", en: "to live", phon: "[tou liv]", fr: "vivre / habiter", exemple: "I live in France.", exempleFr: "J'habite en France." },
-        { id: "j7-work", en: "to work", phon: "[tou werk]", fr: "travailler", exemple: "I work every day.", exempleFr: "Je travaille chaque jour." },
+        { id: "j7-work", en: "to work", phon: "[tou weurk]", fr: "travailler", exemple: "I work every day.", exempleFr: "Je travaille chaque jour." },
         { id: "j7-like", en: "to like", phon: "[tou laïk]", fr: "aimer (bien)", exemple: "I like coffee.", exempleFr: "J'aime le café." },
         { id: "j7-play", en: "to play", phon: "[tou plèï]", fr: "jouer", exemple: "I play music.", exempleFr: "Je joue de la musique." },
       ],
@@ -1284,10 +1284,10 @@ export const PROGRAMME = [
       son: "[s] / [z]",
       titre: "Le -s des verbes",
       explication:
-        "Le -s de la 3e personne se prononce « s » (works = « werks ») ou « z » (plays = « plèïz »), exactement comme le pluriel des noms.",
+        "Le -s de la 3e personne se prononce « s » (works = « weurks ») ou « z » (plays = « plèïz »), exactement comme le pluriel des noms.",
       technique: "Même réflexe qu'au jour 6 : après un son doux → « z » (plays, lives), sinon « s » (works, eats).",
       mots: [
-        { en: "works", phon: "[werks]" },
+        { en: "works", phon: "[weurks]" },
         { en: "eats", phon: "[iits]" },
         { en: "plays", phon: "[plèïz]" },
         { en: "lives", phon: "[livz]" },
@@ -1420,7 +1420,7 @@ export const PROGRAMME = [
         { id: "j9-always", en: "always", phon: "[ol-wèïz]", fr: "toujours", exemple: "She always works.", exempleFr: "Elle travaille toujours." },
         { id: "j9-sometimes", en: "sometimes", phon: "[sam-taïmz]", fr: "parfois", exemple: "Sometimes I read.", exempleFr: "Parfois je lis." },
         { id: "j9-often", en: "often", phon: "[o-feun]", fr: "souvent", exemple: "I often walk.", exempleFr: "Je marche souvent." },
-        { id: "j9-but", en: "but", phon: "[bott]", fr: "mais", exemple: "I like tea, but not coffee.", exempleFr: "J'aime le thé, mais pas le café." },
+        { id: "j9-but", en: "but", phon: "[beut]", fr: "mais", exemple: "I like tea, but not coffee.", exempleFr: "J'aime le thé, mais pas le café." },
       ],
     },
     grammaire: {
@@ -1482,7 +1482,7 @@ export const PROGRAMME = [
       technique: "Enchaîne sans pause : « I-dont-like ». Le « o » de don't est long, comme « dôneut ».",
       mots: [
         { en: "don't", phon: "[dôneut]" },
-        { en: "doesn't", phon: "[da-zeunt]" },
+        { en: "doesn't", phon: "[deu-zeunt]" },
         { en: "isn't", phon: "[i-zeunt]" },
         { en: "aren't", phon: "[ar-eunt]" },
       ],
@@ -2604,7 +2604,7 @@ export const PROGRAMME = [
         { id: "j27-eat", en: "to eat", phon: "[tou iit]", fr: "manger", exemple: "Do you eat fish?", exempleFr: "Manges-tu du poisson ?" },
         { id: "j27-live", en: "to live", phon: "[tou liv]", fr: "vivre / habiter", exemple: "Where do you live?", exempleFr: "Où habites-tu ?" },
         { id: "j27-like", en: "to like", phon: "[tou laïk]", fr: "aimer (bien)", exemple: "I don't like coffee.", exempleFr: "Je n'aime pas le café." },
-        { id: "j27-work", en: "to work", phon: "[tou werk]", fr: "travailler", exemple: "Does she work?", exempleFr: "Travaille-t-elle ?" },
+        { id: "j27-work", en: "to work", phon: "[tou weurk]", fr: "travailler", exemple: "Does she work?", exempleFr: "Travaille-t-elle ?" },
         { id: "j27-water", en: "water", phon: "[wo-teur]", fr: "eau", exemple: "I drink water.", exempleFr: "Je bois de l'eau." },
         { id: "j27-music", en: "music", phon: "[miou-zik]", fr: "musique", exemple: "Do you like music?", exempleFr: "Aimes-tu la musique ?" },
         { id: "j27-dog", en: "dog", phon: "[dogue]", fr: "chien", exemple: "Do you have a dog?", exempleFr: "As-tu un chien ?" },
@@ -2667,11 +2667,11 @@ export const PROGRAMME = [
       son: "n't",
       titre: "Les contractions (rappel)",
       explication:
-        "« don't », « doesn't » se disent d'un seul bloc, le « t » à peine marqué : « dôneut », « da-zeunt ». Ne sépare pas « do not » à l'oral.",
+        "« don't », « doesn't » se disent d'un seul bloc, le « t » à peine marqué : « dôneut », « deu-zeunt ». Ne sépare pas « do not » à l'oral.",
       technique: "Enchaîne sans pause : « I-dont-like », « she-dazent-work ».",
       mots: [
         { en: "don't", phon: "[dôneut]" },
-        { en: "doesn't", phon: "[da-zeunt]" },
+        { en: "doesn't", phon: "[deu-zeunt]" },
         { en: "do", phon: "[dou]" },
         { en: "does", phon: "[deuz]" },
       ],
@@ -2799,7 +2799,7 @@ export const PROGRAMME = [
     vocabulaire: {
       intro: "Acheter et payer.",
       mots: [
-        { id: "j29-money", en: "money", phon: "[ma-ni]", fr: "argent", exemple: "I have money.", exempleFr: "J'ai de l'argent." },
+        { id: "j29-money", en: "money", phon: "[meu-ni]", fr: "argent", exemple: "I have money.", exempleFr: "J'ai de l'argent." },
         { id: "j29-buy", en: "to buy", phon: "[tou baï]", fr: "acheter", exemple: "I buy bread.", exempleFr: "J'achète du pain." },
         { id: "j29-price", en: "price", phon: "[praïss]", fr: "prix", exemple: "A good price.", exempleFr: "Un bon prix." },
         { id: "j29-euro", en: "euro", phon: "[you-ro]", fr: "euro", exemple: "Ten euros.", exempleFr: "Dix euros." },
@@ -2997,7 +2997,7 @@ export const PROGRAMME = [
     vocabulaire: {
       intro: "Toute la famille, et au-delà.",
       mots: [
-        { id: "j31-grandma", en: "grandmother", phon: "[grand-ma-zeur]", fr: "grand-mère", exemple: "My grandmother.", exempleFr: "Ma grand-mère." },
+        { id: "j31-grandma", en: "grandmother", phon: "[grand-meu-zeur]", fr: "grand-mère", exemple: "My grandmother.", exempleFr: "Ma grand-mère." },
         { id: "j31-grandpa", en: "grandfather", phon: "[grand-fa-zeur]", fr: "grand-père", exemple: "My grandfather.", exempleFr: "Mon grand-père." },
         { id: "j31-aunt", en: "aunt", phon: "[ânte]", fr: "tante", exemple: "My aunt is kind.", exempleFr: "Ma tante est gentille." },
         { id: "j31-uncle", en: "uncle", phon: "[eun-keul]", fr: "oncle", exemple: "My uncle's car.", exempleFr: "La voiture de mon oncle." },
@@ -3063,11 +3063,11 @@ export const PROGRAMME = [
       titre: "Le TH doux (rappel)",
       explication:
         "Dans « mother », « brother », « grandmother », le « th » est doux et SONORE : la langue entre les dents, mais la gorge vibre (« mazeur »). Différent du « th » soufflé de « thank ».",
-      technique: "Mets la langue entre les dents et fais vibrer la gorge : « zzz…the », « ma-zeur ».",
+      technique: "Mets la langue entre les dents et fais vibrer la gorge : « zzz…the », « meu-zeur ».",
       mots: [
-        { en: "mother", phon: "[ma-zeur]" },
-        { en: "brother", phon: "[bra-zeur]" },
-        { en: "grandmother", phon: "[grand-ma-zeur]" },
+        { en: "mother", phon: "[meu-zeur]" },
+        { en: "brother", phon: "[breu-zeur]" },
+        { en: "grandmother", phon: "[grand-meu-zeur]" },
         { en: "the", phon: "[zeu]" },
       ],
       phrase: "My mother and my grandmother.",
@@ -3101,7 +3101,7 @@ export const PROGRAMME = [
         { id: "j32-kind", en: "kind", phon: "[kaïnd]", fr: "gentil", exemple: "A kind man.", exempleFr: "Un homme gentil." },
         { id: "j32-nice", en: "nice", phon: "[naïss]", fr: "sympa", exemple: "She is nice.", exempleFr: "Elle est sympa." },
         { id: "j32-happy", en: "happy", phon: "[ha-pi]", fr: "content / heureux", exemple: "I am happy.", exempleFr: "Je suis contente." },
-        { id: "j32-funny", en: "funny", phon: "[fa-ni]", fr: "drôle", exemple: "He is funny.", exempleFr: "Il est drôle." },
+        { id: "j32-funny", en: "funny", phon: "[feu-ni]", fr: "drôle", exemple: "He is funny.", exempleFr: "Il est drôle." },
         { id: "j32-young", en: "young", phon: "[yeung]", fr: "jeune", exemple: "A young girl.", exempleFr: "Une jeune fille." },
         { id: "j32-old", en: "old", phon: "[ôld]", fr: "vieux / âgé", exemple: "An old man.", exempleFr: "Un homme âgé." },
       ],
@@ -3199,7 +3199,7 @@ export const PROGRAMME = [
         { id: "j33-getup", en: "to get up", phon: "[tou guèt eup]", fr: "se lever", exemple: "I get up early.", exempleFr: "Je me lève tôt." },
         { id: "j33-eat", en: "to eat", phon: "[tou iit]", fr: "manger", exemple: "I eat breakfast.", exempleFr: "Je prends le petit-déjeuner." },
         { id: "j33-go", en: "to go", phon: "[tou go]", fr: "aller", exemple: "I go to school.", exempleFr: "Je vais à l'école." },
-        { id: "j33-work", en: "to work", phon: "[tou werk]", fr: "travailler", exemple: "I work all day.", exempleFr: "Je travaille toute la journée." },
+        { id: "j33-work", en: "to work", phon: "[tou weurk]", fr: "travailler", exemple: "I work all day.", exempleFr: "Je travaille toute la journée." },
         { id: "j33-play", en: "to play", phon: "[tou plèï]", fr: "jouer", exemple: "I play after school.", exempleFr: "Je joue après l'école." },
         { id: "j33-sleep", en: "to sleep", phon: "[tou sliip]", fr: "dormir", exemple: "I sleep at night.", exempleFr: "Je dors la nuit." },
         { id: "j33-home", en: "to come home", phon: "[tou keum hôme]", fr: "rentrer (à la maison)", exemple: "I come home late.", exempleFr: "Je rentre tard." },
@@ -3396,7 +3396,7 @@ export const PROGRAMME = [
       intro: "Les petits mots qui relient tes idées.",
       mots: [
         { id: "j35-and", en: "and", phon: "[and]", fr: "et", exemple: "Tea and milk.", exempleFr: "Du thé et du lait." },
-        { id: "j35-but", en: "but", phon: "[bott]", fr: "mais", exemple: "I like tea, but not coffee.", exempleFr: "J'aime le thé, mais pas le café." },
+        { id: "j35-but", en: "but", phon: "[beut]", fr: "mais", exemple: "I like tea, but not coffee.", exempleFr: "J'aime le thé, mais pas le café." },
         { id: "j35-also", en: "also", phon: "[ol-so]", fr: "aussi", exemple: "I also like music.", exempleFr: "J'aime aussi la musique." },
         { id: "j35-because", en: "because", phon: "[bi-kôze]", fr: "parce que", exemple: "I'm happy because it's sunny.", exempleFr: "Je suis contente parce qu'il fait soleil." },
         { id: "j35-very", en: "very", phon: "[vé-ri]", fr: "très", exemple: "Very nice!", exempleFr: "Très sympa !" },
