@@ -6,6 +6,7 @@ import Revision from './pages/Revision.jsx'
 import Parcours from './pages/Parcours.jsx'
 import Jour from './pages/Jour.jsx'
 import Atelier from './pages/Atelier.jsx'
+import Immobilier from './pages/Immobilier.jsx'
 import RevisionEclair from './pages/RevisionEclair.jsx'
 import Donnees from './pages/Donnees.jsx'
 import Admin from './pages/Admin.jsx'
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/session/vocabulaire" element={<Vocabulaire />} />
         <Route path="/session/revision" element={<Revision />} />
         <Route path="/session/exercices" element={<Atelier />} />
+        <Route path="/immobilier" element={<Immobilier />} />
         <Route path="/revision-eclair" element={<RevisionEclair />} />
 
         {/* Sauvegarde / restauration de la progression */}

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { SESSIONS } from '../data/sessions.js'
 import { DECKS } from '../data/vocabulaire.js'
+import { IMMO_DECKS } from '../data/immobilier.js'
 import { JOURS_REVISION } from '../data/revision.js'
 import { PROGRAMME } from '../data/programme.js'
 import { EXERCICES } from '../data/exercices.js'
@@ -14,6 +15,7 @@ const TOTAL_MOTS = DECKS.reduce((n, d) => n + d.mots.length, 0)
 const TOTAL_JOURS = JOURS_REVISION.length
 const TOTAL_PARCOURS = PROGRAMME.length
 const TOTAL_EXOS = EXERCICES.length
+const TOTAL_MOTS_IMMO = IMMO_DECKS.reduce((n, d) => n + d.mots.length, 0)
 
 export default function Accueil() {
   const [appris] = useLocalStorage(STORAGE_KEYS.vocabAppris, {})
@@ -26,6 +28,10 @@ export default function Accueil() {
   const exosDispo = admin ? TOTAL_EXOS : EXERCICES.filter((e) => progres[e.jourRequis]).length
 
   const nbAppris = Object.keys(appris).length
+  const immoAppris = IMMO_DECKS.reduce(
+    (n, d) => n + d.mots.filter((m) => appris[m.id]).length,
+    0,
+  )
   const nbJoursRev = Object.keys(joursRevises).length
   const nbFaits = PROGRAMME.filter((j) => progres[j.jour]).length
 
@@ -137,6 +143,29 @@ export default function Accueil() {
           La grammaire, la conjugaison, le dialogue et la prononciation sont travaillés
           jour après jour, ici. 🌿
         </p>
+      </section>
+
+      {/* ---------- Pôle Immobilier — spécial métier d'Emma ---------- */}
+      <section className="immo-wrap" data-reveal>
+        <div className="label-section">
+          <div className="ligne">Spécial alternance · BTS immobilier</div>
+          <h2>L’anglais de ton <em>métier</em></h2>
+        </div>
+        <Link to="/immobilier" className="immo-vedette fade-up">
+          <div className="immo-vedette-txt">
+            <span className="puce-etat">{immoAppris}/{TOTAL_MOTS_IMMO} mots pro appris</span>
+            <span className="icone" aria-hidden="true">🏡</span>
+            <h3>Le pôle immobilier</h3>
+            <p>
+              Tout l’anglais d’une agente immobilière : {IMMO_DECKS.length} thèmes de
+              vocabulaire métier, des phrases pro par situation (accueil, visite,
+              négociation, signature…), des dialogues complets et des modèles
+              d’annonces et d’emails. À étudier et à réutiliser au travail.
+            </p>
+            <span className="commencer">Ouvrir le pôle immobilier <span aria-hidden="true">→</span></span>
+          </div>
+          <div className="immo-vedette-deco" aria-hidden="true">🔑🏘️📐💼📄</div>
+        </Link>
       </section>
 
       {/* ---------- Entraînement libre ---------- */}

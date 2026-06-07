@@ -1,0 +1,253 @@
+.immo {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1rem;
+}
+
+/* ---------- En-tête + onglets ---------- */
+.immo-hero { text-align: center; margin-bottom: 1.6rem; }
+.immo-kicker {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--or-doux);
+}
+.immo-hero h1 { font-size: clamp(2rem, 5vw, 2.9rem); margin: 0.4rem 0; }
+.immo-hero h1 em { font-style: italic; color: var(--rose-deep); }
+.immo-hero p { color: var(--texte-doux); max-width: 620px; margin: 0.4rem auto 0; }
+
+.immo-onglets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.6rem;
+}
+.immo-onglet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--texte-doux);
+  background: #fff;
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--ombre-douce);
+  transition: transform 0.2s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.immo-onglet:hover { transform: translateY(-2px); background: var(--creme); }
+.immo-onglet.actif {
+  background: var(--vert-deep);
+  color: #fff;
+  border-color: var(--vert-deep);
+}
+
+.immo-intro-onglet {
+  text-align: center;
+  color: var(--texte-doux);
+  margin: 0.4rem auto 1.6rem;
+  max-width: 560px;
+}
+
+/* ---------- Grille de thèmes (vocabulaire) ---------- */
+.immo-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.immo-carte {
+  text-align: left;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 1.3rem;
+  box-shadow: var(--ombre-douce);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+.immo-carte:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(187, 79, 115, 0.16); }
+.immo-carte-emoji { font-size: 1.9rem; display: block; margin-bottom: 0.4rem; }
+.immo-carte h3 { font-size: 1.15rem; font-weight: 500; }
+.immo-carte-meta { font-size: 0.82rem; color: var(--texte-doux); margin-top: 0.3rem; }
+.immo-barre-mini {
+  margin-top: 0.8rem;
+  height: 6px;
+  border-radius: 100px;
+  background: var(--beige);
+  overflow: hidden;
+}
+.immo-barre-mini span {
+  display: block;
+  height: 100%;
+  background: var(--or-doux);
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+
+/* ---------- Bloc actif (cartes / quiz / bilan) ---------- */
+.immo-bloc-actif {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre-douce);
+  padding: 1.6rem 1.4rem;
+}
+.immo-sous-tete {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.immo-retour {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--vert-deep);
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--vert-soft);
+  background: #fff;
+}
+.immo-retour:hover { background: var(--vert-pale); }
+.immo-sous-titre { font-family: 'Fraunces', serif; font-size: 1.2rem; color: var(--texte); }
+
+.immo-progress {
+  height: 8px;
+  border-radius: 100px;
+  background: var(--beige);
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
+.immo-progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--or-doux), var(--rose-deep));
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+.immo-compteur { text-align: center; font-size: 0.85rem; color: var(--texte-doux); margin-bottom: 1rem; }
+.immo-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.4rem; }
+
+/* ---------- Bilan ---------- */
+.immo-bilan { text-align: center; }
+.immo-score {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  color: var(--texte);
+  margin-bottom: 0.4rem;
+}
+.immo-score span { font-size: 1.2rem; color: var(--texte-doux); margin-left: 0.3rem; }
+.immo-bilan h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.immo-mot-emma {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--texte);
+  max-width: 440px;
+  margin: 0 auto 1.6rem;
+}
+.immo-actions { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Accordéon (phrases / dialogues / fiches) ---------- */
+.immo-accordeon { display: flex; flex-direction: column; gap: 1.2rem; }
+.immo-groupe {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre-douce);
+  padding: 1.4rem 1.4rem 1.6rem;
+}
+.immo-groupe-tete {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-bottom: 1.1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--beige);
+}
+.immo-groupe-emoji {
+  font-size: 1.7rem;
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(140deg, var(--creme), var(--rose-pale));
+}
+.immo-groupe-tete h3 { font-size: 1.25rem; font-weight: 500; }
+.immo-groupe-tete p { font-size: 0.9rem; color: var(--texte-doux); margin-top: 0.2rem; }
+.immo-contexte { font-style: italic; }
+
+/* ---------- Lignes EN/FR (phrases & dialogues) ---------- */
+.immo-lignes { display: flex; flex-direction: column; gap: 0.7rem; }
+.immo-ligne {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px;
+  background: var(--creme);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.immo-ligne.role-agent { background: var(--vert-pale); border-color: var(--vert-soft); }
+.immo-ligne.role-client { background: var(--rose-pale); border-color: var(--rose-soft); }
+.immo-role {
+  flex-shrink: 0;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--texte-doux);
+  padding-top: 0.15rem;
+  min-width: 52px;
+}
+.immo-ligne-corps { flex: 1; min-width: 0; }
+.immo-en {
+  font-weight: 700;
+  color: var(--texte);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.immo-phon { font-size: 0.82rem; color: var(--vert-deep); font-weight: 700; margin-top: 0.15rem; }
+.immo-fr { font-size: 0.92rem; color: var(--texte-doux); margin-top: 0.15rem; }
+.immo-lire {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: inline-grid; place-items: center;
+  font-size: 0.85rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.immo-lire:hover { background: var(--vert-pale); }
+
+/* ---------- Fiches / modèles ---------- */
+.immo-modele { display: flex; flex-direction: column; gap: 0.6rem; }
+.immo-modele-bloc {
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  background: var(--creme);
+  border-left: 3px solid var(--or-soft);
+}
+.immo-modele-en {
+  font-weight: 700;
+  color: var(--texte);
+  white-space: pre-line;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.immo-modele-en .immo-lire { margin-top: 0.05rem; }
+.immo-modele-fr { font-size: 0.9rem; color: var(--texte-doux); white-space: pre-line; margin-top: 0.2rem; }
+
+.immo-pied { text-align: center; margin-top: 2rem; }
+
+@media (max-width: 640px) {
+  .immo { padding: 2rem 1rem 1rem; }
+  .immo-ligne { flex-direction: column; gap: 0.3rem; }
+  .immo-role { min-width: 0; }
+}

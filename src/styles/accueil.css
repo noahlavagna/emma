@@ -151,6 +151,41 @@
   .atelier-vedette-deco { font-size: 1.6rem; }
 }
 
+/* ---------- Pôle immobilier, en vedette (accent doré) ---------- */
+.immo-wrap { margin-top: 3rem; }
+.immo-vedette {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #fff, var(--or-soft));
+  border: 1px solid var(--or-soft);
+  border-radius: var(--rayon);
+  padding: 2rem;
+  overflow: hidden;
+  box-shadow: var(--ombre-douce);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+}
+.immo-vedette:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(156, 106, 53, 0.2); }
+.immo-vedette .puce-etat {
+  display: inline-block;
+  font-size: 0.72rem; font-weight: 800;
+  color: var(--or-doux); background: #fff;
+  border: 1px solid var(--or-soft);
+  border-radius: 100px; padding: 0.2rem 0.7rem;
+  margin-bottom: 0.6rem;
+}
+.immo-vedette .icone { font-size: 2.3rem; display: block; line-height: 1; margin-bottom: 0.4rem; }
+.immo-vedette h3 { font-family: 'Fraunces', serif; font-size: 1.6rem; margin-bottom: 0.4rem; }
+.immo-vedette p { color: var(--texte-doux); font-size: 0.97rem; line-height: 1.55; margin-bottom: 1rem; max-width: 560px; }
+.immo-vedette .commencer { font-weight: 800; color: var(--or-doux); display: inline-flex; gap: 0.4rem; }
+.immo-vedette:hover .commencer { gap: 0.75rem; }
+.immo-vedette-deco { font-size: 2.2rem; letter-spacing: 0.2rem; opacity: 0.9; line-height: 1.4; max-width: 120px; text-align: center; }
+@media (max-width: 640px) {
+  .immo-vedette { flex-direction: column; align-items: flex-start; padding: 1.6rem; }
+  .immo-vedette-deco { font-size: 1.6rem; }
+}
+
 .grille {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
