@@ -138,3 +138,37 @@
   background: linear-gradient(135deg, #eafaf0, #e7f0ff);
   border: 1px solid rgba(76, 170, 120, 0.4);
 }
+
+/* ---------- Barre « skip » réservée au mode admin ---------- */
+.quiz-admin {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px dashed rgba(0, 0, 0, 0.18);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.03);
+}
+.quiz-admin-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--texte-doux);
+}
+.quiz-admin-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.35rem 0.7rem;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  color: var(--texte);
+  transition: transform 0.12s, background 0.12s;
+}
+.quiz-admin-btn:hover { background: var(--beige); transform: translateY(-1px); }

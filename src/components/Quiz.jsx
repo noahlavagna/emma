@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { bonneReponse } from '../lib/texte.js'
 import { parler, voixDispo } from '../lib/voix.js'
+import { STORAGE_KEYS } from '../data/storage.js'
+import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import '../styles/quiz.css'
 
 const LIBELLE_TYPE = {
@@ -58,6 +60,7 @@ export default function Quiz({ questions, onDone, labelFin = 'Terminer' }) {
   const [choix, setChoix] = useState(null)
   const [statut, setStatut] = useState(null) // null | 'juste' | 'faux'
   const [resultats, setResultats] = useState([])
+  const [admin] = useLocalStorage(STORAGE_KEYS.admin, false)
 
   const q = questions[idx]
   const dernier = idx === questions.length - 1
@@ -106,6 +109,22 @@ export default function Quiz({ questions, onDone, labelFin = 'Terminer' }) {
         <span style={{ width: `${((idx + 1) / questions.length) * 100}%` }} />
       </div>
       <div className="quiz-compteur">Question {idx + 1} / {questions.length}</div>
+
+      {admin && (
+        <div className="quiz-admin" role="group" aria-label="Outils admin">
+          <span className="quiz-admin-tag">⚙️ Admin</span>
+          <button type="button" className="quiz-admin-btn" onClick={suivant}>
+            ⏭️ Passer cette question
+          </button>
+          <button
+            type="button"
+            className="quiz-admin-btn"
+            onClick={() => onDone(resultats.filter(Boolean).length, questions.length)}
+          >
+            ⏭️⏭️ Tout passer
+          </button>
+        </div>
+      )}
 
       <div className="q-carte" key={idx}>
         <span className="q-type">{LIBELLE_TYPE[q.type] || 'Question'}</span>
