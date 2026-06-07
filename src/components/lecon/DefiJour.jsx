@@ -30,8 +30,8 @@ const MESSAGE_GAIN = {
  */
 export default function DefiJour({ defis, onTermine }) {
   const [gel, setGel] = useLocalStorage(STORAGE_KEYS.serieGel, { stock: 0, geles: [], reussis: [] })
-  const stock = Math.min(MAX_GEL, gel.stock || 0)
-  const reussis = gel.reussis || []
+  const stock = Math.min(MAX_GEL, Number(gel.stock) || 0)
+  const reussis = Array.isArray(gel.reussis) ? gel.reussis : []
 
   const [etats, setEtats] = useState(
     defis.map(() => ({ saisie: '', statut: null, revele: false, gain: null })),
@@ -57,11 +57,11 @@ export default function DefiJour({ defis, onTermine }) {
     else {
       gain = 'recompense'
       setGel((prev) => {
-        const dejaGagnes = prev.reussis || []
+        const dejaGagnes = Array.isArray(prev.reussis) ? prev.reussis : []
         if (dejaGagnes.includes(q.id)) return prev
         return {
-          ...prev,
-          stock: Math.min(MAX_GEL, (prev.stock || 0) + 1),
+          stock: Math.min(MAX_GEL, (Number(prev.stock) || 0) + 1),
+          geles: Array.isArray(prev.geles) ? prev.geles : [],
           reussis: [...dejaGagnes, q.id],
         }
       })

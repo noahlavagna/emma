@@ -77,8 +77,8 @@ export const actifAujourdhui = (setJours, maintenant = new Date()) =>
 //
 // `etat` = { stock: number, geles: string[] }. Renvoie un nouvel état + `change`.
 export function calculerGel(setJours, etat = {}, maintenant = new Date()) {
-  let stock = Math.min(3, Math.max(0, etat.stock || 0))
-  const geles = new Set(etat.geles || [])
+  let stock = Math.min(3, Math.max(0, Number(etat.stock) || 0))
+  const geles = new Set(Array.isArray(etat.geles) ? etat.geles : [])
   const inchange = { stock, geles: [...geles], change: false }
 
   const jours = avecGel(setJours, geles)

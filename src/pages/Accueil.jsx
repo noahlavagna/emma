@@ -36,16 +36,17 @@ export default function Accueil() {
 
   // Gel de série : si un trou récent peut être comblé par le stock, on dépense
   // les gels nécessaires (consommation définitive) pour préserver la flamme.
+  const gelArr = Array.isArray(gel.geles) ? gel.geles : []
   const joursKey = [...joursActifs].sort().join(',')
-  const gelesKey = (gel.geles || []).join(',')
+  const gelesKey = gelArr.join(',')
   useEffect(() => {
     const res = calculerGel(joursActifs, gel)
     if (res.change) setGel((prev) => ({ ...prev, stock: res.stock, geles: res.geles }))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [joursKey, gelesKey, gel.stock])
 
-  const gelesSet = new Set(gel.geles || [])
-  const stockGel = Math.min(3, gel.stock || 0)
+  const gelesSet = new Set(gelArr)
+  const stockGel = Math.min(3, Number(gel.stock) || 0)
   const serie = serieActuelle(joursActifs, undefined, gelesSet)
   const record = serieRecord(joursActifs, gelesSet)
   const faitAujourdhui = actifAujourdhui(joursActifs)

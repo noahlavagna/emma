@@ -85,6 +85,21 @@ function fusionnerMap(a = {}, b = {}) {
   return out
 }
 
+// Gel de série { stock: 0..3, geles: ['YYYY-MM-DD'], reussis: [id] }.
+// Ce n'est PAS une map { id: enregistrement } : on le fusionne à part, sinon la
+// fusion générique transforme nombres/tableaux en objets vides (et casse l'app).
+function fusionnerGel(a, b) {
+  const A = a && typeof a === 'object' && !Array.isArray(a) ? a : {}
+  const B = b && typeof b === 'object' && !Array.isArray(b) ? b : {}
+  const arr = (x) => (Array.isArray(x) ? x : [])
+  const num = (x) => (typeof x === 'number' && x >= 0 ? x : 0)
+  return {
+    stock: Math.min(3, Math.max(num(A.stock), num(B.stock))),
+    geles: Array.from(new Set([...arr(A.geles), ...arr(B.geles)])).sort(),
+    reussis: Array.from(new Set([...arr(A.reussis), ...arr(B.reussis)])),
+  }
+}
+
 // Objet unique de la révision éclair { dernier, sessions, journal[] }.
 function fusionnerEclair(a, b) {
   if (!a) return b
@@ -106,7 +121,9 @@ export function fusionnerProgression(local, distant) {
     const a = dL[cle]
     const b = dD[cle]
     if (a === undefined && b === undefined) continue
-    donnees[cle] = cle === STORAGE_KEYS.eclair ? fusionnerEclair(a, b) : fusionnerMap(a, b)
+    if (cle === STORAGE_KEYS.eclair) donnees[cle] = fusionnerEclair(a, b)
+    else if (cle === STORAGE_KEYS.serieGel) donnees[cle] = fusionnerGel(a, b)
+    else donnees[cle] = fusionnerMap(a, b)
   }
   return { marque: MARQUE, version: VERSION, date: new Date().toISOString(), donnees }
 }
