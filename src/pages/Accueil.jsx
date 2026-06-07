@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { SESSIONS } from '../data/sessions.js'
 import { DECKS } from '../data/vocabulaire.js'
@@ -6,7 +7,7 @@ import { PROGRAMME } from '../data/programme.js'
 import { EXERCICES } from '../data/exercices.js'
 import { STORAGE_KEYS } from '../data/storage.js'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
-import { collecterJours, serieActuelle, serieRecord, actifAujourdhui } from '../lib/serie.js'
+import { collecterJours, serieActuelle, serieRecord, actifAujourdhui, calculerGel } from '../lib/serie.js'
 import '../styles/accueil.css'
 
 const TOTAL_MOTS = DECKS.reduce((n, d) => n + d.mots.length, 0)
@@ -20,6 +21,7 @@ export default function Accueil() {
   const [progres] = useLocalStorage(STORAGE_KEYS.programmeJours, {})
   const [scoresExos] = useLocalStorage(STORAGE_KEYS.exercices, {})
   const [eclair] = useLocalStorage(STORAGE_KEYS.eclair, {})
+  const [gel, setGel] = useLocalStorage(STORAGE_KEYS.serieGel, { stock: 0, geles: [], reussis: [] })
   const [admin] = useLocalStorage(STORAGE_KEYS.admin, false)
   const exosDispo = admin ? TOTAL_EXOS : EXERCICES.filter((e) => progres[e.jourRequis]).length
 
@@ -31,8 +33,21 @@ export default function Accueil() {
   const joursActifs = collecterJours({
     progres, revisions: joursRevises, exercices: scoresExos, vocab: appris, eclair,
   })
-  const serie = serieActuelle(joursActifs)
-  const record = serieRecord(joursActifs)
+
+  // Gel de série : si un trou récent peut être comblé par le stock, on dépense
+  // les gels nécessaires (consommation définitive) pour préserver la flamme.
+  const joursKey = [...joursActifs].sort().join(',')
+  const gelesKey = (gel.geles || []).join(',')
+  useEffect(() => {
+    const res = calculerGel(joursActifs, gel)
+    if (res.change) setGel((prev) => ({ ...prev, stock: res.stock, geles: res.geles }))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [joursKey, gelesKey, gel.stock])
+
+  const gelesSet = new Set(gel.geles || [])
+  const stockGel = Math.min(3, gel.stock || 0)
+  const serie = serieActuelle(joursActifs, undefined, gelesSet)
+  const record = serieRecord(joursActifs, gelesSet)
   const faitAujourdhui = actifAujourdhui(joursActifs)
   const peutReviser = nbFaits > 0 || admin
   const pct = Math.round((nbFaits / TOTAL_PARCOURS) * 100)
@@ -87,6 +102,12 @@ export default function Accueil() {
                   : 'Une activité aujourd’hui pour garder la flamme 🌱'
                 : 'Une petite activité par jour, et elle s’allume 🌱'}
               {record > 1 && record > serie ? ` · record : ${record}` : ''}
+            </div>
+            <div className="serie-gel" title="Gagne des gels en réussissant les questions dures du « Défi du jour ». Un gel sauve ta flamme un jour manqué.">
+              ❄️ Gel de série : <strong>{stockGel}/3</strong>
+              {stockGel > 0
+                ? ' — un jour manqué ne casse pas ta série'
+                : ' — réussis les questions dures pour en gagner'}
             </div>
           </div>
         </div>

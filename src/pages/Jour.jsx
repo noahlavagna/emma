@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getJourProgramme, PROGRAMME, raisonVerrou } from '../data/programme.js'
 import { getJour } from '../data/revision.js'
+import { getDefi } from '../data/defis.js'
 import { STORAGE_KEYS } from '../data/storage.js'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import Quiz from '../components/Quiz.jsx'
+import DefiJour from '../components/lecon/DefiJour.jsx'
 import SectionVocabulaire from '../components/lecon/SectionVocabulaire.jsx'
 import SectionGrammaire from '../components/lecon/SectionGrammaire.jsx'
 import SectionConjugaison from '../components/lecon/SectionConjugaison.jsx'
@@ -20,6 +22,7 @@ const STEPS = [
   { key: 'dialogue', label: 'Dialogue' },
   { key: 'prononciation', label: 'Prono.' },
   { key: 'revision', label: 'Quiz' },
+  { key: 'defi', label: 'Défi' },
   { key: 'bilan', label: 'Bilan' },
 ]
 
@@ -32,6 +35,7 @@ export default function Jour() {
   const { n } = useParams()
   const jour = getJourProgramme(n)
   const quizRevision = getJour(n)
+  const defiJour = getDefi(n)
 
   const [progres, setProgres] = useLocalStorage(STORAGE_KEYS.programmeJours, {})
   const [admin] = useLocalStorage(STORAGE_KEYS.admin, false)
@@ -155,6 +159,16 @@ export default function Jour() {
             </div>
           )}
         </div>
+      )}
+
+      {cle === 'defi' && (
+        defiJour.length > 0 ? (
+          <DefiJour defis={defiJour} onTermine={avancer} />
+        ) : (
+          <div className="section-nav">
+            <button className="btn btn-primaire" onClick={avancer}>Aller au bilan →</button>
+          </div>
+        )
       )}
 
       {cle === 'bilan' && (

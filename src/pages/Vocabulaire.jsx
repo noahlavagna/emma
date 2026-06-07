@@ -36,7 +36,7 @@ export default function Vocabulaire() {
         <header className="voc-entete">
           <div className="kicker fade-up">Session 01 · Vocabulaire</div>
           <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>Choisis un <em>thème</em></h1>
-          <p className="fade-up" style={{ animationDelay: '0.16s' }}>6 à 8 mots par thème. On découvre, puis on s’entraîne. 📚</p>
+          <p className="fade-up" style={{ animationDelay: '0.16s' }}>6 à 10 mots par thème. On découvre, puis on s’entraîne. 📚</p>
         </header>
         <div className="deck-grille">
           {DECKS.map((d, i) => {

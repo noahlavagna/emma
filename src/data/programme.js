@@ -1050,6 +1050,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "Where are you ___ ? (de)", r: "from", explication: "« Where are you from? »." },
         { type: "traduction", sens: "fr-en", q: "Comment t'appelles-tu ? (What…)", r: "what is your name", accepte: ["what's your name", "what is your name?"], explication: "« What is your name? »." },
         { type: "vraiFaux", affirmation: "« Are you ready? » est une question.", r: true, explication: "Oui : le verbe to be passe devant le sujet." },
+        { type: "traduction", sens: "fr-en", q: "D'où viens-tu ?", r: "where are you from", accepte: ["where are you from?"], explication: "« Where are you from? »." },
+        { type: "traduction", sens: "fr-en", q: "Je m'appelle Lea et je viens de France.", r: "my name is lea and i am from france", accepte: ["my name is lea and i'm from france"], explication: "On relie deux idées avec « and » : My name is Lea and I am from France." },
       ],
     },
     conjugaison: {
@@ -1148,6 +1150,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "It is ___ car. (son, à elle)", r: "her", explication: "« her » = son/sa, à elle." },
         { type: "vraiFaux", affirmation: "« Lea's book » veut dire « le livre de Lea ».", r: true, explication: "Oui : le 's exprime la possession." },
         { type: "traduction", sens: "fr-en", q: "mon frère", r: "my brother", explication: "« my brother »." },
+        { type: "traduction", sens: "fr-en", q: "le nom de ma sœur", r: "my sister's name", accepte: ["my sisters name"], explication: "Possession avec 's : my sister's name." },
+        { type: "traduction", sens: "fr-en", q: "Mon frère a un chien.", r: "my brother has a dog", explication: "3e personne → has : My brother has a dog." },
       ],
     },
     conjugaison: {
@@ -1245,6 +1249,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "I ___ in Paris. (live)", r: "live", explication: "Avec « I », pas de -s." },
         { type: "trou", phrase: "He ___ every day. (work)", r: "works", explication: "3e personne → works." },
         { type: "vraiFaux", affirmation: "« She like tea » est correct.", r: false, explication: "Non : « She likeS tea »." },
+        { type: "traduction", sens: "fr-en", q: "Elle habite à Paris.", r: "she lives in paris", explication: "3e personne → lives : She lives in Paris." },
+        { type: "traduction", sens: "fr-en", q: "Je travaille tous les jours.", r: "i work every day", explication: "« I work every day »." },
       ],
     },
     conjugaison: {
@@ -1343,6 +1349,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "___ she work? (est-ce que, elle)", r: "does", explication: "Avec « she » → Does." },
         { type: "vraiFaux", affirmation: "« Does she likes? » est correct.", r: false, explication: "Non : après does, le verbe perd son -s → « Does she like? »." },
         { type: "traduction", sens: "fr-en", q: "Où habites-tu ? (Where…)", r: "where do you live", accepte: ["where do you live?"], explication: "« Where do you live? »." },
+        { type: "traduction", sens: "fr-en", q: "Est-ce qu'elle travaille ici ?", r: "does she work here", accepte: ["does she work here?"], explication: "he/she → Does + verbe sans -s : Does she work here?" },
+        { type: "traduction", sens: "fr-en", q: "Que manges-tu le matin ?", r: "what do you eat in the morning", accepte: ["what do you eat in the morning?"], explication: "« What do you eat in the morning? »." },
       ],
     },
     conjugaison: {
@@ -1440,6 +1448,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "She ___ work. (ne pas, elle)", r: "doesn't", accepte: ["does not"], explication: "Avec « she » → doesn't." },
         { type: "trou", phrase: "I am ___ tired. (ne pas)", r: "not", explication: "Avec to be → am not." },
         { type: "vraiFaux", affirmation: "« She doesn't works » est correct.", r: false, explication: "Non : « She doesn't WORK » (verbe sans -s)." },
+        { type: "traduction", sens: "fr-en", q: "Je n'aime pas le café, mais j'aime le thé.", r: "i don't like coffee but i like tea", accepte: ["i do not like coffee but i like tea"], explication: "On relie avec « but » : I don't like coffee, but I like tea." },
+        { type: "traduction", sens: "fr-en", q: "Elle ne travaille pas le dimanche.", r: "she doesn't work on sunday", accepte: ["she does not work on sunday"], explication: "he/she → doesn't + verbe sans -s." },
       ],
     },
     conjugaison: {
@@ -1536,6 +1546,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "___ you like music? (est-ce que)", r: "do", explication: "Avec « you » → Do." },
         { type: "trou", phrase: "I ___ like coffee. (ne pas)", r: "don't", accepte: ["do not"], explication: "Avec « I » → don't." },
         { type: "traduction", sens: "fr-en", q: "une voiture rouge", r: "a red car", explication: "L'adjectif avant le nom : a red car." },
+        { type: "traduction", sens: "fr-en", q: "Elle aime le thé mais elle n'aime pas le café.", r: "she likes tea but she doesn't like coffee", accepte: ["she likes tea but she does not like coffee"], explication: "Présent + négation reliés par « but »." },
+        { type: "traduction", sens: "fr-en", q: "Où habites-tu ?", r: "where do you live", accepte: ["where do you live?"], explication: "Question avec do : Where do you live?" },
       ],
     },
     conjugaison: {
@@ -1640,6 +1652,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "three ___ (egg, au pluriel)", r: "eggs", explication: "egg + s = eggs." },
         { type: "vraiFaux", affirmation: "On dit « a egg ».", r: false, explication: "Non : an egg (son voyelle)." },
         { type: "traduction", sens: "fr-en", q: "du pain", r: "bread", explication: "« bread »." },
+        { type: "traduction", sens: "fr-en", q: "Je mange une pomme tous les jours.", r: "i eat an apple every day", explication: "an apple (son voyelle) + every day." },
+        { type: "traduction", sens: "fr-en", q: "Elle ne mange pas de viande.", r: "she doesn't eat meat", accepte: ["she does not eat meat"], explication: "Négation 3e personne : She doesn't eat meat." },
       ],
     },
     conjugaison: {
@@ -1740,6 +1754,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "I would ___ a tea. (voudrais → aimerais)", r: "like", explication: "« I would like a tea »." },
         { type: "traduction", sens: "fr-en", q: "un verre d'eau", r: "a glass of water", explication: "« a glass of water »." },
         { type: "vraiFaux", affirmation: "« I would like » est plus poli que « I want ».", r: true, explication: "Oui : would like = je voudrais." },
+        { type: "traduction", sens: "fr-en", q: "Je voudrais un thé avec du lait, s'il te plaît.", r: "i would like a tea with milk, please", accepte: ["i'd like a tea with milk please", "i would like a tea with milk please"], explication: "« I would like a tea with milk, please »." },
+        { type: "traduction", sens: "fr-en", q: "Puis-je avoir un verre d'eau ?", r: "can i have a glass of water", accepte: ["can i have a glass of water?"], explication: "« Can I have a glass of water? »." },
       ],
     },
     conjugaison: {
@@ -1838,6 +1854,8 @@ export const PROGRAMME = [
         { type: "vraiFaux", affirmation: "On dit « shoes blue ».", r: false, explication: "Non : « blue shoes » (couleur avant)." },
         { type: "traduction", sens: "fr-en", q: "une chemise blanche", r: "a white shirt", explication: "« a white shirt »." },
         { type: "vraiFaux", affirmation: "Au pluriel, « black » devient « blacks ».", r: false, explication: "Non : l'adjectif ne s'accorde jamais." },
+        { type: "traduction", sens: "fr-en", q: "Elle porte une robe rouge.", r: "she wears a red dress", explication: "to wear 3e pers. + adjectif avant : She wears a red dress." },
+        { type: "traduction", sens: "fr-en", q: "J'aime tes chaussures bleues.", r: "i like your blue shoes", explication: "Adjectif avant, sans accord : your blue shoes." },
       ],
     },
     conjugaison: {
@@ -1937,6 +1955,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "There ___ two rooms. (il y a, pluriel)", r: "are", explication: "Pluriel → There are." },
         { type: "traduction", sens: "fr-en", q: "Il y a une fenêtre.", r: "there is a window", explication: "« There is a window »." },
         { type: "vraiFaux", affirmation: "« There are a kitchen » est correct.", r: false, explication: "Non : un seul → « There is a kitchen »." },
+        { type: "traduction", sens: "fr-en", q: "Il y a deux chambres dans la maison.", r: "there are two bedrooms in the house", explication: "Pluriel → There are … in the house." },
+        { type: "traduction", sens: "fr-en", q: "Il y a une grande fenêtre dans la cuisine.", r: "there is a big window in the kitchen", accepte: ["there's a big window in the kitchen"], explication: "Singulier → There is … in the kitchen." },
       ],
     },
     conjugaison: {
@@ -2035,6 +2055,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "___ house is big. (la)", r: "The", accepte: ["the"], explication: "« the » = le/la/les." },
         { type: "traduction", sens: "fr-en", q: "une robe rouge", r: "a red dress", explication: "Adjectif avant : a red dress." },
         { type: "conjugaison", verbe: "to be", q: "She ___ my friend.", r: "is", explication: "Avec « she » → is." },
+        { type: "traduction", sens: "fr-en", q: "Elle est ma meilleure amie et elle est très gentille.", r: "she is my best friend and she is very kind", accepte: ["she's my best friend and she's very kind"], explication: "Deux idées reliées par « and »." },
+        { type: "traduction", sens: "fr-en", q: "J'ai une grande famille.", r: "i have a big family", explication: "« I have a big family »." },
       ],
     },
     conjugaison: {
@@ -2135,6 +2157,8 @@ export const PROGRAMME = [
         { type: "traduction", sens: "fr-en", q: "Il fait froid.", r: "it's cold", accepte: ["it is cold"], explication: "« It's cold »." },
         { type: "vraiFaux", affirmation: "On peut dire « Is sunny » sans « it ».", r: false, explication: "Non : le « it » est obligatoire → It's sunny." },
         { type: "traduction", sens: "en-fr", q: "It's rainy.", r: "il pleut", accepte: ["c'est pluvieux", "il fait pluvieux"], explication: "« It's rainy » = il pleut." },
+        { type: "traduction", sens: "fr-en", q: "Il fait soleil et chaud aujourd'hui.", r: "it's sunny and hot today", accepte: ["it is sunny and hot today"], explication: "« It's sunny and hot today »." },
+        { type: "traduction", sens: "fr-en", q: "Il ne fait pas froid aujourd'hui.", r: "it isn't cold today", accepte: ["it is not cold today", "it's not cold today"], explication: "Négation avec it : It isn't cold today." },
       ],
     },
     conjugaison: {
@@ -2233,6 +2257,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "___ head hurts. (ma)", r: "My", accepte: ["my"], explication: "« My head »." },
         { type: "vraiFaux", affirmation: "Le pluriel de « foot » est « foots ».", r: false, explication: "Non : foot → feet (irrégulier)." },
         { type: "traduction", sens: "fr-en", q: "ma main", r: "my hand", explication: "« my hand »." },
+        { type: "traduction", sens: "fr-en", q: "Elle a de longs cheveux.", r: "she has long hair", explication: "3e pers. → has ; « hair » reste au singulier." },
+        { type: "traduction", sens: "fr-en", q: "J'ai mal à la tête.", r: "my head hurts", explication: "« My head hurts »." },
       ],
     },
     conjugaison: {
@@ -2332,6 +2358,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "The cat ___ fish. (eat)", r: "eats", explication: "3e personne → eats." },
         { type: "vraiFaux", affirmation: "« The bird sing » est correct.", r: false, explication: "Non : « The bird singS »." },
         { type: "traduction", sens: "fr-en", q: "un chat noir", r: "a black cat", explication: "Adjectif avant : a black cat." },
+        { type: "traduction", sens: "fr-en", q: "Le chien court et joue dans le jardin.", r: "the dog runs and plays in the garden", explication: "3e pers. + and : runs and plays." },
+        { type: "traduction", sens: "fr-en", q: "Le chat ne mange pas de fruits.", r: "the cat doesn't eat fruit", accepte: ["the cat does not eat fruit"], explication: "Négation 3e pers. : doesn't eat." },
       ],
     },
     conjugaison: {
@@ -2431,6 +2459,8 @@ export const PROGRAMME = [
         { type: "traduction", sens: "fr-en", q: "J'aime danser. (like to…)", r: "i like to dance", accepte: ["i like dancing"], explication: "« I like to dance » / « I like dancing »." },
         { type: "vraiFaux", affirmation: "« I like reading » est correct.", r: true, explication: "Oui : like + -ing fonctionne aussi." },
         { type: "trou", phrase: "She ___ to sing. (adorer)", r: "loves", explication: "« She loves to sing » (3e pers. + s)." },
+        { type: "traduction", sens: "fr-en", q: "J'aime lire mais je n'aime pas cuisiner.", r: "i like to read but i don't like to cook", accepte: ["i like reading but i don't like cooking", "i like to read but i do not like to cook"], explication: "like + but + don't like." },
+        { type: "traduction", sens: "fr-en", q: "Elle adore danser.", r: "she loves to dance", accepte: ["she loves dancing"], explication: "« She loves to dance / dancing »." },
       ],
     },
     conjugaison: {
@@ -2530,6 +2560,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "It's nine ___ . (heure pile)", r: "o'clock", accepte: ["oclock"], explication: "« nine o'clock »." },
         { type: "trou", phrase: "See you ___ seven o'clock. (à)", r: "at", explication: "« at seven o'clock »." },
         { type: "traduction", sens: "fr-en", q: "le matin", r: "in the morning", explication: "« in the morning »." },
+        { type: "traduction", sens: "fr-en", q: "Il est sept heures du matin.", r: "it's seven o'clock in the morning", accepte: ["it is seven o'clock in the morning"], explication: "« It's seven o'clock in the morning »." },
+        { type: "traduction", sens: "fr-en", q: "On se voit à huit heures.", r: "see you at eight o'clock", accepte: ["see you at eight"], explication: "« at » pour l'heure : at eight o'clock." },
       ],
     },
     conjugaison: {
@@ -2628,6 +2660,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "___ she work? (est-ce que, elle)", r: "Does", accepte: ["does"], explication: "Avec « she » → Does." },
         { type: "trou", phrase: "I ___ like coffee. (ne pas)", r: "don't", accepte: ["do not"], explication: "Avec « I » → don't." },
         { type: "trou", phrase: "He ___ live here. (ne pas)", r: "doesn't", accepte: ["does not"], explication: "Avec « he » → doesn't." },
+        { type: "traduction", sens: "fr-en", q: "Est-ce que tu aimes la musique ?", r: "do you like music", accepte: ["do you like music?"], explication: "« Do you like music? »." },
+        { type: "traduction", sens: "fr-en", q: "Elle n'habite pas ici.", r: "she doesn't live here", accepte: ["she does not live here"], explication: "Négation 3e pers. : doesn't live." },
       ],
     },
     conjugaison: {
@@ -2728,6 +2762,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "There ___ a park near here. (il y a, singulier)", r: "is", explication: "Singulier → There is." },
         { type: "traduction", sens: "fr-en", q: "Où est l'école ?", r: "where is the school", accepte: ["where is the school?"], explication: "« Where is the school? »." },
         { type: "vraiFaux", affirmation: "« Where is » sert à demander un lieu.", r: true, explication: "Oui : where = où." },
+        { type: "traduction", sens: "fr-en", q: "Où est la gare, s'il te plaît ?", r: "where is the station, please", accepte: ["where is the station please", "where's the station please"], explication: "« Where is the station, please? »." },
+        { type: "traduction", sens: "fr-en", q: "Il y a un parc près de l'école.", r: "there is a park near the school", accepte: ["there's a park near the school"], explication: "« There is a park near the school »." },
       ],
     },
     conjugaison: {
@@ -2826,6 +2862,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "How ___ apples? (combien, on compte)", r: "many", explication: "On compte → How many." },
         { type: "vraiFaux", affirmation: "« How much is it? » = c'est combien ?", r: true, explication: "Oui : on demande le prix." },
         { type: "traduction", sens: "fr-en", q: "C'est cher.", r: "it's expensive", accepte: ["it is expensive"], explication: "« It's expensive »." },
+        { type: "traduction", sens: "fr-en", q: "Combien coûtent les pommes ?", r: "how much are the apples", accepte: ["how much are the apples?"], explication: "Prix → How much are the apples?" },
+        { type: "traduction", sens: "fr-en", q: "Je voudrais acheter du pain.", r: "i would like to buy bread", accepte: ["i'd like to buy bread"], explication: "« I would like to buy bread »." },
       ],
     },
     conjugaison: {
@@ -2925,6 +2963,8 @@ export const PROGRAMME = [
         { type: "traduction", sens: "fr-en", q: "en voiture", r: "by car", explication: "« by car »." },
         { type: "vraiFaux", affirmation: "On dit « by foot ».", r: false, explication: "Non : à pied = « on foot »." },
         { type: "trou", phrase: "She goes ___ train. (en)", r: "by", explication: "« by train »." },
+        { type: "traduction", sens: "fr-en", q: "Je vais à l'école en vélo.", r: "i go to school by bike", explication: "« by bike » : I go to school by bike." },
+        { type: "traduction", sens: "fr-en", q: "Elle va au travail à pied.", r: "she goes to work on foot", explication: "à pied = on foot ; 3e pers. → goes." },
       ],
     },
     conjugaison: {
@@ -3024,6 +3064,8 @@ export const PROGRAMME = [
         { type: "vraiFaux", affirmation: "« my uncle's car » = la voiture de mon oncle.", r: true, explication: "Oui : le 's exprime la possession." },
         { type: "traduction", sens: "fr-en", q: "mon cousin", r: "my cousin", explication: "« my cousin »." },
         { type: "trou", phrase: "It is ___ baby. (leur)", r: "their", explication: "« their » = leur." },
+        { type: "traduction", sens: "fr-en", q: "C'est la voiture de mon oncle.", r: "it's my uncle's car", accepte: ["it is my uncle's car", "it's my uncles car"], explication: "Possession : my uncle's car." },
+        { type: "traduction", sens: "fr-en", q: "Ma grand-mère est très gentille.", r: "my grandmother is very kind", explication: "« My grandmother is very kind »." },
       ],
     },
     conjugaison: {
@@ -3123,6 +3165,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "He is kind ___ funny. (et)", r: "and", explication: "« and » = et." },
         { type: "vraiFaux", affirmation: "Au pluriel, « kind » devient « kinds ».", r: false, explication: "Non : l'adjectif ne s'accorde jamais." },
         { type: "traduction", sens: "fr-en", q: "Elle est sympa.", r: "she is nice", accepte: ["she's nice"], explication: "« She is nice »." },
+        { type: "traduction", sens: "fr-en", q: "Il est grand, gentil et très drôle.", r: "he is tall, kind and very funny", accepte: ["he's tall kind and very funny", "he is tall kind and very funny"], explication: "Plusieurs adjectifs reliés par « and »." },
+        { type: "traduction", sens: "fr-en", q: "Mes amis sont jeunes et sympas.", r: "my friends are young and nice", explication: "Pluriel → are ; adjectif sans accord." },
       ],
     },
     conjugaison: {
@@ -3222,6 +3266,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "I wake up ___ the morning. (le → dans)", r: "in", explication: "« in the morning »." },
         { type: "vraiFaux", affirmation: "« He go to school » est correct.", r: false, explication: "Non : « He goES to school »." },
         { type: "traduction", sens: "fr-en", q: "Je dors la nuit.", r: "i sleep at night", accepte: [], explication: "« I sleep at night »." },
+        { type: "traduction", sens: "fr-en", q: "Elle se réveille à sept heures tous les jours.", r: "she wakes up at seven every day", accepte: ["she wakes up at seven o'clock every day"], explication: "3e pers. → wakes up ; + every day." },
+        { type: "traduction", sens: "fr-en", q: "Je me lève, je mange et je vais à l'école.", r: "i get up, i eat and i go to school", accepte: ["i get up i eat and i go to school"], explication: "Routine reliée par « and »." },
       ],
     },
     conjugaison: {
@@ -3321,6 +3367,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "How ___ is it? (quel prix)", r: "much", explication: "Le prix → How much." },
         { type: "traduction", sens: "fr-en", q: "une pomme rouge", r: "a red apple", explication: "Adjectif avant : a red apple." },
         { type: "trou", phrase: "I go ___ bus. (en)", r: "by", explication: "« by bus »." },
+        { type: "traduction", sens: "fr-en", q: "Il y a deux chiens dans le jardin.", r: "there are two dogs in the garden", explication: "Pluriel → There are … in the garden." },
+        { type: "traduction", sens: "fr-en", q: "Elle a un chat et il dort toute la journée.", r: "she has a cat and it sleeps all day", explication: "has + and + it sleeps (3e pers.)." },
       ],
     },
     conjugaison: {
@@ -3422,6 +3470,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "I'm tired, ___ happy. (mais)", r: "but", explication: "« but » = mais." },
         { type: "trou", phrase: "I stay ___ it's rainy. (parce que)", r: "because", explication: "« because » = parce que." },
         { type: "traduction", sens: "fr-en", q: "Moi aussi !", r: "me too", accepte: ["me too!"], explication: "« Me too! »." },
+        { type: "traduction", sens: "fr-en", q: "Je suis fatiguée mais contente.", r: "i'm tired but happy", accepte: ["i am tired but happy"], explication: "« I'm tired but happy »." },
+        { type: "traduction", sens: "fr-en", q: "J'aime l'été parce qu'il fait chaud.", r: "i like summer because it's warm", accepte: ["i like summer because it is warm"], explication: "« because » = parce que." },
       ],
     },
     conjugaison: {
@@ -3521,6 +3571,8 @@ export const PROGRAMME = [
         { type: "trou", phrase: "___ you like music? (est-ce que)", r: "Do", accepte: ["do"], explication: "Avec « you » → Do." },
         { type: "trou", phrase: "There ___ two rooms. (il y a, pluriel)", r: "are", explication: "Pluriel → There are." },
         { type: "trou", phrase: "How ___ is it? (quel prix)", r: "much", explication: "Le prix → How much." },
+        { type: "traduction", sens: "fr-en", q: "Il fait soleil, donc je suis contente.", r: "it's sunny, so i am happy", accepte: ["it's sunny so i'm happy", "it is sunny so i am happy"], explication: "« so » = donc." },
+        { type: "traduction", sens: "fr-en", q: "J'ai deux frères et un chien.", r: "i have two brothers and a dog", explication: "« I have two brothers and a dog »." },
       ],
     },
     conjugaison: {

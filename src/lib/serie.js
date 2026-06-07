@@ -41,17 +41,24 @@ const reculer = (d, n = 1) => {
   return x
 }
 
+// Fusionne les jours réellement actifs et les jours « gelés » (couverts par un
+// gel de série). Un jour gelé compte comme un jour actif pour le calcul.
+const avecGel = (setJours, geles) =>
+  geles && geles.size ? new Set([...setJours, ...geles]) : setJours
+
 // Série en cours : jours consécutifs jusqu'à aujourd'hui. Tolérance d'un jour —
 // si rien aujourd'hui mais quelque chose hier, la série est encore « vivante ».
-export function serieActuelle(setJours, maintenant = new Date()) {
-  if (!setJours.size) return 0
+// `geles` : Set de jours couverts par un gel de série (comptés comme actifs).
+export function serieActuelle(setJours, maintenant = new Date(), geles = null) {
+  const jours = avecGel(setJours, geles)
+  if (!jours.size) return 0
   let curseur = new Date(maintenant)
-  if (!setJours.has(cleJour(curseur))) {
+  if (!jours.has(cleJour(curseur))) {
     curseur = reculer(curseur)
-    if (!setJours.has(cleJour(curseur))) return 0
+    if (!jours.has(cleJour(curseur))) return 0
   }
   let serie = 0
-  while (setJours.has(cleJour(curseur))) {
+  while (jours.has(cleJour(curseur))) {
     serie++
     curseur = reculer(curseur)
   }
@@ -62,9 +69,48 @@ export function serieActuelle(setJours, maintenant = new Date()) {
 export const actifAujourdhui = (setJours, maintenant = new Date()) =>
   setJours.has(cleJour(maintenant))
 
-// Plus longue série jamais réalisée (record).
-export function serieRecord(setJours) {
-  const cles = [...setJours].sort()
+// Gel de série (« streak freeze ») : si la série a été interrompue par un trou
+// récent (jours sans activité juste avant aujourd'hui), on dépense des gels du
+// stock pour combler ce trou — mais SEULEMENT si le stock permet de le combler
+// entièrement. Les jours comblés sont mémorisés dans `geles` (consommation
+// définitive). Aujourd'hui n'est jamais gelé (la tolérance d'un jour suffit).
+//
+// `etat` = { stock: number, geles: string[] }. Renvoie un nouvel état + `change`.
+export function calculerGel(setJours, etat = {}, maintenant = new Date()) {
+  let stock = Math.min(3, Math.max(0, etat.stock || 0))
+  const geles = new Set(etat.geles || [])
+  const inchange = { stock, geles: [...geles], change: false }
+
+  const jours = avecGel(setJours, geles)
+  if (!jours.size || stock === 0) return inchange
+
+  const aujourdHui = cleJour(maintenant)
+  const hier = cleJour(reculer(maintenant))
+  // Série déjà vivante (activité aujourd'hui ou hier) : rien à geler.
+  if (jours.has(aujourdHui) || jours.has(hier)) return inchange
+
+  // On remonte depuis hier pour mesurer le trou jusqu'à la dernière activité.
+  const manques = []
+  let d = reculer(maintenant) // hier
+  for (let i = 0; i <= stock; i++) {
+    const k = cleJour(d)
+    if (jours.has(k)) {
+      // Trou identifié : on le comble s'il tient dans le stock.
+      if (manques.length >= 1 && manques.length <= stock) {
+        for (const m of manques) geles.add(m)
+        return { stock: stock - manques.length, geles: [...geles], change: true }
+      }
+      return inchange
+    }
+    manques.push(k)
+    d = reculer(d)
+  }
+  return inchange // trou trop grand pour le stock disponible
+}
+
+// Plus longue série jamais réalisée (record), gels inclus.
+export function serieRecord(setJours, geles = null) {
+  const cles = [...avecGel(setJours, geles)].sort()
   let best = 0
   let cur = 0
   let prev = null

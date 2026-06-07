@@ -5,6 +5,7 @@ export const STORAGE_KEYS = {
   programmeJours: 'emma:programme:jours', // { [jour]: { fait: ISOdate, score, total } }
   exercices: 'emma:exercices:scores', // { [exId]: { meilleur, total, fait: ISOdate } }
   eclair: 'emma:revision:eclair', // { dernier: ISOdate, sessions: number, journal: ['YYYY-MM-DD'] }
+  serieGel: 'emma:serie:gel', // { stock: 0..3, geles: ['YYYY-MM-DD'], reussis: [idQuestionDure] }
   admin: 'emma:admin', // booléen : mode test qui débloque tout
   syncCode: 'emma:sync:code', // code de synchro cloud (propre à l'appareil, jamais exporté)
 }
@@ -17,4 +18,5 @@ export const CLES_SAUVEGARDE = [
   STORAGE_KEYS.programmeJours,
   STORAGE_KEYS.exercices,
   STORAGE_KEYS.eclair,
+  STORAGE_KEYS.serieGel,
 ]

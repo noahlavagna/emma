@@ -5,11 +5,12 @@ const ACCENTS = /[̀-ͯ]/g // marques diacritiques combinantes (é → e)
 export const normaliser = (s) =>
   (s ?? '')
     .toLowerCase()
-    .trim()
     .normalize('NFD')
     .replace(ACCENTS, '')
     .replace(/[’']/g, "'")
+    .replace(/[,;:]/g, ' ') // virgules/points-virgules optionnels
     .replace(/\s+/g, ' ')
+    .trim()
     .replace(/[.!?]+$/, '')
 
 // Vrai si `saisie` correspond à la réponse attendue ou à une variante acceptée.

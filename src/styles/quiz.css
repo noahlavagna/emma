@@ -111,3 +111,30 @@
   .q-form input { min-width: 0; width: 100%; }
   .vf-boutons .btn { min-width: 0; flex: 1; }
 }
+
+/* ---------- Défi du jour (questions dures + gel de série) ---------- */
+.defi-inventaire {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff, var(--violet-soft, #efeaff));
+  border: 1px solid rgba(124, 92, 200, 0.25);
+  border-radius: var(--rayon);
+  padding: 0.7rem 1rem;
+  margin: 0 0 1.2rem;
+  box-shadow: var(--ombre-douce);
+}
+.defi-inv-label { font-size: 0.8rem; font-weight: 800; color: var(--violet-deep, #5b3fa0); text-transform: uppercase; letter-spacing: 0.04em; }
+.defi-inv-jauge { display: inline-flex; gap: 0.15rem; }
+.defi-inv-jauge .flocon { font-size: 1.05rem; transition: opacity 0.2s, filter 0.2s; }
+.defi-inv-jauge .flocon.vide { opacity: 0.25; filter: grayscale(1); }
+.defi-inv-nb { font-weight: 800; color: var(--violet-deep, #5b3fa0); }
+
+.defi-carte { margin-bottom: 1.1rem; }
+.defi-tag { color: #b4522e; background: #fde9df; }
+.q-feedback.defi-gagne {
+  background: linear-gradient(135deg, #eafaf0, #e7f0ff);
+  border: 1px solid rgba(76, 170, 120, 0.4);
+}

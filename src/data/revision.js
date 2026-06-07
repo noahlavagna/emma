@@ -190,6 +190,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'en-fr', q: 'we', r: 'nous', explication: '« We » = nous.' },
       { type: 'trou', phrase: '___ is a cat. (pour un animal / objet)', r: 'it', explication: '« It » = il/elle pour une chose ou un animal.' },
       { type: 'vraiFaux', affirmation: '« i » peut s’écrire en minuscule au milieu d’une phrase.', r: false, explication: 'Non : le pronom « I » s’écrit toujours en majuscule.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle est ma sœur.', r: 'she is my sister', accepte: ["she's my sister"], explication: '« She is my sister ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'Nous sommes amis.', r: 'we are friends', accepte: ["we're friends"], explication: '« We are friends ».' },
     ],
   },
   {
@@ -206,6 +208,8 @@ export const JOURS_REVISION = [
       { type: 'vraiFaux', affirmation: 'Avec « he », on utilise « are ».', r: false, explication: 'Non : he → is. On dit « he is ».' },
       { type: 'conjugaison', verbe: 'to be', q: 'They ___ students.', r: 'are', explication: 'Avec they → are.' },
       { type: 'conjugaison', verbe: 'to be', q: 'He ___ tall.', r: 'is', explication: 'Avec he → is. (He is tall = il est grand)' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je suis française et je viens de France.', r: 'i am french and i am from france', accepte: ["i'm french and i'm from france"], explication: 'On relie deux idées avec « and ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'Ils sont étudiants.', r: 'they are students', accepte: ["they're students"], explication: 'they → are.' },
     ],
   },
   {
@@ -222,6 +226,8 @@ export const JOURS_REVISION = [
       { type: 'trou', phrase: 'I am fine, ___ you? (et)', r: 'and', explication: '« And you? » = et toi ?' },
       { type: 'vraiFaux', affirmation: 'Pour dire son âge : « I am 20 years old ».', r: true, explication: 'Oui : on utilise « to be » pour l’âge (I am … years old).' },
       { type: 'traduction', sens: 'en-fr', q: 'nice to meet you', r: 'enchanté', accepte: ['enchantée', 'ravi de te rencontrer', 'ravie de te rencontrer'], explication: '« Nice to meet you » = enchanté(e).' },
+      { type: 'traduction', sens: 'fr-en', q: 'Comment t’appelles-tu ?', r: 'what is your name', accepte: ["what's your name", 'what is your name?'], explication: '« What is your name? ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je m’appelle Lea et je viens d’Espagne.', r: 'my name is lea and i am from spain', accepte: ["my name is lea and i'm from spain"], explication: 'My name is… and I am from…' },
     ],
   },
   {
@@ -238,6 +244,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'en-fr', q: 'Friday', r: 'vendredi', explication: '« Friday » = vendredi.' },
       { type: 'vraiFaux', affirmation: '« Goodbye » sert à dire bonjour.', r: false, explication: 'Non : goodbye = au revoir. Bonjour = hello.' },
       { type: 'traduction', sens: 'fr-en', q: 'noir', r: 'black', explication: '« Black » = noir.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Bonjour ! Comment vas-tu ?', r: 'hello, how are you', accepte: ['hello how are you', 'hi how are you', 'hello, how are you?'], explication: '« Hello! How are you? ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'Le ciel est bleu.', r: 'the sky is blue', explication: '« The sky is blue ».' },
     ],
   },
   {
@@ -254,6 +262,8 @@ export const JOURS_REVISION = [
       { type: 'vraiFaux', affirmation: '« They are » est correct.', r: true, explication: 'Oui : they → are. « They are » = ils/elles sont.' },
       { type: 'traduction', sens: 'fr-en', q: 'dix', r: 'ten', explication: '« Ten » = dix.' },
       { type: 'conjugaison', verbe: 'to be', q: 'He ___ from Italy.', r: 'is', explication: 'Avec he → is.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle a cinq amis.', r: 'she has five friends', explication: 'has + chiffre.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Nous sommes dix.', r: 'we are ten', accepte: ["we're ten"], explication: 'we → are.' },
     ],
   },
   {
@@ -272,6 +282,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'fr-en', q: 'non', r: 'no', explication: '« No » = non.' },
       { type: 'conjugaison', verbe: 'to be', q: 'You ___ my friend.', r: 'are', explication: 'Avec you → are.' },
       { type: 'vraiFaux', affirmation: '« Please » veut dire « merci ».', r: false, explication: 'Non : please = s’il te plaît.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle est gentille et elle vient d’Italie.', r: 'she is kind and she is from italy', accepte: ["she's kind and she's from italy"], explication: 'to be + and.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je suis contente aujourd’hui.', r: 'i am happy today', accepte: ["i'm happy today"], explication: '« I am happy today ».' },
     ],
   },
   {
@@ -288,6 +300,8 @@ export const JOURS_REVISION = [
       { type: 'conjugaison', verbe: 'to eat', q: 'She ___ fish.', r: 'eats', explication: '3e personne → eats.' },
       { type: 'traduction', sens: 'en-fr', q: 'fruit', r: 'fruit', accepte: ['des fruits'], explication: '« fruit » = fruit.' },
       { type: 'vraiFaux', affirmation: '« meat » veut dire « viande ».', r: true, explication: 'Oui : meat = viande.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je mange une pomme tous les jours.', r: 'i eat an apple every day', explication: 'an apple + every day.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle ne mange pas de poisson.', r: "she doesn't eat fish", accepte: ['she does not eat fish'], explication: 'Négation 3e pers.' },
     ],
   },
   {
@@ -304,6 +318,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'en-fr', q: 'juice', r: 'jus', accepte: ['du jus'], explication: '« juice » = jus.' },
       { type: 'vraiFaux', affirmation: '« hot » veut dire « froid ».', r: false, explication: 'Non : hot = chaud.' },
       { type: 'traduction', sens: 'fr-en', q: 'froid', r: 'cold', explication: '« cold » = froid.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je voudrais un café, s’il te plaît.', r: 'i would like a coffee, please', accepte: ["i'd like a coffee please", 'i would like a coffee please'], explication: 'I would like…, please.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Puis-je avoir un thé chaud ?', r: 'can i have a hot tea', accepte: ['can i have a hot tea?'], explication: 'Can I have…?' },
     ],
   },
   {
@@ -320,6 +336,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'en-fr', q: 'hat', r: 'chapeau', explication: '« hat » = chapeau.' },
       { type: 'traduction', sens: 'fr-en', q: 'chaussettes', r: 'socks', explication: '« socks » = chaussettes.' },
       { type: 'vraiFaux', affirmation: '« to wear » veut dire « porter ».', r: true, explication: 'Oui : to wear = porter.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle porte une robe rouge.', r: 'she wears a red dress', explication: 'wears + adjectif avant.' },
+      { type: 'traduction', sens: 'fr-en', q: 'J’aime tes chaussures noires.', r: 'i like your black shoes', explication: 'adjectif avant, sans accord.' },
     ],
   },
   {
@@ -336,6 +354,8 @@ export const JOURS_REVISION = [
       { type: 'trou', phrase: 'There is a bed ___ the bedroom. (dans)', r: 'in', explication: '« in » = dans.' },
       { type: 'traduction', sens: 'fr-en', q: 'maison', r: 'house', explication: '« house » = maison.' },
       { type: 'vraiFaux', affirmation: '« There are a kitchen » est correct.', r: false, explication: 'Non : There is a kitchen.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Il y a deux chambres et une cuisine.', r: 'there are two bedrooms and a kitchen', explication: 'There are … and …' },
+      { type: 'traduction', sens: 'fr-en', q: 'Il y a un lit dans la chambre.', r: 'there is a bed in the bedroom', accepte: ["there's a bed in the bedroom"], explication: 'There is … in …' },
     ],
   },
   {
@@ -354,6 +374,8 @@ export const JOURS_REVISION = [
       { type: 'vraiFaux', affirmation: 'Les jours prennent une majuscule.', r: true, explication: 'Oui : Monday, Friday…' },
       { type: 'traduction', sens: 'en-fr', q: 'water', r: 'eau', accepte: ['de l’eau'], explication: '« water » = eau.' },
       { type: 'trou', phrase: 'There ___ a bed. (il y a)', r: 'is', explication: 'Singulier → There is.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle est mon amie et elle a une grande maison.', r: 'she is my friend and she has a big house', accepte: ["she's my friend and she has a big house"], explication: 'to be + and + to have.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je suis contente aujourd’hui.', r: 'i am happy today', accepte: ["i'm happy today"], explication: '« I am happy today ».' },
     ],
   },
   {
@@ -370,6 +392,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'en-fr', q: 'windy', r: 'venteux', accepte: ['il y a du vent'], explication: '« windy » = venteux.' },
       { type: 'trou', phrase: 'How is the ___ ? (le temps qu’il fait)', r: 'weather', explication: '« How is the weather? ».' },
       { type: 'vraiFaux', affirmation: '« hot » veut dire « chaud ».', r: true, explication: 'Oui : hot = chaud.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Il fait soleil et chaud.', r: "it's sunny and hot", accepte: ['it is sunny and hot'], explication: 'It’s … and …' },
+      { type: 'traduction', sens: 'fr-en', q: 'Il ne fait pas froid aujourd’hui.', r: "it isn't cold today", accepte: ['it is not cold today', "it's not cold today"], explication: 'It isn’t cold today.' },
     ],
   },
   {
@@ -386,6 +410,8 @@ export const JOURS_REVISION = [
       { type: 'conjugaison', verbe: 'to have', q: 'She ___ long hair.', r: 'has', explication: 'Avec « she » → has.' },
       { type: 'traduction', sens: 'fr-en', q: 'jambe', r: 'leg', explication: '« leg » = jambe.' },
       { type: 'traduction', sens: 'en-fr', q: 'mouth', r: 'bouche', explication: '« mouth » = bouche.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle a de longs cheveux.', r: 'she has long hair', explication: 'has ; « hair » reste au singulier.' },
+      { type: 'traduction', sens: 'fr-en', q: 'J’ai deux mains et deux pieds.', r: 'i have two hands and two feet', explication: 'pluriel : feet (irrégulier).' },
     ],
   },
   {
@@ -402,6 +428,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'en-fr', q: 'horse', r: 'cheval', explication: '« horse » = cheval.' },
       { type: 'traduction', sens: 'fr-en', q: 'oiseau', r: 'bird', explication: '« bird » = oiseau.' },
       { type: 'traduction', sens: 'en-fr', q: 'rabbit', r: 'lapin', explication: '« rabbit » = lapin.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Le chien court et joue.', r: 'the dog runs and plays', explication: '3e pers. + and.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Le chat ne mange pas d’herbe.', r: "the cat doesn't eat grass", accepte: ['the cat does not eat grass'], explication: 'Négation 3e pers.' },
     ],
   },
   {
@@ -418,6 +446,8 @@ export const JOURS_REVISION = [
       { type: 'trou', phrase: 'I ___ like cooking. (ne pas)', r: 'don’t', accepte: ['do not', "don't"], explication: 'Avec « I » → don’t.' },
       { type: 'traduction', sens: 'en-fr', q: 'to sing', r: 'chanter', explication: '« to sing » = chanter.' },
       { type: 'traduction', sens: 'fr-en', q: 'nager', r: 'to swim', accepte: ['swim'], explication: '« to swim » = nager.' },
+      { type: 'traduction', sens: 'fr-en', q: 'J’aime lire mais je n’aime pas cuisiner.', r: "i like to read but i don't like to cook", accepte: ["i like reading but i don't like cooking", 'i like to read but i do not like to cook'], explication: 'like + but + don’t like.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle adore chanter.', r: 'she loves to sing', accepte: ['she loves singing'], explication: 'loves to / -ing.' },
     ],
   },
   {
@@ -434,6 +464,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'fr-en', q: 'maintenant', r: 'now', explication: '« now » = maintenant.' },
       { type: 'trou', phrase: '___ seven o’clock. (il est, version courte)', r: 'It’s', accepte: ['its', 'it is', "it's"], explication: '« It’s seven o’clock ».' },
       { type: 'traduction', sens: 'en-fr', q: 'night', r: 'nuit', explication: '« night » = nuit.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Il est huit heures du matin.', r: "it's eight o'clock in the morning", accepte: ["it is eight o'clock in the morning"], explication: 'It’s … o’clock in the morning.' },
+      { type: 'traduction', sens: 'fr-en', q: 'On se voit à sept heures.', r: "see you at seven o'clock", accepte: ['see you at seven'], explication: 'at + heure.' },
     ],
   },
   {
@@ -452,6 +484,8 @@ export const JOURS_REVISION = [
       { type: 'trou', phrase: '___ they like dogs? (est-ce que)', r: 'Do', accepte: ['do'], explication: 'Avec « they » → Do.' },
       { type: 'traduction', sens: 'en-fr', q: 'to work', r: 'travailler', explication: '« to work » = travailler.' },
       { type: 'vraiFaux', affirmation: 'Après « doesn’t » le verbe garde son -s.', r: false, explication: 'Non : il perd son -s.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Est-ce qu’elle travaille ici ?', r: 'does she work here', accepte: ['does she work here?'], explication: 'Does … + verbe sans -s.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je ne bois pas de café.', r: "i don't drink coffee", accepte: ['i do not drink coffee'], explication: 'I don’t + verbe.' },
     ],
   },
   {
@@ -468,6 +502,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'fr-en', q: 'rue', r: 'street', explication: '« street » = rue.' },
       { type: 'traduction', sens: 'en-fr', q: 'hospital', r: 'hôpital', accepte: ['l’hôpital'], explication: '« hospital » = hôpital.' },
       { type: 'vraiFaux', affirmation: '« Where » veut dire « où ».', r: true, explication: 'Oui : where = où.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Où est l’école, s’il te plaît ?', r: 'where is the school, please', accepte: ['where is the school please', "where's the school please"], explication: 'Where is …, please?' },
+      { type: 'traduction', sens: 'fr-en', q: 'Il y a un marché près de la gare.', r: 'there is a market near the station', accepte: ["there's a market near the station"], explication: 'There is … near …' },
     ],
   },
   {
@@ -484,6 +520,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'en-fr', q: 'cheap', r: 'pas cher', explication: '« cheap » = pas cher.' },
       { type: 'conjugaison', verbe: 'to buy', q: 'She ___ shoes.', r: 'buys', explication: '3e personne → buys.' },
       { type: 'traduction', sens: 'fr-en', q: 'C’est combien ?', r: 'how much is it', accepte: ['how much is it?'], explication: '« How much is it? ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'Combien coûtent les pommes ?', r: 'how much are the apples', accepte: ['how much are the apples?'], explication: 'How much are…?' },
+      { type: 'traduction', sens: 'fr-en', q: 'C’est trop cher pour moi.', r: "it's too expensive for me", accepte: ['it is too expensive for me'], explication: 'It’s too expensive for me.' },
     ],
   },
   {
@@ -500,6 +538,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'en-fr', q: 'plane', r: 'avion', explication: '« plane » = avion.' },
       { type: 'traduction', sens: 'fr-en', q: 'train', r: 'train', explication: '« train » = train.' },
       { type: 'vraiFaux', affirmation: '« He go by car » est correct.', r: false, explication: 'Non : He goes by car.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je vais au travail en bus.', r: 'i go to work by bus', explication: 'by + transport.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle va à l’école à pied.', r: 'she goes to school on foot', explication: 'on foot ; goes.' },
     ],
   },
   {
@@ -516,6 +556,8 @@ export const JOURS_REVISION = [
       { type: 'conjugaison', verbe: 'to have', q: 'She ___ two cousins.', r: 'has', explication: 'Avec « she » → has.' },
       { type: 'traduction', sens: 'fr-en', q: 'voisin', r: 'neighbour', accepte: ['neighbor'], explication: '« neighbour » = voisin·e.' },
       { type: 'traduction', sens: 'en-fr', q: 'baby', r: 'bébé', explication: '« baby » = bébé.' },
+      { type: 'traduction', sens: 'fr-en', q: 'C’est la voiture de mon oncle.', r: "it's my uncle's car", accepte: ["it is my uncle's car", "it's my uncles car"], explication: 'possession : my uncle’s car.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Ma grand-mère a deux chats.', r: 'my grandmother has two cats', explication: 'has + pluriel.' },
     ],
   },
   {
@@ -532,6 +574,8 @@ export const JOURS_REVISION = [
       { type: 'vraiFaux', affirmation: 'Au pluriel « kind » devient « kinds ».', r: false, explication: 'Non : l’adjectif ne s’accorde pas.' },
       { type: 'traduction', sens: 'fr-en', q: 'jeune', r: 'young', explication: '« young » = jeune.' },
       { type: 'traduction', sens: 'en-fr', q: 'happy', r: 'content', accepte: ['heureux', 'contente'], explication: '« happy » = content·e.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Il est grand, gentil et drôle.', r: 'he is tall, kind and funny', accepte: ["he's tall kind and funny", 'he is tall kind and funny'], explication: 'adjectifs reliés par « and ».' },
+      { type: 'traduction', sens: 'fr-en', q: 'Mes amis sont jeunes.', r: 'my friends are young', explication: 'pluriel → are.' },
     ],
   },
   {
@@ -548,6 +592,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'fr-en', q: 'se réveiller', r: 'to wake up', accepte: ['wake up'], explication: '« to wake up ».' },
       { type: 'traduction', sens: 'en-fr', q: 'to eat', r: 'manger', explication: '« to eat » = manger.' },
       { type: 'traduction', sens: 'fr-en', q: 'jouer', r: 'to play', accepte: ['play'], explication: '« to play » = jouer.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle se réveille à sept heures tous les jours.', r: 'she wakes up at seven every day', accepte: ["she wakes up at seven o'clock every day"], explication: 'wakes up + every day.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je mange et je vais à l’école.', r: 'i eat and i go to school', explication: 'routine reliée par « and ».' },
     ],
   },
   {
@@ -566,6 +612,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'en-fr', q: 'shop', r: 'magasin', explication: '« shop » = magasin.' },
       { type: 'traduction', sens: 'fr-en', q: 'maison', r: 'house', explication: '« house » = maison.' },
       { type: 'vraiFaux', affirmation: 'On dit « on foot » pour « à pied ».', r: true, explication: 'Oui : on foot = à pied.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Il y a deux chiens dans le jardin.', r: 'there are two dogs in the garden', explication: 'There are … in …' },
+      { type: 'traduction', sens: 'fr-en', q: 'Elle a un chat et il dort toute la journée.', r: 'she has a cat and it sleeps all day', explication: 'has + and + it sleeps.' },
     ],
   },
   {
@@ -582,6 +630,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'fr-en', q: 'Moi aussi !', r: 'me too', accepte: ['me too!'], explication: '« Me too! ».' },
       { type: 'trou', phrase: 'I’m tired, ___ happy. (mais)', r: 'but', explication: '« but » = mais.' },
       { type: 'traduction', sens: 'en-fr', q: 'very', r: 'très', explication: '« very » = très.' },
+      { type: 'traduction', sens: 'fr-en', q: 'Je suis fatiguée mais contente.', r: "i'm tired but happy", accepte: ['i am tired but happy'], explication: 'but = mais.' },
+      { type: 'traduction', sens: 'fr-en', q: 'J’aime l’été parce qu’il fait chaud.', r: "i like summer because it's warm", accepte: ['i like summer because it is warm'], explication: 'because = parce que.' },
     ],
   },
   {
@@ -600,6 +650,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'fr-en', q: 'au revoir', r: 'goodbye', accepte: ['bye'], explication: '« goodbye » = au revoir.' },
       { type: 'traduction', sens: 'fr-en', q: 'merci', r: 'thank you', accepte: ['thanks'], explication: '« thank you » = merci.' },
       { type: 'vraiFaux', affirmation: '« I am from France » = Je viens de France.', r: true, explication: 'Oui : I am from… = je viens de…' },
+      { type: 'traduction', sens: 'fr-en', q: 'Il fait soleil, donc je suis contente.', r: "it's sunny, so i am happy", accepte: ["it's sunny so i'm happy", 'it is sunny so i am happy'], explication: 'so = donc.' },
+      { type: 'traduction', sens: 'fr-en', q: 'J’ai deux frères et un chien.', r: 'i have two brothers and a dog', explication: '« I have two brothers and a dog ».' },
     ],
   },
 ]

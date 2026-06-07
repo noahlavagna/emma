@@ -279,3 +279,7 @@
   .grille { grid-template-columns: 1fr; }
   .mois-grid { grid-template-columns: 1fr; }
 }
+
+/* Inventaire de gels de série, sous le compteur de flammes */
+.serie-gel { margin-top: 0.25rem; font-size: 0.78rem; color: var(--texte-doux); }
+.serie-gel strong { color: var(--rose-deep); }
