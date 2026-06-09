@@ -43,8 +43,21 @@ export default function Flashcard({ mot }) {
           <div className="indice">Touche la carte pour la retourner ↻</div>
         </div>
 
-        {/* ARRIÈRE : traduction + exemple */}
+        {/* ARRIÈRE : traduction + exemple (en anglais, donc écoutable aussi) */}
         <div className="flashcard-face arriere">
+          {audioDispo && mot.exemple && (
+            <button
+              type="button"
+              className="btn-voix"
+              aria-label={`Écouter « ${mot.exemple} »`}
+              onClick={(e) => {
+                e.stopPropagation()
+                parler(mot.exemple)
+              }}
+            >
+              🔊
+            </button>
+          )}
           <div className="trad">{mot.fr}</div>
           <div className="exemple">{mot.exemple}</div>
           <div className="exemple-fr">{mot.exempleFr}</div>

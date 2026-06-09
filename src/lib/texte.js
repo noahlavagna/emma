@@ -8,10 +8,9 @@ export const normaliser = (s) =>
     .normalize('NFD')
     .replace(ACCENTS, '')
     .replace(/[’']/g, "'")
-    .replace(/[,;:]/g, ' ') // virgules/points-virgules optionnels
+    .replace(/[,;:.!?]/g, ' ') // ponctuation optionnelle (« Hi! » = « Hi ! » = « Hi »)
     .replace(/\s+/g, ' ')
     .trim()
-    .replace(/[.!?]+$/, '')
 
 // Vrai si `saisie` correspond à la réponse attendue ou à une variante acceptée.
 export const bonneReponse = (saisie, attendu, accepte = []) => {
