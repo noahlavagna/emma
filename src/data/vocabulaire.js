@@ -1,4 +1,5 @@
-// Jeux de cartes de vocabulaire — programme de JUIN (les bases absolues).
+// Jeux de cartes de vocabulaire — JUIN (les bases) + JUILLET (vitesse
+// supérieure : heure, passé, futur, ville) + IMMOBILIER.
 // Prononciation = phonétique SIMPLIFIÉE pour francophone débutant (pas l'API).
 // Chaque mot : { id, en, phon, fr, exemple, exempleFr }
 //
@@ -65,6 +66,76 @@ export const DECKS = [
       { id: 'friday', en: 'Friday', phon: '[fraï-dèï]', fr: 'vendredi', exemple: 'Friday is my favourite day.', exempleFr: 'Vendredi est mon jour préféré.' },
       { id: 'saturday', en: 'Saturday', phon: '[sa-teur-dèï]', fr: 'samedi', exemple: 'On Saturday I rest.', exempleFr: 'Le samedi je me repose.' },
       { id: 'sunday', en: 'Sunday', phon: '[san-dèï]', fr: 'dimanche', exemple: 'Sunday is calm.', exempleFr: 'Dimanche est calme.' },
+    ],
+  },
+
+  // ===================================================================
+  //  JUILLET — vitesse supérieure : l'heure, le passé, le futur, la ville.
+  // ===================================================================
+  {
+    id: 'heure-routine',
+    titre: 'L’heure & la routine',
+    emoji: '🕐',
+    mois: 'Juillet',
+    mots: [
+      { id: 'jul-oclock', en: 'o’clock', phon: '[o-klok]', fr: '… heures (pile)', exemple: 'It’s eight o’clock.', exempleFr: 'Il est huit heures pile.' },
+      { id: 'jul-halfpast', en: 'half past', phon: '[haf past]', fr: 'et demie', exemple: 'It’s half past two.', exempleFr: 'Il est deux heures et demie.' },
+      { id: 'jul-quarter', en: 'quarter', phon: '[kwor-teur]', fr: 'quart', exemple: 'A quarter past nine.', exempleFr: 'Neuf heures et quart.' },
+      { id: 'jul-wakeup', en: 'to wake up', phon: '[wéïk eup]', fr: 'se réveiller', exemple: 'I wake up at seven.', exempleFr: 'Je me réveille à sept heures.' },
+      { id: 'jul-getdressed', en: 'to get dressed', phon: '[guèt drèst]', fr: 's’habiller', exemple: 'I get dressed quickly.', exempleFr: 'Je m’habille vite.' },
+      { id: 'jul-always', en: 'always', phon: '[ol-wéïz]', fr: 'toujours', exemple: 'I always drink coffee.', exempleFr: 'Je bois toujours du café.' },
+      { id: 'jul-never', en: 'never', phon: '[nè-veur]', fr: 'jamais', exemple: 'I never smoke.', exempleFr: 'Je ne fume jamais.' },
+      { id: 'jul-early', en: 'early', phon: '[eur-li]', fr: 'tôt', exemple: 'She gets up early.', exempleFr: 'Elle se lève tôt.' },
+    ],
+  },
+  {
+    id: 'passe-irreguliers',
+    titre: 'Le passé : les irréguliers',
+    emoji: '🕰️',
+    mois: 'Juillet',
+    mots: [
+      { id: 'jul-went', en: 'went (go)', phon: '[wènt]', fr: 'allé', exemple: 'I went to Paris.', exempleFr: 'Je suis allée à Paris.' },
+      { id: 'jul-saw', en: 'saw (see)', phon: '[so]', fr: 'vu', exemple: 'I saw a beautiful house.', exempleFr: 'J’ai vu une belle maison.' },
+      { id: 'jul-had', en: 'had (have)', phon: '[had]', fr: 'eu', exemple: 'We had a good day.', exempleFr: 'On a passé une bonne journée.' },
+      { id: 'jul-ate', en: 'ate (eat)', phon: '[éït]', fr: 'mangé', exemple: 'She ate a pizza.', exempleFr: 'Elle a mangé une pizza.' },
+      { id: 'jul-took', en: 'took (take)', phon: '[touk]', fr: 'pris', exemple: 'I took the bus.', exempleFr: 'J’ai pris le bus.' },
+      { id: 'jul-made', en: 'made (make)', phon: '[méïd]', fr: 'fait', exemple: 'You made a cake!', exempleFr: 'Tu as fait un gâteau !' },
+      { id: 'jul-bought', en: 'bought (buy)', phon: '[bot]', fr: 'acheté', exemple: 'She bought a souvenir.', exempleFr: 'Elle a acheté un souvenir.' },
+      { id: 'jul-spoke', en: 'spoke (speak)', phon: '[spôk]', fr: 'parlé', exemple: 'I spoke English!', exempleFr: 'J’ai parlé anglais !' },
+      { id: 'jul-flew', en: 'flew (fly)', phon: '[flou]', fr: 'pris l’avion', exemple: 'We flew to Spain.', exempleFr: 'On est allés en Espagne en avion.' },
+      { id: 'jul-slept', en: 'slept (sleep)', phon: '[slèpt]', fr: 'dormi', exemple: 'We slept in a hotel.', exempleFr: 'On a dormi à l’hôtel.' },
+    ],
+  },
+  {
+    id: 'futur-projets',
+    titre: 'Le futur & les projets',
+    emoji: '🚀',
+    mois: 'Juillet',
+    mots: [
+      { id: 'jul-tomorrow', en: 'tomorrow', phon: '[tou-mo-rô]', fr: 'demain', exemple: 'See you tomorrow!', exempleFr: 'À demain !' },
+      { id: 'jul-nextweek', en: 'next week', phon: '[nèxt wiik]', fr: 'la semaine prochaine', exemple: 'Next week I’m going to rest.', exempleFr: 'La semaine prochaine, je vais me reposer.' },
+      { id: 'jul-soon', en: 'soon', phon: '[soun]', fr: 'bientôt', exemple: 'See you soon!', exempleFr: 'À bientôt !' },
+      { id: 'jul-plan', en: 'plan', phon: '[plan]', fr: 'projet', exemple: 'What are your plans?', exempleFr: 'Quels sont tes projets ?' },
+      { id: 'jul-promise', en: 'to promise', phon: '[pro-miss]', fr: 'promettre', exemple: 'I promise!', exempleFr: 'Promis !' },
+      { id: 'jul-hope', en: 'to hope', phon: '[hôp]', fr: 'espérer', exemple: 'I hope you will come.', exempleFr: 'J’espère que tu viendras.' },
+      { id: 'jul-meeting', en: 'meeting', phon: '[mii-tingue]', fr: 'réunion', exemple: 'We had a meeting.', exempleFr: 'On a eu une réunion.' },
+      { id: 'jul-appointment', en: 'appointment', phon: '[e-poïnt-meunt]', fr: 'rendez-vous', exemple: 'I have an appointment at two.', exempleFr: 'J’ai un rendez-vous à quatorze heures.' },
+    ],
+  },
+  {
+    id: 'ville-boutiques',
+    titre: 'En ville & au magasin',
+    emoji: '🧭',
+    mois: 'Juillet',
+    mots: [
+      { id: 'jul-left', en: 'left', phon: '[lèft]', fr: 'gauche', exemple: 'Turn left.', exempleFr: 'Tourne à gauche.' },
+      { id: 'jul-right', en: 'right', phon: '[raït]', fr: 'droite', exemple: 'Turn right at the bank.', exempleFr: 'Tourne à droite à la banque.' },
+      { id: 'jul-straight', en: 'straight on', phon: '[stréït on]', fr: 'tout droit', exemple: 'Go straight on.', exempleFr: 'Continue tout droit.' },
+      { id: 'jul-nextto', en: 'next to', phon: '[nèxt tou]', fr: 'à côté de', exemple: 'It’s next to the bakery.', exempleFr: 'C’est à côté de la boulangerie.' },
+      { id: 'jul-opposite', en: 'opposite', phon: '[o-pe-zit]', fr: 'en face de', exemple: 'Opposite the station.', exempleFr: 'En face de la gare.' },
+      { id: 'jul-size', en: 'size', phon: '[saïz]', fr: 'taille', exemple: 'What size are you?', exempleFr: 'Quelle taille faites-vous ?' },
+      { id: 'jul-tryon', en: 'to try on', phon: '[traï on]', fr: 'essayer (vêtement)', exemple: 'Can I try it on?', exempleFr: 'Puis-je l’essayer ?' },
+      { id: 'jul-toobig', en: 'too big', phon: '[tou big]', fr: 'trop grand', exemple: 'It’s too big for me.', exempleFr: 'C’est trop grand pour moi.' },
     ],
   },
 

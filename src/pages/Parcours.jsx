@@ -8,6 +8,7 @@ import '../styles/parcours.css'
 const MOIS = {
   mai: { emoji: '🌸', label: 'Mai', sous: 'Mise en route, en douceur' },
   juin: { emoji: '🌿', label: 'Juin', sous: 'Les bases' },
+  juillet: { emoji: '☀️', label: 'Juillet', sous: 'Vitesse supérieure : passé, futur, vie pro' },
 }
 
 export default function Parcours() {
@@ -67,7 +68,7 @@ export default function Parcours() {
   return (
     <div className="parcours">
       <header className="parcours-entete">
-        <div className="kicker fade-up">Du 26 mai au 30 juin · Les bases</div>
+        <div className="kicker fade-up">Du 26 mai au 31 juillet · Des bases à la vitesse supérieure</div>
         <h1 className="fade-up" style={{ animationDelay: '0.08s' }}>Ton parcours en <em>3 mois</em></h1>
         <p className="fade-up" style={{ animationDelay: '0.16s' }}>Une leçon par jour : vocabulaire, grammaire, conjugaison, dialogue, prononciation, puis quiz.</p>
       </header>

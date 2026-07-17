@@ -1,6 +1,8 @@
-// Contenu des 36 JOURS DE RÉVISION, alignés sur le parcours (data/programme.js).
+// Contenu des 67 JOURS DE RÉVISION, alignés sur le parcours (data/programme.js).
 //   • Jours 1 à 6   : mise en route de mai (26 → 31 mai).
 //   • Jours 7 à 36  : juin (1 → 30 juin) — bases puis pratique & révision.
+//   • Jours 37 à 67 : juillet (1 → 31 juillet) — voir data/revision-juillet.js
+//     (avec écoutes, dictées et QCM en plus des types classiques).
 // Le quiz de chaque jour du parcours est tiré d'ici via getJour(n).
 // Progression cumulative : chaque jour s'appuie sur les précédents.
 //
@@ -9,6 +11,8 @@
 //   - trou       : { type:'trou', phrase (avec ___), r, accepte?, explication }
 //   - conjugaison: { type:'conjugaison', verbe, q (avec ___), r, accepte?, explication }
 //   - vraiFaux   : { type:'vraiFaux', affirmation, r:boolean, explication }
+
+import { REVISION_JUILLET } from './revision-juillet.js'
 
 export const JOURS_REVISION = [
   // ---------- MAI · mise en route ----------
@@ -654,6 +658,8 @@ export const JOURS_REVISION = [
       { type: 'traduction', sens: 'fr-en', q: 'J’ai deux frères et un chien.', r: 'i have two brothers and a dog', explication: '« I have two brothers and a dog ».' },
     ],
   },
+  // ---------- JUILLET · vitesse supérieure ----------
+  ...REVISION_JUILLET,
 ]
 
 export const getJour = (n) => JOURS_REVISION.find((j) => j.jour === Number(n))

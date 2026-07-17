@@ -88,7 +88,7 @@ export default function Accueil() {
           en sessions courtes de 20 à 30 minutes, à ton rythme.
         </p>
         <div className="badge fade-up" style={{ animationDelay: '0.3s' }}>
-          🌱 En cours : 26 mai → 30 juin · Les bases
+          ☀️ En cours : 1 → 31 juillet · Vitesse supérieure
         </div>
       </header>
 
@@ -130,7 +130,7 @@ export default function Accueil() {
         <div className="pastille-jour">Le cœur de ta progression</div>
         <h2>Ton parcours en <em>3 mois</em></h2>
         <p>
-          Une vraie leçon complète par jour, du 26 mai au 30 juin : vocabulaire,
+          Une vraie leçon complète par jour, du 26 mai au 31 juillet : vocabulaire,
           grammaire, conjugaison, dialogue, prononciation, puis un quiz pour ancrer.
         </p>
         <div className="piste"><span style={{ width: `${pct}%` }} /></div>
@@ -228,18 +228,18 @@ export default function Accueil() {
       <section className="progression" data-reveal>
         <h3>Ton parcours en <em>3 mois</em></h3>
         <div className="mois-grid">
+          <div className="mois">
+            <div className="nom-mois">Juin ✓</div>
+            <div className="theme">Les bases : alphabet, salutations, présent simple, there is/are…</div>
+          </div>
           <div className="mois actif">
             <div className="point-actif" aria-hidden="true" />
-            <div className="nom-mois">Juin</div>
-            <div className="theme">Les bases absolues : alphabet, salutations, chiffres, « to be »…</div>
-          </div>
-          <div className="mois">
             <div className="nom-mois">Juillet</div>
-            <div className="theme">La vie quotidienne : famille, maison, questions, présent simple…</div>
+            <div className="theme">Vitesse supérieure : passé, futur, comparaisons, anglais pro & immobilier…</div>
           </div>
           <div className="mois">
             <div className="nom-mois">Août</div>
-            <div className="theme">La conversation : passé, futur, dialogues complets, révisions…</div>
+            <div className="theme">La conversation totale : nuances, spontanéité, immersion…</div>
           </div>
         </div>
       </section>

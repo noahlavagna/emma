@@ -1,8 +1,10 @@
 // =====================================================================
-//  LE PARCOURS — 36 jours de leçons complètes, calés sur de vraies dates.
+//  LE PARCOURS — 67 jours de leçons complètes, calés sur de vraies dates.
 //    • Jours 1 à 6   : 26 → 31 mai  — MISE EN ROUTE (découverte, en douceur).
 //    • Jours 7 à 16  : 1 → 10 juin  — LES BASES (A1).
 //    • Jours 17 à 36 : 11 → 30 juin — PRATIQUE & RÉVISION (vie quotidienne).
+//    • Jours 37 à 67 : 1 → 31 juillet — VITESSE SUPÉRIEURE (passé, futur,
+//      comparaisons, anglais pratique & pro) — voir data/programme-juillet.js.
 //  Chaque jour porte un numéro (`jour`), une `date` et un `mois`.
 //  Chaque jour enchaîne : vocabulaire → grammaire → conjugaison →
 //  dialogue → prononciation → quiz de révision → bilan.
@@ -14,6 +16,8 @@
 //    conjugaison : { type:'conjugaison', verbe, q (avec ___), r, accepte?, explication }
 //    vraiFaux    : { type:'vraiFaux', affirmation, r:boolean, explication }
 // =====================================================================
+
+import { JOURS_JUILLET } from './programme-juillet.js'
 
 export const PROGRAMME = [
   // ==================== JOUR 1 · 26 MAI — MISE EN ROUTE ====================
@@ -3638,6 +3642,8 @@ export const PROGRAMME = [
     },
   },
 
+  // ==================== JUILLET — jours 37 à 67 ====================
+  ...JOURS_JUILLET,
 ]
 
 export const getJourProgramme = (n) => PROGRAMME.find((j) => j.jour === Number(n))
